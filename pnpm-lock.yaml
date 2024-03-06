@@ -28,6 +28,9 @@ dependencies:
   '@mui/material':
     specifier: ^5.11.2
     version: 5.15.12(@emotion/react@11.11.4)(@emotion/styled@11.11.0)(@types/react@18.0.26)(react-dom@18.2.0)(react@18.2.0)
+  '@mui/utils':
+    specifier: ^5.15.12
+    version: 5.15.12(@types/react@18.0.26)(react@18.2.0)
   '@popperjs/core':
     specifier: ^2.11.6
     version: 2.11.8
