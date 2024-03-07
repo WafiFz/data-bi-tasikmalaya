@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { Router } from 'next/router'
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
+import React from 'react'
 
 // ** Loader Import
 import NProgress from 'nprogress'
@@ -66,15 +67,38 @@ const ThemeComponent = dynamic(
 
 // ** Configure JSS & ClassName
 const App = (props: ExtendedAppProps) => {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
+  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const handleRouteChangeStart = () => setLoading(true);
+    const handleRouteChangeComplete = () => setLoading(false);
+
+    Router.events.on('routeChangeStart', handleRouteChangeStart);
+    Router.events.on('routeChangeComplete', handleRouteChangeComplete);
+
+    setLoading(false);
+
+    return () => {
+      Router.events.off('routeChangeStart', handleRouteChangeStart);
+      Router.events.off('routeChangeComplete', handleRouteChangeComplete);
+    };
+  }, []);
 
   // Variables
-  const getLayout = Component.getLayout ?? (page => <UserLayout>{page}</UserLayout>)
+  const getLayout = Component.getLayout ?? (page => <UserLayout>{page}</UserLayout>);
 
   return (
     <div>
+      {loading && (
+        <div className="splash-overlay">
+          {/* Spinner dapat dihilangkan atau diganti dengan elemen gambar logo splash screen */}
+          <div className="splash-spinner"></div>
+        </div>
+      )}
+
       <CacheProvider value={emotionCache}>
-        <Head>
+      <Head>
           <title>{`${themeConfig.templateName} - Material Design React Admin Template`}</title>
 
           <meta
@@ -89,14 +113,15 @@ const App = (props: ExtendedAppProps) => {
 
         <SettingsProvider>
           <SettingsConsumer>
-            {({ settings }) => {
-              return <ThemeComponent settings={settings}>{getLayout(<Component {...pageProps} />)}</ThemeComponent>
-            }}
+            {({ settings }) => (
+              <ThemeComponent settings={settings}>{getLayout(<Component {...pageProps} />)}</ThemeComponent>
+            )}
           </SettingsConsumer>
         </SettingsProvider>
       </CacheProvider>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
+
