@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Button, Menu, MenuItem } from '@mui/material';
 import MenuButtonComponent from './MenuButtonComponent';
 import NavItemComponent from './NavItemComponent';
-import { Navigation } from '../navigation';
+import { Navigation } from '../navigation/GeneralNavigation';
 
 export default function ResponsiveNavigation() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
