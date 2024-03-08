@@ -17,7 +17,7 @@ import type { EmotionCache } from '@emotion/cache'
 import themeConfig from 'src/configs/themeConfig'
 
 // ** Component Imports
-import UserLayout from 'src/layouts/UserLayout'
+import UserLayoutVertical from 'src/layouts/UserLayoutVertical'
 import SplashScreen from 'src/@core/components/bi-tasik/splash-screen'
 
 // ** Contexts

@@ -24,7 +24,7 @@ interface Props {
   children: ReactNode;
 }
 
-const UserLayout = ({ children }: Props) => {
+const UserLayoutVertical = ({ children }: Props) => {
   // ** Hooks
   const { settings, saveSettings } = useSettings();
 
@@ -75,4 +75,4 @@ const UserLayout = ({ children }: Props) => {
   );
 };
 
-export default UserLayout;
+export default UserLayoutVertical;

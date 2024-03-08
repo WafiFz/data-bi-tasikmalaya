@@ -22,7 +22,7 @@ import WeeklyOverview from 'src/views/dashboard/WeeklyOverview'
 import DepositWithdraw from 'src/views/dashboard/DepositWithdraw'
 import SalesByCountries from 'src/views/dashboard/SalesByCountries'
 import { ReactNode } from 'react'
-import UserLayout from 'src/layouts/UserLayout'
+import UserLayoutVertical from 'src/layouts/UserLayoutVertical'
 
 export default function Dashboard() {
   if (typeof window === 'undefined') {
@@ -116,4 +116,4 @@ export default function Dashboard() {
   }
 }
 
-Dashboard.getLayout = (page: ReactNode) => <UserLayout>{page}</UserLayout>
+Dashboard.getLayout = (page: ReactNode) => <UserLayoutVertical>{page}</UserLayoutVertical>
