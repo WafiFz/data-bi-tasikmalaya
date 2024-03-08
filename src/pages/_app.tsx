@@ -18,8 +18,7 @@ import themeConfig from 'src/configs/themeConfig'
 
 // ** Component Imports
 import UserLayout from 'src/layouts/UserLayout'
-
-// import ThemeComponent from 'src/@core/theme/ThemeComponent'
+import SplashScreen from 'src/@core/components/bi-tasik/splash-screen'
 
 // ** Contexts
 import { SettingsConsumer, SettingsProvider } from 'src/@core/context/settingsContext'
@@ -90,12 +89,7 @@ const App = (props: ExtendedAppProps) => {
 
   return (
     <div>
-      {loading && (
-        <div className="splash-overlay">
-          {/* Spinner dapat dihilangkan atau diganti dengan elemen gambar logo splash screen */}
-          <div className="splash-spinner"></div>
-        </div>
-      )}
+      {loading && <SplashScreen logoPath="/images/logos/bank-indonesia.svg"/>}
 
       <CacheProvider value={emotionCache}>
       <Head>
