@@ -31,6 +31,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css'
 
 // ** Global css styles
 import '../../styles/globals.css'
+import UserLayoutHorizontal from 'src/layouts/UserLayoutHorizontal'
 
 // ** Extend App Props with Emotion
 type ExtendedAppProps = AppProps & {
@@ -85,7 +86,7 @@ const App = (props: ExtendedAppProps) => {
   }, []);
 
   // Variables
-  const getLayout = Component.getLayout ?? (page => <UserLayout>{page}</UserLayout>);
+  const getLayout = Component.getLayout ?? (page => <UserLayoutHorizontal>{page}</UserLayoutHorizontal>);
 
   return (
     <div>
