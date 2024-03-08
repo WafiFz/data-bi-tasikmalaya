@@ -2,8 +2,7 @@ import React from 'react';
 import { Box, Button, Menu, MenuItem } from '@mui/material';
 import MenuButtonComponent from './MenuButtonComponent';
 import NavItemComponent from './NavItemComponent';
-
-const pages = ['Products', 'Pricing', 'Blog', 'Test', 'TEST2'];
+import { Navigation } from '../navigation';
 
 export default function ResponsiveNavigation() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -38,16 +37,16 @@ export default function ResponsiveNavigation() {
             display: { xs: 'block', md: 'none' },
           }}
         >
-          {pages.map((page) => (
-            <NavItemComponent key={page} page={page} onClick={handleCloseMenu} />
+          {Navigation.map((navigation) => (
+            <NavItemComponent path={navigation.path} key={navigation.page} page={navigation.page} onClick={handleCloseMenu} />
           ))}
         </Menu>
       </Box>
 
       <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-        {pages.map((page) => (
-          <Button href="/admin" key={page} onClick={handleCloseMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
-            {page}
+        {Navigation.map((navigation) => (
+          <Button href={navigation.path} key={navigation.page} onClick={handleCloseMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+            {navigation.page}
           </Button>
         ))}
       </Box>

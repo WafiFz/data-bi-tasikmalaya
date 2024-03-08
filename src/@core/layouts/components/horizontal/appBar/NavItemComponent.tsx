@@ -5,11 +5,12 @@ import Link from 'next/link';
 
 interface NavItemProps {
   page: string;
+  path: string;
   onClick: () => void;
 }
 
-const NavItemComponent: React.FC<NavItemProps> = ({ page, onClick }) => (
-  <Link href="/admin" passHref style={{ textDecoration: 'none', color: 'inherit' }}>
+const NavItemComponent: React.FC<NavItemProps> = ({ page, path, onClick }) => (
+  <Link href={path} passHref style={{ textDecoration: 'none', color: 'inherit' }}>
     <MenuItem key={page} onClick={onClick}>
       <Typography textAlign="center">{page}</Typography>
     </MenuItem>
