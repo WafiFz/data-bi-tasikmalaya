@@ -70,16 +70,16 @@ const App = (props: ExtendedAppProps) => {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    const handleRouteChangeStart = () => setLoading(true);
+
+    window.addEventListener('load', () => {
+      setLoading(true);
+    });
+
     const handleRouteChangeComplete = () => setLoading(false);
-
-    Router.events.on('routeChangeStart', handleRouteChangeStart);
     Router.events.on('routeChangeComplete', handleRouteChangeComplete);
-
     setLoading(false);
 
     return () => {
-      Router.events.off('routeChangeStart', handleRouteChangeStart);
       Router.events.off('routeChangeComplete', handleRouteChangeComplete);
     };
   }, []);
