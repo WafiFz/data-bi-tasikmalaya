@@ -5,6 +5,8 @@ import { Router } from 'next/router'
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import React from 'react'
+import { IntlProvider } from 'react-intl'
+import Cookies from 'universal-cookie'
 
 // ** Loader Import
 import NProgress from 'nprogress'
@@ -35,6 +37,13 @@ import 'react-perfect-scrollbar/dist/css/styles.css'
 // ** Global css styles
 import '../../styles/globals.css'
 import UserLayoutHorizontal from 'src/layouts/UserLayoutHorizontal'
+
+// ** Define available languages and their messages
+import { languages } from 'src/@core/languages'
+const cookies = new Cookies()
+const getLanguageFromCookie = () => {
+  return cookies.get('lang') || 'id'
+}
 
 // ** Extend App Props with Emotion
 type ExtendedAppProps = AppProps & {
@@ -72,6 +81,7 @@ const ThemeComponent = dynamic(
 const App = (props: ExtendedAppProps) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
   const [loading, setLoading] = React.useState(true)
+  const [locale, setLocale] = React.useState(getLanguageFromCookie())
 
   React.useEffect(() => {
     window.addEventListener('DOMContentLoaded', () => {
@@ -116,9 +126,11 @@ const App = (props: ExtendedAppProps) => {
         <SettingsProvider>
           <SettingsConsumer>
             {({ settings }) => (
-              <ThemeComponent settings={settings}>
-                {getLayout(<Component {...pageProps} />)}
-              </ThemeComponent>
+              <IntlProvider locale={locale} messages={languages[locale]}>
+                <ThemeComponent settings={settings}>
+                  {getLayout(<Component {...pageProps} />)}
+                </ThemeComponent>
+              </IntlProvider>
             )}
           </SettingsConsumer>
         </SettingsProvider>

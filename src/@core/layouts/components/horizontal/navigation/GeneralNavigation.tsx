@@ -1,17 +1,17 @@
+import { FormattedMessage } from 'react-intl'
+
 export const Navigation = [
   {
-    page: 'Dataset',
-    path: '/dataset',
-   
+    page: <FormattedMessage id="nav.dataset" defaultMessage="Dataset" />,
+    path: '/dataset'
   },
   {
-    page: 'Publikasi',
+    page: <FormattedMessage id="nav.publications" defaultMessage="Publikasi" />,
     path: '/publikasi',
     newTab: true
   },
   {
-    page: 'Tentang',
-    path: '/tentang',
-    
+    page: <FormattedMessage id="nav.about" defaultMessage="Tentang" />,
+    path: '/tentang'
   }
 ]

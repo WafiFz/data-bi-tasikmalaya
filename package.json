@@ -63,8 +63,10 @@
     "react-apexcharts": "^1.4.0",
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
+    "react-intl": "^6.6.2",
     "react-perfect-scrollbar": "^1.5.8",
-    "react-popper": "^2.3.0"
+    "react-popper": "^2.3.0",
+    "universal-cookie": "^7.1.0"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.1.1",
