@@ -42,6 +42,7 @@ export default function ResponsiveNavigation() {
               path={navigation.path}
               key={navigation.page}
               page={navigation.page}
+              newTab={navigation.newTab}
               onClick={handleCloseMenu}
             />
           ))}
@@ -54,6 +55,7 @@ export default function ResponsiveNavigation() {
             href={navigation.path}
             key={navigation.page}
             onClick={handleCloseMenu}
+            target={navigation.newTab ? '_blank' : '_self'}
             sx={{ my: 2, color: 'white', display: 'block' }}
           >
             {navigation.page}

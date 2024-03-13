@@ -1,14 +1,17 @@
 export const Navigation = [
   {
     page: 'Dataset',
-    path: '/dataset'
+    path: '/dataset',
+   
   },
   {
     page: 'Publikasi',
-    path: '/publikasi'
+    path: '/publikasi',
+    newTab: true
   },
   {
     page: 'Tentang',
-    path: '/tentang'
+    path: '/tentang',
+    
   }
 ]
