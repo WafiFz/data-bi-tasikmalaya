@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
 export const SplashOverlay = styled.div`
   position: fixed;
@@ -11,4 +11,4 @@ export const SplashOverlay = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 9999;
-`;
+`

@@ -78,7 +78,8 @@ const WeeklyOverview = () => {
       tickAmount: 4,
       labels: {
         offsetX: -17,
-        formatter: value => `${value > 999 ? `${(value / 1000).toFixed(0)}` : value}k`
+        formatter: (value) =>
+          `${value > 999 ? `${(value / 1000).toFixed(0)}` : value}k`
       }
     }
   }
@@ -86,29 +87,46 @@ const WeeklyOverview = () => {
   return (
     <Card>
       <CardHeader
-        title='Weekly Overview'
+        title="Weekly Overview"
         titleTypographyProps={{
-          sx: { lineHeight: '2rem !important', letterSpacing: '0.15px !important' }
+          sx: {
+            lineHeight: '2rem !important',
+            letterSpacing: '0.15px !important'
+          }
         }}
         action={
-          <IconButton size='small' aria-label='settings' className='card-more-options' sx={{ color: 'text.secondary' }}>
+          <IconButton
+            size="small"
+            aria-label="settings"
+            className="card-more-options"
+            sx={{ color: 'text.secondary' }}
+          >
             <DotsVertical />
           </IconButton>
         }
       />
 
-      <CardContent sx={{ '& .apexcharts-xcrosshairs.apexcharts-active': { opacity: 0 } }}>
-        <ReactApexcharts type='bar' height={205} options={options} series={[{ data: [37, 57, 45, 75, 57, 40, 65] }]} />
+      <CardContent
+        sx={{ '& .apexcharts-xcrosshairs.apexcharts-active': { opacity: 0 } }}
+      >
+        <ReactApexcharts
+          type="bar"
+          height={205}
+          options={options}
+          series={[{ data: [37, 57, 45, 75, 57, 40, 65] }]}
+        />
 
         <Box sx={{ mb: 7, display: 'flex', alignItems: 'center' }}>
-          <Typography variant='h5' sx={{ mr: 4 }}>
+          <Typography variant="h5" sx={{ mr: 4 }}>
             45%
           </Typography>
 
-          <Typography variant='body2'>Your sales performance is 45% 😎 better compared to last month</Typography>
+          <Typography variant="body2">
+            Your sales performance is 45% 😎 better compared to last month
+          </Typography>
         </Box>
 
-        <Button fullWidth variant='contained'>
+        <Button fullWidth variant="contained">
           Details
         </Button>
       </CardContent>

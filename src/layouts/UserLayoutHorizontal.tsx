@@ -1,14 +1,14 @@
 // ** React Imports
-import { ReactNode } from 'react';
+import { ReactNode } from 'react'
 
 // ** MUI Imports
 // import Box from '@mui/material/Box'
-import { Theme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import { Theme } from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 // ** Layout Imports
 // !Do not remove this Layout import
-import HorizontalLayout from 'src/@core/layouts/HorizontalLayout'; // Updated import
+import HorizontalLayout from 'src/@core/layouts/HorizontalLayout' // Updated import
 
 // ** Navigation Imports
 // import HorizontalNavItems from 'src/navigation/horizontal'; // Updated import
@@ -18,15 +18,15 @@ import HorizontalLayout from 'src/@core/layouts/HorizontalLayout'; // Updated im
 // import HorizontalAppBarContent from './components/horizontal/AppBarContent'; // Updated import
 
 // ** Hook Import
-import { useSettings } from 'src/@core/hooks/useSettings';
+import { useSettings } from 'src/@core/hooks/useSettings'
 
 interface Props {
-  children: ReactNode;
+  children: ReactNode
 }
 
 const UserLayoutVertical = ({ children }: Props) => {
   // ** Hooks
-  const { settings, saveSettings } = useSettings();
+  const { settings, saveSettings } = useSettings()
 
   /**
    *  The below variable will hide the current layout menu at given screen size.
@@ -36,7 +36,7 @@ const UserLayoutVertical = ({ children }: Props) => {
    *  to know more about what values can be passed to this hook.
    *  ! Do not change this value unless you know what you are doing. It can break the template.
    */
-  const hidden = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'));
+  const hidden = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'))
 
   // const UpgradeToProImg = () => {
   //   return (
@@ -57,22 +57,22 @@ const UserLayoutVertical = ({ children }: Props) => {
       hidden={hidden}
       settings={settings}
       saveSettings={saveSettings}
-    //   horizontalNavItems={HorizontalNavItems()} // Updated prop name
+      //   horizontalNavItems={HorizontalNavItems()} // Updated prop name
       // afterHorizontalNavMenuContent={UpgradeToProImg}
-    //   horizontalAppBarContent={(props) => ( // Updated prop name
-    //     <HorizontalAppBarContent
-    //       hidden={hidden}
-    //       settings={settings}
-    //       saveSettings={saveSettings}
-    //       toggleNavVisibility={props.toggleNavVisibility}
-    //     />
-    //   )}
+      //   horizontalAppBarContent={(props) => ( // Updated prop name
+      //     <HorizontalAppBarContent
+      //       hidden={hidden}
+      //       settings={settings}
+      //       saveSettings={saveSettings}
+      //       toggleNavVisibility={props.toggleNavVisibility}
+      //     />
+      //   )}
     >
       {children}
 
       {/* <UpgradeToProButton /> */}
     </HorizontalLayout>
-  );
-};
+  )
+}
 
-export default UserLayoutVertical;
+export default UserLayoutVertical

@@ -1,6 +1,10 @@
 // ** Types Import
 import { Settings } from 'src/@core/context/settingsContext'
-import { NavLink, NavSectionTitle, VerticalNavItemsType } from 'src/@core/layouts/types'
+import {
+  NavLink,
+  NavSectionTitle,
+  VerticalNavItemsType
+} from 'src/@core/layouts/types'
 
 // ** Custom Menu Components
 import VerticalNavLink from './VerticalNavLink'
@@ -27,11 +31,13 @@ const VerticalNavItems = (props: Props) => {
   // ** Props
   const { verticalNavItems } = props
 
-  const RenderMenuItems = verticalNavItems?.map((item: NavLink | NavSectionTitle, index: number) => {
-    const TagName: any = resolveNavItemComponent(item)
+  const RenderMenuItems = verticalNavItems?.map(
+    (item: NavLink | NavSectionTitle, index: number) => {
+      const TagName: any = resolveNavItemComponent(item)
 
-    return <TagName {...props} key={index} item={item} />
-  })
+      return <TagName {...props} key={index} item={item} />
+    }
+  )
 
   return <>{RenderMenuItems}</>
 }

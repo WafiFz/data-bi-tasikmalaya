@@ -21,7 +21,10 @@ import UserLayoutVertical from 'src/layouts/UserLayoutVertical'
 import SplashScreen from 'src/@core/components/bi-tasik/splash-screen'
 
 // ** Contexts
-import { SettingsConsumer, SettingsProvider } from 'src/@core/context/settingsContext'
+import {
+  SettingsConsumer,
+  SettingsProvider
+} from 'src/@core/context/settingsContext'
 
 // ** Utils Imports
 import { createEmotionCache } from 'src/@core/utils/create-emotion-cache'
@@ -67,56 +70,61 @@ const ThemeComponent = dynamic(
 
 // ** Configure JSS & ClassName
 const App = (props: ExtendedAppProps) => {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-  const [loading, setLoading] = React.useState(true);
+  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
+  const [loading, setLoading] = React.useState(true)
 
   React.useEffect(() => {
-
     window.addEventListener('DOMContentLoaded', () => {
-      setLoading(true);
-    });
+      setLoading(true)
+    })
 
-    const handleRouteChangeComplete = () => setLoading(false);
-    Router.events.on('routeChangeComplete', handleRouteChangeComplete);
-    setLoading(false);
+    const handleRouteChangeComplete = () => setLoading(false)
+    Router.events.on('routeChangeComplete', handleRouteChangeComplete)
+    setLoading(false)
 
     return () => {
-      Router.events.off('routeChangeComplete', handleRouteChangeComplete);
-    };
-  }, []);
+      Router.events.off('routeChangeComplete', handleRouteChangeComplete)
+    }
+  }, [])
 
   // Variables
-  const getLayout = Component.getLayout ?? (page => <UserLayoutHorizontal>{page}</UserLayoutHorizontal>);
+  const getLayout =
+    Component.getLayout ??
+    ((page) => <UserLayoutHorizontal>{page}</UserLayoutHorizontal>)
 
   return (
     <div>
-      {loading && <SplashScreen logoPath="/images/logos/bank-indonesia.svg"/>}
+      {loading && <SplashScreen logoPath="/images/logos/bank-indonesia.svg" />}
 
       <CacheProvider value={emotionCache}>
-      <Head>
+        <Head>
           <title>{`${themeConfig.templateName}`}</title>
 
           <meta
-            name='description'
+            name="description"
             content={`${themeConfig.templateName} – Satu Data Bank Indonesia Tasikmalaya`}
           />
 
-          <meta name='keywords' content='tasikmalaya, bank indonesia, bi, bank, satu data' />
+          <meta
+            name="keywords"
+            content="tasikmalaya, bank indonesia, bi, bank, satu data"
+          />
 
-          <meta name='viewport' content='initial-scale=1, width=device-width' />
+          <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
 
         <SettingsProvider>
           <SettingsConsumer>
             {({ settings }) => (
-              <ThemeComponent settings={settings}>{getLayout(<Component {...pageProps} />)}</ThemeComponent>
+              <ThemeComponent settings={settings}>
+                {getLayout(<Component {...pageProps} />)}
+              </ThemeComponent>
             )}
           </SettingsConsumer>
         </SettingsProvider>
       </CacheProvider>
     </div>
-  );
-};
+  )
+}
 
-export default App;
-
+export default App

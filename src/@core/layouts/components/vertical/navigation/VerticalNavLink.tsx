@@ -12,7 +12,9 @@ import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 import Box, { BoxProps } from '@mui/material/Box'
 import ListItemIcon from '@mui/material/ListItemIcon'
-import ListItemButton, { ListItemButtonProps } from '@mui/material/ListItemButton'
+import ListItemButton, {
+  ListItemButtonProps
+} from '@mui/material/ListItemButton'
 import SvgIcon from '@mui/material/SvgIcon'
 
 // ** Configs Import
@@ -37,7 +39,10 @@ interface Props {
 
 // ** Styled Components
 const MenuNavLink = styled(ListItemButton)<
-  ListItemButtonProps & { component?: ElementType; target?: '_blank' | undefined }
+  ListItemButtonProps & {
+    component?: ElementType
+    target?: '_blank' | undefined
+  }
 >(({ theme }) => ({
   width: '100%',
   borderTopRightRadius: 100,
@@ -80,16 +85,20 @@ const VerticalNavLink = ({ item, navVisible, toggleNavVisibility }: Props) => {
   return (
     <ListItem
       disablePadding
-      className='nav-link'
+      className="nav-link"
       disabled={item.disabled || false}
       sx={{ mt: 1.5, px: '0 !important' }}
     >
-      <Link passHref href={item.path === undefined ? '/' : `${item.path}`} legacyBehavior>
+      <Link
+        passHref
+        href={item.path === undefined ? '/' : `${item.path}`}
+        legacyBehavior
+      >
         <MenuNavLink
           component={'a'}
           className={isNavLinkActive() ? 'active' : ''}
           {...(item.openInNewTab ? { target: '_blank' } : null)}
-          onClick={e => {
+          onClick={(e) => {
             if (item.path === undefined) {
               e.preventDefault()
 
@@ -102,7 +111,9 @@ const VerticalNavLink = ({ item, navVisible, toggleNavVisibility }: Props) => {
           }}
           sx={{
             pl: 5.5,
-            ...(item.disabled ? { pointerEvents: 'none' } : { cursor: 'pointer' })
+            ...(item.disabled
+              ? { pointerEvents: 'none' }
+              : { cursor: 'pointer' })
           }}
         >
           <ListItemIcon
@@ -116,7 +127,9 @@ const VerticalNavLink = ({ item, navVisible, toggleNavVisibility }: Props) => {
           </ListItemIcon>
 
           <MenuItemTextMetaWrapper>
-            <Typography {...(themeConfig.menuTextTruncate && { noWrap: true })}>{item.title}</Typography>
+            <Typography {...(themeConfig.menuTextTruncate && { noWrap: true })}>
+              {item.title}
+            </Typography>
 
             {item.badgeContent ? (
               <Chip

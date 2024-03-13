@@ -37,7 +37,10 @@ const Timeline = (theme: Theme) => {
           boxShadow: `0 0 0 3px ${hexToRGBA(theme.palette.primary.main, 0.12)}`
         },
         filledSecondary: {
-          boxShadow: `0 0 0 3px ${hexToRGBA(theme.palette.secondary.main, 0.12)}`
+          boxShadow: `0 0 0 3px ${hexToRGBA(
+            theme.palette.secondary.main,
+            0.12
+          )}`
         },
         filledSuccess: {
           boxShadow: `0 0 0 3px ${hexToRGBA(theme.palette.success.main, 0.12)}`

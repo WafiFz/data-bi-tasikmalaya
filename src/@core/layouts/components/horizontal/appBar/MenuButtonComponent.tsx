@@ -1,10 +1,10 @@
 // MenuButtonComponent.tsx
-import React from 'react';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import React from 'react'
+import IconButton from '@mui/material/IconButton'
+import MenuIcon from '@mui/icons-material/Menu'
 
 interface MenuButtonProps {
-  onClick: (event: React.MouseEvent<HTMLElement>) => void;
+  onClick: (event: React.MouseEvent<HTMLElement>) => void
 }
 
 const MenuButtonComponent: React.FC<MenuButtonProps> = ({ onClick }) => (
@@ -18,6 +18,6 @@ const MenuButtonComponent: React.FC<MenuButtonProps> = ({ onClick }) => (
   >
     <MenuIcon />
   </IconButton>
-);
+)
 
-export default MenuButtonComponent;
+export default MenuButtonComponent

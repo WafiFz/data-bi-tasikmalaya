@@ -96,17 +96,30 @@ const NotificationDropdown = () => {
 
   const ScrollWrapper = ({ children }: { children: ReactNode }) => {
     if (hidden) {
-      return <Box sx={{ ...styles, overflowY: 'auto', overflowX: 'hidden' }}>{children}</Box>
+      return (
+        <Box sx={{ ...styles, overflowY: 'auto', overflowX: 'hidden' }}>
+          {children}
+        </Box>
+      )
     } else {
       return (
-        <PerfectScrollbar options={{ wheelPropagation: false, suppressScrollX: true }}>{children}</PerfectScrollbar>
+        <PerfectScrollbar
+          options={{ wheelPropagation: false, suppressScrollX: true }}
+        >
+          {children}
+        </PerfectScrollbar>
       )
     }
   }
 
   return (
     <Fragment>
-      <IconButton color='inherit' aria-haspopup='true' onClick={handleDropdownOpen} aria-controls='customized-menu'>
+      <IconButton
+        color="inherit"
+        aria-haspopup="true"
+        onClick={handleDropdownOpen}
+        aria-controls="customized-menu"
+      >
         <BellOutline />
       </IconButton>
 
@@ -118,14 +131,26 @@ const NotificationDropdown = () => {
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
         <MenuItem disableRipple>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              width: '100%'
+            }}
+          >
             <Typography sx={{ fontWeight: 600 }}>Notifications</Typography>
 
             <Chip
-              size='small'
-              label='8 New'
-              color='primary'
-              sx={{ height: 20, fontSize: '0.75rem', fontWeight: 500, borderRadius: '10px' }}
+              size="small"
+              label="8 New"
+              color="primary"
+              sx={{
+                height: 20,
+                fontSize: '0.75rem',
+                fontWeight: 500,
+                borderRadius: '10px'
+              }}
             />
           </Box>
         </MenuItem>
@@ -133,15 +158,25 @@ const NotificationDropdown = () => {
         <ScrollWrapper>
           <MenuItem onClick={handleDropdownClose}>
             <Box sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
-              <Avatar alt='Flora' src='/images/avatars/4.png' />
+              <Avatar alt="Flora" src="/images/avatars/4.png" />
 
-              <Box sx={{ mx: 4, flex: '1 1', display: 'flex', overflow: 'hidden', flexDirection: 'column' }}>
+              <Box
+                sx={{
+                  mx: 4,
+                  flex: '1 1',
+                  display: 'flex',
+                  overflow: 'hidden',
+                  flexDirection: 'column'
+                }}
+              >
                 <MenuItemTitle>Congratulation Flora! 🎉</MenuItemTitle>
 
-                <MenuItemSubtitle variant='body2'>Won the monthly best seller badge</MenuItemSubtitle>
+                <MenuItemSubtitle variant="body2">
+                  Won the monthly best seller badge
+                </MenuItemSubtitle>
               </Box>
 
-              <Typography variant='caption' sx={{ color: 'text.disabled' }}>
+              <Typography variant="caption" sx={{ color: 'text.disabled' }}>
                 Today
               </Typography>
             </Box>
@@ -149,15 +184,27 @@ const NotificationDropdown = () => {
 
           <MenuItem onClick={handleDropdownClose}>
             <Box sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
-              <Avatar sx={{ color: 'common.white', backgroundColor: 'primary.main' }}>VU</Avatar>
+              <Avatar
+                sx={{ color: 'common.white', backgroundColor: 'primary.main' }}
+              >
+                VU
+              </Avatar>
 
-              <Box sx={{ mx: 4, flex: '1 1', display: 'flex', overflow: 'hidden', flexDirection: 'column' }}>
+              <Box
+                sx={{
+                  mx: 4,
+                  flex: '1 1',
+                  display: 'flex',
+                  overflow: 'hidden',
+                  flexDirection: 'column'
+                }}
+              >
                 <MenuItemTitle>New user registered.</MenuItemTitle>
 
-                <MenuItemSubtitle variant='body2'>5 hours ago</MenuItemSubtitle>
+                <MenuItemSubtitle variant="body2">5 hours ago</MenuItemSubtitle>
               </Box>
 
-              <Typography variant='caption' sx={{ color: 'text.disabled' }}>
+              <Typography variant="caption" sx={{ color: 'text.disabled' }}>
                 Yesterday
               </Typography>
             </Box>
@@ -165,15 +212,25 @@ const NotificationDropdown = () => {
 
           <MenuItem onClick={handleDropdownClose}>
             <Box sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
-              <Avatar alt='message' src='/images/avatars/5.png' />
+              <Avatar alt="message" src="/images/avatars/5.png" />
 
-              <Box sx={{ mx: 4, flex: '1 1', display: 'flex', overflow: 'hidden', flexDirection: 'column' }}>
+              <Box
+                sx={{
+                  mx: 4,
+                  flex: '1 1',
+                  display: 'flex',
+                  overflow: 'hidden',
+                  flexDirection: 'column'
+                }}
+              >
                 <MenuItemTitle>New message received 👋🏻</MenuItemTitle>
 
-                <MenuItemSubtitle variant='body2'>You have 10 unread messages</MenuItemSubtitle>
+                <MenuItemSubtitle variant="body2">
+                  You have 10 unread messages
+                </MenuItemSubtitle>
               </Box>
 
-              <Typography variant='caption' sx={{ color: 'text.disabled' }}>
+              <Typography variant="caption" sx={{ color: 'text.disabled' }}>
                 11 Aug
               </Typography>
             </Box>
@@ -181,15 +238,30 @@ const NotificationDropdown = () => {
 
           <MenuItem onClick={handleDropdownClose}>
             <Box sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
-              <img width={38} height={38} alt='paypal' src='/images/misc/paypal.png' />
+              <img
+                width={38}
+                height={38}
+                alt="paypal"
+                src="/images/misc/paypal.png"
+              />
 
-              <Box sx={{ mx: 4, flex: '1 1', display: 'flex', overflow: 'hidden', flexDirection: 'column' }}>
+              <Box
+                sx={{
+                  mx: 4,
+                  flex: '1 1',
+                  display: 'flex',
+                  overflow: 'hidden',
+                  flexDirection: 'column'
+                }}
+              >
                 <MenuItemTitle>Paypal</MenuItemTitle>
 
-                <MenuItemSubtitle variant='body2'>Received Payment</MenuItemSubtitle>
+                <MenuItemSubtitle variant="body2">
+                  Received Payment
+                </MenuItemSubtitle>
               </Box>
 
-              <Typography variant='caption' sx={{ color: 'text.disabled' }}>
+              <Typography variant="caption" sx={{ color: 'text.disabled' }}>
                 25 May
               </Typography>
             </Box>
@@ -197,15 +269,25 @@ const NotificationDropdown = () => {
 
           <MenuItem onClick={handleDropdownClose}>
             <Box sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
-              <Avatar alt='order' src='/images/avatars/3.png' />
+              <Avatar alt="order" src="/images/avatars/3.png" />
 
-              <Box sx={{ mx: 4, flex: '1 1', display: 'flex', overflow: 'hidden', flexDirection: 'column' }}>
+              <Box
+                sx={{
+                  mx: 4,
+                  flex: '1 1',
+                  display: 'flex',
+                  overflow: 'hidden',
+                  flexDirection: 'column'
+                }}
+              >
                 <MenuItemTitle>Revised Order 📦</MenuItemTitle>
 
-                <MenuItemSubtitle variant='body2'>New order revised from john</MenuItemSubtitle>
+                <MenuItemSubtitle variant="body2">
+                  New order revised from john
+                </MenuItemSubtitle>
               </Box>
 
-              <Typography variant='caption' sx={{ color: 'text.disabled' }}>
+              <Typography variant="caption" sx={{ color: 'text.disabled' }}>
                 19 Mar
               </Typography>
             </Box>
@@ -213,15 +295,28 @@ const NotificationDropdown = () => {
 
           <MenuItem onClick={handleDropdownClose}>
             <Box sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
-              <img width={38} height={38} alt='chart' src='/images/misc/chart.png' />
+              <img
+                width={38}
+                height={38}
+                alt="chart"
+                src="/images/misc/chart.png"
+              />
 
-              <Box sx={{ mx: 4, flex: '1 1', display: 'flex', overflow: 'hidden', flexDirection: 'column' }}>
+              <Box
+                sx={{
+                  mx: 4,
+                  flex: '1 1',
+                  display: 'flex',
+                  overflow: 'hidden',
+                  flexDirection: 'column'
+                }}
+              >
                 <MenuItemTitle>Finance report has been generated</MenuItemTitle>
 
-                <MenuItemSubtitle variant='body2'>25 hrs ago</MenuItemSubtitle>
+                <MenuItemSubtitle variant="body2">25 hrs ago</MenuItemSubtitle>
               </Box>
 
-              <Typography variant='caption' sx={{ color: 'text.disabled' }}>
+              <Typography variant="caption" sx={{ color: 'text.disabled' }}>
                 27 Dec
               </Typography>
             </Box>
@@ -230,9 +325,13 @@ const NotificationDropdown = () => {
 
         <MenuItem
           disableRipple
-          sx={{ py: 3.5, borderBottom: 0, borderTop: theme => `1px solid ${theme.palette.divider}` }}
+          sx={{
+            py: 3.5,
+            borderBottom: 0,
+            borderTop: (theme) => `1px solid ${theme.palette.divider}`
+          }}
         >
-          <Button fullWidth variant='contained' onClick={handleDropdownClose}>
+          <Button fullWidth variant="contained" onClick={handleDropdownClose}>
             Read All Notifications
           </Button>
         </MenuItem>

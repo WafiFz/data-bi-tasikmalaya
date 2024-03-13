@@ -86,16 +86,26 @@ const SalesByCountries = () => {
   return (
     <Card>
       <CardHeader
-        title='Sales by Countries'
-        titleTypographyProps={{ sx: { lineHeight: '1.2 !important', letterSpacing: '0.31px !important' } }}
+        title="Sales by Countries"
+        titleTypographyProps={{
+          sx: {
+            lineHeight: '1.2 !important',
+            letterSpacing: '0.31px !important'
+          }
+        }}
         action={
-          <IconButton size='small' aria-label='settings' className='card-more-options' sx={{ color: 'text.secondary' }}>
+          <IconButton
+            size="small"
+            aria-label="settings"
+            className="card-more-options"
+            sx={{ color: 'text.secondary' }}
+          >
             <DotsVertical />
           </IconButton>
         }
       />
 
-      <CardContent sx={{ pt: theme => `${theme.spacing(2)} !important` }}>
+      <CardContent sx={{ pt: (theme) => `${theme.spacing(2)} !important` }}>
         {data.map((item: DataType, index: number) => {
           return (
             <Box
@@ -128,19 +138,32 @@ const SalesByCountries = () => {
                   justifyContent: 'space-between'
                 }}
               >
-                <Box sx={{ marginRight: 2, display: 'flex', flexDirection: 'column' }}>
+                <Box
+                  sx={{
+                    marginRight: 2,
+                    display: 'flex',
+                    flexDirection: 'column'
+                  }}
+                >
                   <Box sx={{ display: 'flex' }}>
-                    <Typography sx={{ mr: 0.5, fontWeight: 600, letterSpacing: '0.25px' }}>{item.title}</Typography>
+                    <Typography
+                      sx={{ mr: 0.5, fontWeight: 600, letterSpacing: '0.25px' }}
+                    >
+                      {item.title}
+                    </Typography>
 
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
                       {item.trend}
 
                       <Typography
-                        variant='caption'
+                        variant="caption"
                         sx={{
                           fontWeight: 600,
                           lineHeight: 1.5,
-                          color: item.trendDir === 'down' ? 'error.main' : 'success.main'
+                          color:
+                            item.trendDir === 'down'
+                              ? 'error.main'
+                              : 'success.main'
                         }}
                       >
                         {item.trendNumber}
@@ -148,17 +171,30 @@ const SalesByCountries = () => {
                     </Box>
                   </Box>
 
-                  <Typography variant='caption' sx={{ lineHeight: 1.5 }}>
+                  <Typography variant="caption" sx={{ lineHeight: 1.5 }}>
                     {item.subtitle}
                   </Typography>
                 </Box>
 
-                <Box sx={{ display: 'flex', textAlign: 'end', flexDirection: 'column' }}>
-                  <Typography sx={{ fontWeight: 600, fontSize: '0.875rem', lineHeight: 1.72, letterSpacing: '0.22px' }}>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    textAlign: 'end',
+                    flexDirection: 'column'
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontWeight: 600,
+                      fontSize: '0.875rem',
+                      lineHeight: 1.72,
+                      letterSpacing: '0.22px'
+                    }}
+                  >
                     {item.sales}
                   </Typography>
 
-                  <Typography variant='caption' sx={{ lineHeight: 1.5 }}>
+                  <Typography variant="caption" sx={{ lineHeight: 1.5 }}>
                     Sales
                   </Typography>
                 </Box>

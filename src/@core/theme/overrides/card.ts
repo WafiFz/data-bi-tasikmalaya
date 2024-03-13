@@ -18,9 +18,10 @@ const Card = (theme: Theme) => {
       styleOverrides: {
         root: {
           padding: theme.spacing(5),
-          '& + .MuiCardContent-root, & + .MuiCollapse-root .MuiCardContent-root': {
-            paddingTop: 0
-          },
+          '& + .MuiCardContent-root, & + .MuiCollapse-root .MuiCardContent-root':
+            {
+              paddingTop: 0
+            },
           '& .MuiCardHeader-subheader': {
             fontSize: '0.875rem'
           }

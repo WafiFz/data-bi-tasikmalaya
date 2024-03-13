@@ -68,17 +68,17 @@ const UserDropdown = () => {
   return (
     <Fragment>
       <Badge
-        overlap='circular'
+        overlap="circular"
         onClick={handleDropdownOpen}
         sx={{ ml: 2, cursor: 'pointer' }}
         badgeContent={<BadgeContentSpan />}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       >
         <Avatar
-          alt='John Doe'
+          alt="John Doe"
           onClick={handleDropdownOpen}
           sx={{ width: 40, height: 40 }}
-          src='/images/avatars/1.png'
+          src="/images/avatars/1.png"
         />
       </Badge>
 
@@ -93,17 +93,31 @@ const UserDropdown = () => {
         <Box sx={{ pt: 2, pb: 3, px: 4 }}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Badge
-              overlap='circular'
+              overlap="circular"
               badgeContent={<BadgeContentSpan />}
               anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             >
-              <Avatar alt='John Doe' src='/images/avatars/1.png' sx={{ width: '2.5rem', height: '2.5rem' }} />
+              <Avatar
+                alt="John Doe"
+                src="/images/avatars/1.png"
+                sx={{ width: '2.5rem', height: '2.5rem' }}
+              />
             </Badge>
 
-            <Box sx={{ display: 'flex', marginLeft: 3, alignItems: 'flex-start', flexDirection: 'column' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                marginLeft: 3,
+                alignItems: 'flex-start',
+                flexDirection: 'column'
+              }}
+            >
               <Typography sx={{ fontWeight: 600 }}>John Doe</Typography>
 
-              <Typography variant='body2' sx={{ fontSize: '0.8rem', color: 'text.disabled' }}>
+              <Typography
+                variant="body2"
+                sx={{ fontSize: '0.8rem', color: 'text.disabled' }}
+              >
                 Admin
               </Typography>
             </Box>
@@ -158,8 +172,17 @@ const UserDropdown = () => {
 
         <Divider />
 
-        <MenuItem sx={{ py: 2 }} onClick={() => handleDropdownClose('/pages/login')}>
-          <LogoutVariant sx={{ marginRight: 2, fontSize: '1.375rem', color: 'text.secondary' }} />
+        <MenuItem
+          sx={{ py: 2 }}
+          onClick={() => handleDropdownClose('/pages/login')}
+        >
+          <LogoutVariant
+            sx={{
+              marginRight: 2,
+              fontSize: '1.375rem',
+              color: 'text.secondary'
+            }}
+          />
           Logout
         </MenuItem>
       </Menu>

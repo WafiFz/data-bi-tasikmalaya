@@ -52,16 +52,24 @@ const LayoutAppBar = (props: Props) => {
   const { contentWidth } = settings
 
   return (
-    <AppBar elevation={0} color='default' className='layout-navbar' position='static'>
+    <AppBar
+      elevation={0}
+      color="default"
+      className="layout-navbar"
+      position="static"
+    >
       <Toolbar
-        className='navbar-content-container'
+        className="navbar-content-container"
         sx={{
           ...(contentWidth === 'boxed' && {
-            '@media (min-width:1440px)': { maxWidth: `calc(1440px - ${theme.spacing(6)} * 2)` }
+            '@media (min-width:1440px)': {
+              maxWidth: `calc(1440px - ${theme.spacing(6)} * 2)`
+            }
           })
         }}
       >
-        {(userVerticalAppBarContent && userVerticalAppBarContent(props)) || null}
+        {(userVerticalAppBarContent && userVerticalAppBarContent(props)) ||
+          null}
       </Toolbar>
     </AppBar>
   )

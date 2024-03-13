@@ -1,13 +1,11 @@
-import AppBar from '@mui/material/AppBar';
-import Container from '@mui/material/Container';
-import Toolbar from '@mui/material/Toolbar';
+import AppBar from '@mui/material/AppBar'
+import Container from '@mui/material/Container'
+import Toolbar from '@mui/material/Toolbar'
 
-import AdbIcon from '@mui/icons-material/Adb';
-import Typography from '@mui/material/Typography';
-import ResponsiveNavigationComponent from './ResponsiveNavigationComponent';
-import UserMenuComponent from './UserMenuComponent';
-
-
+import AdbIcon from '@mui/icons-material/Adb'
+import Typography from '@mui/material/Typography'
+import ResponsiveNavigationComponent from './ResponsiveNavigationComponent'
+import UserMenuComponent from './UserMenuComponent'
 
 function ResponsiveAppBar() {
   return (
@@ -27,7 +25,7 @@ function ResponsiveAppBar() {
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
-              textDecoration: 'none',
+              textDecoration: 'none'
             }}
           >
             LOGO
@@ -49,17 +47,17 @@ function ResponsiveAppBar() {
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
-              textDecoration: 'none',
+              textDecoration: 'none'
             }}
           >
             LOGO
           </Typography>
 
-          <UserMenuComponent/>
+          <UserMenuComponent />
         </Toolbar>
       </Container>
     </AppBar>
-  );
+  )
 }
 
-export default ResponsiveAppBar;
+export default ResponsiveAppBar

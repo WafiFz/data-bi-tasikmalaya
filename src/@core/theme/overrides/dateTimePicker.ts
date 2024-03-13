@@ -8,9 +8,10 @@ const DateTimePicker = (theme: Theme) => {
         root: {
           '& [role="presentation"]': {
             fontWeight: 400,
-            '& .PrivatePickersFadeTransitionGroup-root + .PrivatePickersFadeTransitionGroup-root > div': {
-              marginRight: 0
-            },
+            '& .PrivatePickersFadeTransitionGroup-root + .PrivatePickersFadeTransitionGroup-root > div':
+              {
+                marginRight: 0
+              },
             '& .MuiIconButton-sizeSmall': {
               padding: theme.spacing(0.5)
             },
@@ -40,7 +41,9 @@ const DateTimePicker = (theme: Theme) => {
           '& + div': {
             '& > div': {
               backgroundColor:
-                theme.palette.mode === 'light' ? theme.palette.grey[50] : theme.palette.background.default,
+                theme.palette.mode === 'light'
+                  ? theme.palette.grey[50]
+                  : theme.palette.background.default,
               '& ~ .MuiIconButton-root span.MuiTypography-caption': {
                 color: 'inherit'
               }

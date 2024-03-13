@@ -40,9 +40,12 @@ const FooterIllustrations = (props: FooterIllustrationsProp) => {
   if (!hidden) {
     return (
       <Fragment>
-        {image || <TreeImg alt='tree' src='/images/pages/tree-2.png' />}
+        {image || <TreeImg alt="tree" src="/images/pages/tree-2.png" />}
 
-        <MaskImg alt='mask' src={`/images/pages/misc-mask-${theme.palette.mode}.png`} />
+        <MaskImg
+          alt="mask"
+          src={`/images/pages/misc-mask-${theme.palette.mode}.png`}
+        />
       </Fragment>
     )
   } else {

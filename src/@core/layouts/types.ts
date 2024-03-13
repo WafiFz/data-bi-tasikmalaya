@@ -5,7 +5,13 @@ import { Settings } from 'src/@core/context/settingsContext'
 
 export type ContentWidth = 'full' | 'boxed'
 
-export type ThemeColor = 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success'
+export type ThemeColor =
+  | 'primary'
+  | 'secondary'
+  | 'error'
+  | 'warning'
+  | 'info'
+  | 'success'
 
 export type SvgIconComponent = typeof SvgIcon
 
@@ -20,7 +26,14 @@ export type NavLink = {
   openInNewTab?: boolean
 
   icon?: string | string[] | ReactNode | SvgIconComponent
-  badgeColor?: 'default' | 'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info'
+  badgeColor?:
+    | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'error'
+    | 'warning'
+    | 'info'
 }
 
 export type NavSectionTitle = {

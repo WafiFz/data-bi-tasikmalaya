@@ -1,19 +1,19 @@
-import React from 'react';
-import { Box, Button, Menu, MenuItem } from '@mui/material';
-import MenuButtonComponent from './MenuButtonComponent';
-import NavItemComponent from './NavItemComponent';
-import { Navigation } from '../navigation/GeneralNavigation';
+import React from 'react'
+import { Box, Button, Menu, MenuItem } from '@mui/material'
+import MenuButtonComponent from './MenuButtonComponent'
+import NavItemComponent from './NavItemComponent'
+import { Navigation } from '../navigation/GeneralNavigation'
 
 export default function ResponsiveNavigation() {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
   const handleOpenMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
 
   const handleCloseMenu = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
   return (
     <>
@@ -24,32 +24,42 @@ export default function ResponsiveNavigation() {
           anchorEl={anchorEl}
           anchorOrigin={{
             vertical: 'bottom',
-            horizontal: 'left',
+            horizontal: 'left'
           }}
           keepMounted
           transformOrigin={{
             vertical: 'top',
-            horizontal: 'left',
+            horizontal: 'left'
           }}
           open={Boolean(anchorEl)}
           onClose={handleCloseMenu}
           sx={{
-            display: { xs: 'block', md: 'none' },
+            display: { xs: 'block', md: 'none' }
           }}
         >
           {Navigation.map((navigation) => (
-            <NavItemComponent path={navigation.path} key={navigation.page} page={navigation.page} onClick={handleCloseMenu} />
+            <NavItemComponent
+              path={navigation.path}
+              key={navigation.page}
+              page={navigation.page}
+              onClick={handleCloseMenu}
+            />
           ))}
         </Menu>
       </Box>
 
       <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
         {Navigation.map((navigation) => (
-          <Button href={navigation.path} key={navigation.page} onClick={handleCloseMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+          <Button
+            href={navigation.path}
+            key={navigation.page}
+            onClick={handleCloseMenu}
+            sx={{ my: 2, color: 'white', display: 'block' }}
+          >
             {navigation.page}
           </Button>
         ))}
       </Box>
     </>
-  );
+  )
 }

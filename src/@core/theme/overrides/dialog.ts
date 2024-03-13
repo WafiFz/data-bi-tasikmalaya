@@ -60,7 +60,9 @@ const Dialog = (theme: Theme) => {
               marginBottom: theme.spacing(6),
               '& > div[class^="css-"]': {
                 backgroundColor:
-                  theme.palette.mode === 'light' ? theme.palette.grey[50] : theme.palette.background.default,
+                  theme.palette.mode === 'light'
+                    ? theme.palette.grey[50]
+                    : theme.palette.background.default,
                 '& ~ .MuiIconButton-root span.MuiTypography-caption': {
                   color: 'inherit'
                 }
@@ -81,9 +83,10 @@ const Dialog = (theme: Theme) => {
                 }
               }
             },
-            '& .PrivateTimePickerToolbar-ampmSelection span.MuiTypography-root:not(.Mui-selected)': {
-              color: hexToRGBA(theme.palette.primary.contrastText, 0.54)
-            }
+            '& .PrivateTimePickerToolbar-ampmSelection span.MuiTypography-root:not(.Mui-selected)':
+              {
+                color: hexToRGBA(theme.palette.primary.contrastText, 0.54)
+              }
           }
 
           // Styling for Mobile Date Picker ends

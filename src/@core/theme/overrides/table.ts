@@ -29,10 +29,11 @@ const Table = (theme: Theme) => {
           '& .MuiTableCell-body': {
             letterSpacing: '0.25px',
             color: theme.palette.text.secondary,
-            '&:not(.MuiTableCell-sizeSmall):not(.MuiTableCell-paddingCheckbox):not(.MuiTableCell-paddingNone)': {
-              paddingTop: theme.spacing(3.5),
-              paddingBottom: theme.spacing(3.5)
-            }
+            '&:not(.MuiTableCell-sizeSmall):not(.MuiTableCell-paddingCheckbox):not(.MuiTableCell-paddingNone)':
+              {
+                paddingTop: theme.spacing(3.5),
+                paddingBottom: theme.spacing(3.5)
+              }
           }
         }
       }
@@ -40,9 +41,10 @@ const Table = (theme: Theme) => {
     MuiTableRow: {
       styleOverrides: {
         root: {
-          '& .MuiTableCell-head:first-of-type, & .MuiTableCell-root:first-of-type ': {
-            paddingLeft: theme.spacing(5)
-          },
+          '& .MuiTableCell-head:first-of-type, & .MuiTableCell-root:first-of-type ':
+            {
+              paddingLeft: theme.spacing(5)
+            },
           '& .MuiTableCell-head:last-child, & .MuiTableCell-root:last-child': {
             paddingRight: theme.spacing(5)
           }

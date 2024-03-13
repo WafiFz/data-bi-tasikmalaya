@@ -64,7 +64,7 @@ const VerticalLayout = (props: LayoutProps) => {
 
   return (
     <>
-      <VerticalLayoutWrapper className='layout-wrapper'>
+      <VerticalLayoutWrapper className="layout-wrapper">
         {/* Navigation Menu */}
 
         <Navigation
@@ -75,7 +75,7 @@ const VerticalLayout = (props: LayoutProps) => {
           {...props}
         />
 
-        <MainContentWrapper className='layout-content-wrapper'>
+        <MainContentWrapper className="layout-content-wrapper">
           {/* AppBar Component */}
 
           <AppBar toggleNavVisibility={toggleNavVisibility} {...props} />
@@ -83,7 +83,7 @@ const VerticalLayout = (props: LayoutProps) => {
           {/* Content */}
 
           <ContentWrapper
-            className='layout-page-content'
+            className="layout-page-content"
             sx={{
               ...(contentWidth === 'boxed' && {
                 mx: 'auto',
@@ -102,7 +102,7 @@ const VerticalLayout = (props: LayoutProps) => {
           {/* Portal for React Datepicker */}
 
           <DatePickerWrapper sx={{ zIndex: 11 }}>
-            <Box id='react-datepicker-portal'></Box>
+            <Box id="react-datepicker-portal"></Box>
           </DatePickerWrapper>
         </MainContentWrapper>
       </VerticalLayoutWrapper>
@@ -112,8 +112,8 @@ const VerticalLayout = (props: LayoutProps) => {
       {scrollToTop ? (
         scrollToTop(props)
       ) : (
-        <ScrollToTop className='mui-fixed'>
-          <Fab color='primary' size='small' aria-label='scroll back to top'>
+        <ScrollToTop className="mui-fixed">
+          <Fab color="primary" size="small" aria-label="scroll back to top">
             <ArrowUp />
           </Fab>
         </ScrollToTop>

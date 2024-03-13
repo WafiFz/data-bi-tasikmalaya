@@ -1,9 +1,8 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
 export interface LogoContainerProps {
-  height?: string;
-  width?: string;
+  height?: string
+  width?: string
 }
 
-export const LogoContainer = styled.div<LogoContainerProps>`
-`;
+export const LogoContainer = styled.div<LogoContainerProps>``

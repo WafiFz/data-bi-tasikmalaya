@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
 export const SplashSpinner = styled.div`
   border: 6px solid #f3f3f3;
@@ -11,8 +11,11 @@ export const SplashSpinner = styled.div`
   margin: auto;
 
   @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
-`;
-
+`

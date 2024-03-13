@@ -1,9 +1,12 @@
-import { LogoContainer, LogoContainerProps } from "./styled/logo-container.styled";
-import { LogoText } from "./styled/logo-text.styled";
+import {
+  LogoContainer,
+  LogoContainerProps
+} from './styled/logo-container.styled'
+import { LogoText } from './styled/logo-text.styled'
 
 interface LogoProps extends LogoContainerProps {
-  text?: string;
-  path: string;
+  text?: string
+  path: string
 }
 
 const Logo: React.FC<LogoProps> = ({ text, height, width, path }) => {
@@ -12,7 +15,7 @@ const Logo: React.FC<LogoProps> = ({ text, height, width, path }) => {
       <img src={path} alt="logo" />
       {text && <LogoText>{text}</LogoText>}
     </>
-  );
-};
+  )
+}
 
-export default Logo;
+export default Logo

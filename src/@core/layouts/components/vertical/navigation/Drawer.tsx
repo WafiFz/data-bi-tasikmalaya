@@ -3,7 +3,9 @@ import { ReactNode } from 'react'
 
 // ** MUI Imports
 import { styled, useTheme } from '@mui/material/styles'
-import MuiSwipeableDrawer, { SwipeableDrawerProps } from '@mui/material/SwipeableDrawer'
+import MuiSwipeableDrawer, {
+  SwipeableDrawerProps
+} from '@mui/material/SwipeableDrawer'
 
 // ** Type Import
 import { Settings } from 'src/@core/context/settingsContext'
@@ -62,7 +64,7 @@ const Drawer = (props: Props) => {
 
   return (
     <SwipeableDrawer
-      className='layout-vertical-nav'
+      className="layout-vertical-nav"
       variant={hidden ? 'temporary' : 'permanent'}
       {...(hidden ? { ...MobileDrawerProps } : { ...DesktopDrawerProps })}
       PaperProps={{ sx: { width: navWidth } }}

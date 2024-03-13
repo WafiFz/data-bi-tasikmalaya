@@ -109,7 +109,9 @@ const Navigation = (props: Props) => {
       <StyledBoxForShadow
         ref={shadowRef}
         sx={{
-          background: `linear-gradient(${theme.palette.background.default} 40%,${hexToRGBA(
+          background: `linear-gradient(${
+            theme.palette.background.default
+          } 40%,${hexToRGBA(
             theme.palette.background.default,
             0.1
           )} 95%,${hexToRGBA(theme.palette.background.default, 0.05)})`
@@ -131,13 +133,25 @@ const Navigation = (props: Props) => {
                 onScrollY: (container: any) => scrollMenu(container)
               })}
         >
-          {beforeVerticalNavMenuContent ? beforeVerticalNavMenuContent(props) : null}
+          {beforeVerticalNavMenuContent
+            ? beforeVerticalNavMenuContent(props)
+            : null}
 
-          <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <Box
+            sx={{
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between'
+            }}
+          >
             {userVerticalNavMenuContent ? (
               userVerticalNavMenuContent(props)
             ) : (
-              <List className='nav-items' sx={{ transition: 'padding .25s ease', pr: 4.5 }}>
+              <List
+                className="nav-items"
+                sx={{ transition: 'padding .25s ease', pr: 4.5 }}
+              >
                 <VerticalNavItems
                   groupActive={groupActive}
                   setGroupActive={setGroupActive}
