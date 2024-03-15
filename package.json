@@ -67,6 +67,7 @@
     "react-intl": "^6.6.2",
     "react-perfect-scrollbar": "^1.5.8",
     "react-popper": "^2.3.0",
+    "recoil": "^0.7.7",
     "universal-cookie": "^7.1.0"
   },
   "devDependencies": {

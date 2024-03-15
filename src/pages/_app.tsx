@@ -27,6 +27,9 @@ import {
   SettingsProvider
 } from 'src/@core/context/settingsContext'
 
+// ** State Management
+import { RecoilRoot } from 'recoil'
+
 // ** Utils Imports
 import { createEmotionCache } from 'src/@core/utils/create-emotion-cache'
 
@@ -88,7 +91,6 @@ const App = (props: ExtendedAppProps) => {
   const [locale] = React.useState(getLanguageFromCookie())
 
   React.useEffect(() => {
-    
     window.addEventListener('DOMContentLoaded', () => {
       setLoading(true)
     })
@@ -110,39 +112,46 @@ const App = (props: ExtendedAppProps) => {
     ((page) => <UserLayoutHorizontal>{page}</UserLayoutHorizontal>)
 
   return (
-    <div>
-      {loading && <SplashScreen logoPath="/images/logos/bank-indonesia.svg" />}
+    <RecoilRoot>
+      <div>
+        {loading && (
+          <SplashScreen logoPath="/images/logos/bank-indonesia.svg" />
+        )}
 
-      <CacheProvider value={emotionCache}>
-        <Head>
-          <title>{`${themeConfig.templateName}`}</title>
+        <CacheProvider value={emotionCache}>
+          <Head>
+            <title>{`${themeConfig.templateName}`}</title>
 
-          <meta
-            name="description"
-            content={`${themeConfig.templateName} – Satu Data Bank Indonesia Tasikmalaya`}
-          />
+            <meta
+              name="description"
+              content={`${themeConfig.templateName} – Satu Data Bank Indonesia Tasikmalaya`}
+            />
 
-          <meta
-            name="keywords"
-            content="tasikmalaya, bank indonesia, bi, bank, satu data"
-          />
+            <meta
+              name="keywords"
+              content="tasikmalaya, bank indonesia, bi, bank, satu data"
+            />
 
-          <meta name="viewport" content="initial-scale=1, width=device-width" />
-        </Head>
+            <meta
+              name="viewport"
+              content="initial-scale=1, width=device-width"
+            />
+          </Head>
 
-        <SettingsProvider>
-          <SettingsConsumer>
-            {({ settings }) => (
-              <IntlProvider locale={locale} messages={languages[locale]}>
-                <ThemeComponent settings={settings}>
-                  {getLayout(<Component {...pageProps} />)}
-                </ThemeComponent>
-              </IntlProvider>
-            )}
-          </SettingsConsumer>
-        </SettingsProvider>
-      </CacheProvider>
-    </div>
+          <SettingsProvider>
+            <SettingsConsumer>
+              {({ settings }) => (
+                <IntlProvider locale={locale} messages={languages[locale]}>
+                  <ThemeComponent settings={settings}>
+                    {getLayout(<Component {...pageProps} />)}
+                  </ThemeComponent>
+                </IntlProvider>
+              )}
+            </SettingsConsumer>
+          </SettingsProvider>
+        </CacheProvider>
+      </div>
+    </RecoilRoot>
   )
 }
 
