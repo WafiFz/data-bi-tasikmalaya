@@ -49,14 +49,17 @@ export default function ResponsiveNavigation() {
         </Menu>
       </Box>
 
-      <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+      <Box
+        className="md:justify-end"
+        sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}
+      >
         {Navigation.map((navigation) => (
           <Button
             href={navigation.path}
             key={navigation.path}
             onClick={handleCloseMenu}
             target={navigation.newTab ? '_blank' : '_self'}
-            sx={{ my: 2, color: 'white', display: 'block' }}
+            sx={{ my: 2, color: 'primary', display: 'block' }}
           >
             {navigation.page}
           </Button>
