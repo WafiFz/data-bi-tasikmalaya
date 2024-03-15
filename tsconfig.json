@@ -4,11 +4,7 @@
     "baseUrl": ".",
     "rootDir": "src",
     "target": "es6",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -22,12 +18,9 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "apexcharts": [
-        "./node_modules/apexcharts-clevision"
-      ],
-      "apexcharts/*": [
-        "./node_modules/apexcharts-clevision/*"
-      ]
+      "apexcharts": ["./node_modules/apexcharts-clevision"],
+      "apexcharts/*": ["./node_modules/apexcharts-clevision/*"],
+      "@core/*": ["./src/@core/*"]
     },
     "plugins": [
       {
@@ -35,12 +28,6 @@
       }
     ]
   },
-  "include": [
-    "src",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    ".next"
-  ]
+  "include": ["src", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", ".next"]
 }
