@@ -6,10 +6,10 @@ export interface Messages {
 }
 
 interface Languages {
-  [key: string]: Messages;
+  [key: string]: Messages
 }
 
 export const languages: Languages = {
   id: id_json,
   en: en_json
-};
+}

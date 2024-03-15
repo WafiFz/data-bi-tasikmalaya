@@ -2,19 +2,16 @@ import { Button } from '@mui/material'
 import AppBar from '@mui/material/AppBar'
 import Container from '@mui/material/Container'
 import Toolbar from '@mui/material/Toolbar'
-import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { FormattedMessage } from 'react-intl'
+import { useRecoilValue } from 'recoil'
 
 import Logo from '@core/components/bi-tasik/logo'
+import { isLoggedInState } from '@core/states/auth/isLoggedIn.state'
 import ResponsiveNavigationComponent from './ResponsiveNavigationComponent'
 import UserMenuComponent from './UserMenuComponent'
-import { isLoggedInState } from '@core/states/auth/isLoggedIn.state';
 
 function ResponsiveAppBar() {
-
   const isLoggedIn = useRecoilValue(isLoggedInState)
-
-  const setIsLoggedIn = useSetRecoilState(isLoggedInState)
 
   return (
     <AppBar position="static" color={'transparent'} sx={{ boxShadow: 'none' }}>
@@ -28,7 +25,7 @@ function ResponsiveAppBar() {
 
           <ResponsiveNavigationComponent />
 
-          <div className="flex-grow">
+          <div className="grow">
             <Logo
               path="/images/logos/bank-indonesia.svg"
               width={'170px'}
