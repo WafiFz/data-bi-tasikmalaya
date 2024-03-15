@@ -9,6 +9,8 @@ const FooterContent = () => {
   // ** Var
   const hidden = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'))
 
+  const app_author = process.env.APP_AUTHOR || 'APP_AUTHOR'
+
   return (
     <Box
       sx={{
@@ -20,19 +22,13 @@ const FooterContent = () => {
     >
       <Typography sx={{ mr: 2 }}>
         {`© ${new Date().getFullYear()}, Made with `}
-
         <Box component="span" sx={{ color: 'error.main' }}>
           ❤️
         </Box>
-
-        {` by `}
-
-        <Link target="_blank" href="https://themeselection.com/">
-          ThemeSelection
-        </Link>
+        {` by  ${app_author}`}
       </Typography>
 
-      {hidden ? null : (
+      {/* {hidden ? null : (
         <Box
           sx={{
             display: 'flex',
@@ -66,7 +62,7 @@ const FooterContent = () => {
             Support
           </Link>
         </Box>
-      )}
+      )} */}
     </Box>
   )
 }

@@ -20,7 +20,8 @@
     "paths": {
       "apexcharts": ["./node_modules/apexcharts-clevision"],
       "apexcharts/*": ["./node_modules/apexcharts-clevision/*"],
-      "@core/*": ["./src/@core/*"]
+      "@core/*": ["./src/@core/*"],
+      "@views/*": ["./src/views/*"],
     },
     "plugins": [
       {
