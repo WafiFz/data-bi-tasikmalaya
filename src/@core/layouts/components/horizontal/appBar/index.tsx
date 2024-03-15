@@ -8,10 +8,7 @@ import UserMenuComponent from './UserMenuComponent'
 
 function ResponsiveAppBar() {
   return (
-    <AppBar
-      position="static"
-      sx={{ backgroundColor: 'transparent', boxShadow: 'none' }}
-    >
+    <AppBar position="static" color={'transparent'} sx={{ boxShadow: 'none' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Logo
@@ -22,33 +19,13 @@ function ResponsiveAppBar() {
 
           <ResponsiveNavigationComponent />
 
-          <div className="flex items-center">
-            {/* <img src="/images/logos/bank-indonesia.svg" alt="logo" class="hidden md:flex mr-2" style="height: auto; width: 170px; margin: auto;"> */}
+          <div className="flex-grow">
             <Logo
               path="/images/logos/bank-indonesia.svg"
               width={'170px'}
               addClass={'flex md:hidden mr-2'}
             />
           </div>
-
-          {/* <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none'
-            }}
-          >
-            LOGO
-          </Typography> */}
 
           <UserMenuComponent />
         </Toolbar>

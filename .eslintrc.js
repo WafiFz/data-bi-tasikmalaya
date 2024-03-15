@@ -48,6 +48,7 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "@next/next/no-img-element": "off",
+    "@next/next/no-sync-scripts": "off",
     "import/no-anonymous-default-export": "off",
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/ban-ts-comment": "off",

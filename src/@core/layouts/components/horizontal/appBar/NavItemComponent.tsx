@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography'
 import Link from 'next/link'
 
 interface NavItemProps {
-  page: string
+  page: JSX.Element
   path: string
   onClick: () => void
   newTab?: boolean
@@ -22,7 +22,7 @@ const NavItemComponent: React.FC<NavItemProps> = ({
     target={newTab ? '_blank' : '_self'}
     style={{ textDecoration: 'none', color: 'inherit' }}
   >
-    <MenuItem key={page} onClick={onClick}>
+    <MenuItem key={path} onClick={onClick}>
       <Typography textAlign="center">{page}</Typography>
     </MenuItem>
   </Link>

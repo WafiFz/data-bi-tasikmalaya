@@ -41,7 +41,7 @@ export default function ResponsiveNavigation() {
           {Navigation.map((navigation) => (
             <NavItemComponent
               path={navigation.path}
-              page={navigation.path}
+              page={navigation.page}
               newTab={navigation.newTab}
               onClick={handleCloseMenu}
             />
