@@ -24,7 +24,7 @@ interface Props {
   children: ReactNode
 }
 
-const UserLayoutVertical = ({ children }: Props) => {
+const UserLayoutHorizontal = ({ children }: Props) => {
   // ** Hooks
   const { settings, saveSettings } = useSettings()
 
@@ -57,6 +57,7 @@ const UserLayoutVertical = ({ children }: Props) => {
       hidden={hidden}
       settings={settings}
       saveSettings={saveSettings}
+
       //   horizontalNavItems={HorizontalNavItems()} // Updated prop name
       // afterHorizontalNavMenuContent={UpgradeToProImg}
       //   horizontalAppBarContent={(props) => ( // Updated prop name
@@ -75,4 +76,4 @@ const UserLayoutVertical = ({ children }: Props) => {
   )
 }
 
-export default UserLayoutVertical
+export default UserLayoutHorizontal

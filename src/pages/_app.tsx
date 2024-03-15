@@ -19,7 +19,6 @@ import type { EmotionCache } from '@emotion/cache'
 import themeConfig from 'src/configs/themeConfig'
 
 // ** Component Imports
-import UserLayoutVertical from 'src/layouts/UserLayoutVertical'
 import SplashScreen from 'src/@core/components/bi-tasik/splash-screen'
 
 // ** Contexts
@@ -40,7 +39,9 @@ import UserLayoutHorizontal from 'src/layouts/UserLayoutHorizontal'
 
 // ** Define available languages and their messages
 import { languages } from 'src/@core/languages'
+
 const cookies = new Cookies()
+
 const getLanguageFromCookie = () => {
   return cookies.get('lang') || 'id'
 }
@@ -80,16 +81,22 @@ const ThemeComponent = dynamic(
 // ** Configure JSS & ClassName
 const App = (props: ExtendedAppProps) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
+
   const [loading, setLoading] = React.useState(true)
-  const [locale, setLocale] = React.useState(getLanguageFromCookie())
+
+  // const [locale, setLocale] = React.useState(getLanguageFromCookie())
+  const [locale] = React.useState(getLanguageFromCookie())
 
   React.useEffect(() => {
+    
     window.addEventListener('DOMContentLoaded', () => {
       setLoading(true)
     })
 
     const handleRouteChangeComplete = () => setLoading(false)
+
     Router.events.on('routeChangeComplete', handleRouteChangeComplete)
+
     setLoading(false)
 
     return () => {

@@ -94,6 +94,7 @@ const CardMobile = () => {
 
             <Typography sx={{ fontWeight: 500, marginBottom: 3 }}>
               Price:{' '}
+
               <Box component="span" sx={{ fontWeight: 'bold' }}>
                 $899
               </Box>

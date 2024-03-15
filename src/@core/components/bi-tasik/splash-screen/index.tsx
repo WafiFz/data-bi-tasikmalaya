@@ -21,6 +21,7 @@ const SplashScreen: React.FC<SplashOverlayProps> = ({ logoPath }) => (
   <SplashOverlay>
     <Container>
       <Logo path={logoPath} />
+
       <SplashSpinner />
     </Container>
   </SplashOverlay>

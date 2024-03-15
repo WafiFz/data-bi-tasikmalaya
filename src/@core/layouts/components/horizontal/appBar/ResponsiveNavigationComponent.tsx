@@ -1,8 +1,8 @@
+import { Box, Button, Menu } from '@mui/material'
 import React from 'react'
-import { Box, Button, Menu, MenuItem } from '@mui/material'
+import { Navigation } from '../navigation/GeneralNavigation'
 import MenuButtonComponent from './MenuButtonComponent'
 import NavItemComponent from './NavItemComponent'
-import { Navigation } from '../navigation/GeneralNavigation'
 
 export default function ResponsiveNavigation() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
@@ -19,6 +19,7 @@ export default function ResponsiveNavigation() {
     <>
       <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
         <MenuButtonComponent onClick={handleOpenMenu} />
+
         <Menu
           id="menu-appbar"
           anchorEl={anchorEl}
@@ -40,8 +41,7 @@ export default function ResponsiveNavigation() {
           {Navigation.map((navigation) => (
             <NavItemComponent
               path={navigation.path}
-              key={navigation.page}
-              page={navigation.page}
+              page={navigation.path}
               newTab={navigation.newTab}
               onClick={handleCloseMenu}
             />
@@ -53,7 +53,7 @@ export default function ResponsiveNavigation() {
         {Navigation.map((navigation) => (
           <Button
             href={navigation.path}
-            key={navigation.page}
+            key={navigation.path}
             onClick={handleCloseMenu}
             target={navigation.newTab ? '_blank' : '_self'}
             sx={{ my: 2, color: 'white', display: 'block' }}

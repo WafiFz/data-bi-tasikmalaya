@@ -11,4 +11,5 @@ interface Languages {
 
 export const languages: Languages = {
   id: id_json,
+  en: en_json
 };

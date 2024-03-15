@@ -1,5 +1,5 @@
 // ** React Imports
-import { useState } from 'react'
+// import { useState } from 'react'
 
 // ** MUI Imports
 import Fab from '@mui/material/Fab'
@@ -10,7 +10,7 @@ import Box, { BoxProps } from '@mui/material/Box'
 import ArrowUp from 'mdi-material-ui/ArrowUp'
 
 // ** Theme Config Import
-import themeConfig from 'src/configs/themeConfig'
+// import themeConfig from 'src/configs/themeConfig'
 
 // ** Type Import
 import { LayoutProps } from 'src/@core/layouts/types'
