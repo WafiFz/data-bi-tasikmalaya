@@ -31,8 +31,6 @@ class CustomDocument extends Document {
           />
 
           <link rel="shortcut icon" href="/images/favicon.png" />
-
-          <script src="https://cdn.tailwindcss.com"></script>
         </Head>
 
         <body>

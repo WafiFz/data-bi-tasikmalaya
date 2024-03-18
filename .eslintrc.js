@@ -6,56 +6,55 @@ module.exports = {
     node: true
   },
   settings: {
-    "react": {
-      version: "detect"
+    react: {
+      version: 'detect'
     },
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx']
     },
-    "import/resolver": {
+    'import/resolver': {
       typescript: {
         alwaysTryTypes: true,
-        project: ["./tsconfig.json"]
+        project: ['./tsconfig.json']
       }
     }
   },
   extends: [
-    "plugin:@next/next/recommended",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-    "plugin:tailwind/recommended"
+    'plugin:@next/next/recommended',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+    'plugin:tailwind/recommended'
   ],
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true
     },
     ecmaVersion: 12,
-    sourceType: "module"
+    sourceType: 'module'
   },
   plugins: [
-    "react",
-    "react-hooks",
-    "import",
-    "tailwindcss",
-    "@typescript-eslint"
+    'react',
+    'react-hooks',
+    'import',
+    'tailwindcss',
+    '@typescript-eslint'
   ],
   rules: {
-    "react/display-name": "off",
-    "prettier/prettier": ["off", { singleQuote: true }],
-    "react/no-unescaped-entities": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "@next/next/no-img-element": "off",
-    "@next/next/no-sync-scripts": "off",
-    "import/no-anonymous-default-export": "off",
-    "@typescript-eslint/no-unused-vars": "warn",
-    "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "lines-around-comment": [
-      "error",
+    'react/display-name': 'off',
+    'prettier/prettier': ['off', { singleQuote: true }],
+    'react/no-unescaped-entities': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    '@next/next/no-img-element': 'off',
+    'import/no-anonymous-default-export': 'off',
+    '@typescript-eslint/no-unused-vars': 'warn',
+    '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    'lines-around-comment': [
+      'error',
       {
         beforeLineComment: true,
         beforeBlockComment: true,
@@ -65,45 +64,45 @@ module.exports = {
         allowArrayStart: true
       }
     ],
-    "newline-before-return": "error",
-    "import/newline-after-import": [
-      "error",
+    'newline-before-return': 'error',
+    'import/newline-after-import': [
+      'error',
       {
         count: 1
       }
     ],
-    "@typescript-eslint/ban-types": [
-      "error",
+    '@typescript-eslint/ban-types': [
+      'error',
       {
         extendDefaults: true,
         types: {
-          "{}": false
+          '{}': false
         }
       }
     ],
-    "tailwindcss/classnames-order": "warn",
-    "tailwindcss/enforces-negative-arbitrary-values": "warn",
-    "tailwindcss/enforces-shorthand": "warn",
-    "tailwindcss/migration-from-tailwind-2": "warn",
-    "tailwindcss/no-arbitrary-value": "off",
-    "tailwindcss/no-custom-classname": "off",
-    "tailwindcss/no-contradicting-classname": "error",
-    "padding-line-between-statements": [
-      "error",
+    'tailwindcss/classnames-order': 'warn',
+    'tailwindcss/enforces-negative-arbitrary-values': 'warn',
+    'tailwindcss/enforces-shorthand': 'warn',
+    'tailwindcss/migration-from-tailwind-2': 'warn',
+    'tailwindcss/no-arbitrary-value': 'off',
+    'tailwindcss/no-custom-classname': 'off',
+    'tailwindcss/no-contradicting-classname': 'error',
+    'padding-line-between-statements': [
+      'error',
       {
-        blankLine: "always",
-        prev: "*",
+        blankLine: 'always',
+        prev: '*',
         next: [
-          "return",
-          "block-like",
-          "multiline-block-like",
-          "expression",
-          "multiline-expression"
+          'return',
+          'block-like',
+          'multiline-block-like',
+          'expression',
+          'multiline-expression'
         ]
       }
     ],
-    "react/jsx-newline": [
-      "warn",
+    'react/jsx-newline': [
+      'warn',
       {
         prevent: false
       }
