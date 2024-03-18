@@ -21,7 +21,7 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
         <div className="mt-4">
-          <SearchBox></SearchBox>
+          <SearchBox />
         </div>
       </div>
       <div className="hidden ml-32 md:flex" style={{ width: '40%' }}>

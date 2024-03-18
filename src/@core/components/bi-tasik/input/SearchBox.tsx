@@ -2,9 +2,9 @@ import SearchIcon from '@mui/icons-material/Search'
 import IconButton from '@mui/material/IconButton'
 import InputBase from '@mui/material/InputBase'
 import Paper from '@mui/material/Paper'
-import { FormattedMessage, useIntl } from 'react-intl'
+import { useIntl } from 'react-intl'
 
-export default function SearchBox() {
+const SearchBox: React.FC = () => {
   const intl = useIntl()
   const placeholderSearchBox = intl.formatMessage(
     {
@@ -29,3 +29,5 @@ export default function SearchBox() {
     </Paper>
   )
 }
+
+export default SearchBox
