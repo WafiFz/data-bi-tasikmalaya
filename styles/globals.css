@@ -28,16 +28,4 @@ code[class*='language-'] {
   padding: 0;
 }
 
-:root {
-  --custom-blue: #085599;
-}
-
-.text-blue {
-  color: var(--custom-blue);
-}
-
-.bg-blue {
-  background-color: var(--custom-blue);
-}
-
 
