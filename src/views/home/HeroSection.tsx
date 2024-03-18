@@ -3,7 +3,7 @@ import React from 'react'
 
 const HeroSection: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center md:flex-row">
+    <div className="flex flex-col mt-6 items-center justify-center md:flex-row">
       <div>
         <div className="text-2xl font-bold">
           <p>DATA</p>
