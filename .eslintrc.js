@@ -80,7 +80,7 @@ module.exports = {
         }
       }
     ],
-    'tailwindcss/classnames-order': 'warn',
+    // 'tailwindcss/classnames-order': 'warn',
     'tailwindcss/enforces-negative-arbitrary-values': 'warn',
     'tailwindcss/enforces-shorthand': 'warn',
     'tailwindcss/migration-from-tailwind-2': 'warn',

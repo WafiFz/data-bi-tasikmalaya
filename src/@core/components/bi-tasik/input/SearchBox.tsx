@@ -23,6 +23,7 @@ const SearchBox: React.FC = () => {
         placeholder={placeholderSearchBox}
         inputProps={{ 'aria-label': 'search' }}
       />
+
       <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
         <SearchIcon />
       </IconButton>
