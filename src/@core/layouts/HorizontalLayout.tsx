@@ -39,12 +39,12 @@ const MainContentWrapper = styled(Box)<BoxProps>({
 const ContentWrapper = styled('main')(({ theme }) => ({
   flexGrow: 1,
   width: '100%',
-  padding: theme.spacing(0),
+  // padding: theme.spacing(0),
   transition: 'padding .25s ease-in-out',
-  [theme.breakpoints.down('sm')]: {
-    paddingLeft: theme.spacing(0),
-    paddingRight: theme.spacing(0)
-  }
+  // [theme.breakpoints.down('sm')]: {
+  //   paddingLeft: theme.spacing(0),
+  //   paddingRight: theme.spacing(0)
+  // }
 }))
 
 const HorizontalLayout = (props: LayoutProps) => {
