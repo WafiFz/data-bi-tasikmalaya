@@ -1,3 +1,5 @@
+import CardBasic from '@views/cards/CardTopic'
+import DataTopics from '@views/home/DataTopics'
 import HeroSection from '@views/home/HeroSection'
 
 export default function Dashboard() {
@@ -7,7 +9,10 @@ export default function Dashboard() {
     return <></>
   } else {
     return (
-      <HeroSection/>
+      <>
+        <HeroSection />
+        <DataTopics />
+      </>
     )
   }
 }

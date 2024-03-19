@@ -1,9 +1,13 @@
 import SearchBox from '@core/components/bi-tasik/input/SearchBox'
 import React from 'react'
 
-const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+  margin?: string; // prop untuk mengatur margin
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ margin }) => {
   return (
-    <div className="items-center justify-center m-6 md:flex md:flex-row">
+    <div className={`items-center justify-center ${margin} md:flex md:flex-row`}>
       <div>
         <div className="text-2xl font-bold">
           <p>DATA</p>
