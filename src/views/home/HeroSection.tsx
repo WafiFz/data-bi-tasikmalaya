@@ -3,7 +3,6 @@ import React from 'react'
 
 const HeroSection: React.FC = () => {
   return (
-    // <div className="px-8">
     <div className="items-center justify-center m-6 md:flex md:flex-row">
       <div>
         <div className="text-2xl font-bold">
@@ -29,8 +28,6 @@ const HeroSection: React.FC = () => {
         <img src="images/bi/gedung-bi-tasik.png" />
       </div>
     </div>
-
-    // </div>
   )
 }
 
