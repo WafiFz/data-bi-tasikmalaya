@@ -4,7 +4,7 @@ import React from 'react'
 const HeroSection: React.FC = () => {
   return (
     // <div className="px-8">
-    <div className="m-6 items-center justify-center md:flex md:flex-row">
+    <div className="items-center justify-center m-6 md:flex md:flex-row">
       <div>
         <div className="text-2xl font-bold">
           <p>DATA</p>
@@ -29,6 +29,7 @@ const HeroSection: React.FC = () => {
         <img src="images/bi/gedung-bi-tasik.png" />
       </div>
     </div>
+
     // </div>
   )
 }
