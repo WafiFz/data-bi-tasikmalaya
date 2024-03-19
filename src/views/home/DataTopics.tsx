@@ -45,6 +45,30 @@ const DataTopics: React.FC = () => {
         title={'Topik Ini adalah yang Keenam'}
         icon={<PollIcon />}
       />
+
+      <CardTopic
+        href="/pages/login"
+        title={'Topik Ini adalah yang Ketujuh'}
+        icon={<BackupIcon />}
+      />
+
+      <CardTopic
+        href="/pages/login"
+        title={'Topik Ini adalah yang Kedelapan'}
+        icon={<DriveFolderUploadIcon />}
+      />
+
+      <CardTopic
+        href="/pages/login"
+        title={'Topik Ini adalah yang Kesembilan'}
+        icon={<QueryStatsIcon />}
+      />
+
+      <CardTopic
+        href="/pages/login"
+        title={'Topik Ini adalah yang Kesepuluh'}
+        icon={<DescriptionIcon />}
+      />
     </div>
   )
 }
