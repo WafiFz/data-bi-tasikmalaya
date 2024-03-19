@@ -1,8 +1,7 @@
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
-import { css } from '@emotion/react'
-import Link from 'next/link' // Import Link dari Next.js
+import Link from 'next/link'; // Import Link dari Next.js
 
 interface CardTopicProps {
   title: string
@@ -13,9 +12,10 @@ interface CardTopicProps {
 const CardTopic: React.FC<CardTopicProps> = ({ title, icon, href }) => {
   return (
     <Link href={href} passHref>
-      <Card className="transition duration-300 ease-in-out transform border-2 hover:scale-105 hover:border-blue flex flex-wrap shrink h-full">
-        <CardContent className="flex gap-3 items-center">
+      <Card className="flex flex-wrap h-full border-2 transition duration-300 ease-in-out hover:scale-105 hover:border-blue shrink">
+        <CardContent className="flex items-center gap-3">
           {icon}
+
           <Typography component="div">{title}</Typography>
         </CardContent>
       </Card>
