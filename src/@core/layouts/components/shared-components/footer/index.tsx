@@ -10,6 +10,7 @@ import { Settings } from 'src/@core/context/settingsContext'
 
 // ** Footer Content Component
 import FooterContent from './FooterContent'
+import FooterAuthorInformation from './FooterAuthorInformation'
 
 interface Props {
   settings: Settings
@@ -28,31 +29,35 @@ const Footer = (props: Props) => {
   const { contentWidth } = settings
 
   return (
-    <Box
-      component="footer"
-      className="layout-footer"
-      sx={{
-        zIndex: 10,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}
-    >
+    <>
+      <FooterAuthorInformation />
+
       <Box
-        className="footer-content-container"
+        component="footer"
+        className="layout-footer"
         sx={{
-          width: '100%',
-          borderTopLeftRadius: 14,
-          borderTopRightRadius: 14,
-          padding: theme.spacing(4, 6),
-          ...(contentWidth === 'boxed' && {
-            '@media (min-width:1440px)': { maxWidth: 1440 }
-          })
+          zIndex: 10,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
         }}
       >
-        {userFooterContent ? userFooterContent(props) : <FooterContent />}
+        <Box
+          className="footer-content-container"
+          sx={{
+            width: '100%',
+            borderTopLeftRadius: 14,
+            borderTopRightRadius: 14,
+            padding: theme.spacing(4, 6),
+            ...(contentWidth === 'boxed' && {
+              '@media (min-width:1440px)': { maxWidth: 1440 }
+            })
+          }}
+        >
+          {userFooterContent ? userFooterContent(props) : <FooterContent />}
+        </Box>
       </Box>
-    </Box>
+    </>
   )
 }
 
