@@ -1,5 +1,6 @@
 import DataTopics from '@views/home/DataTopics'
 import HeroSection from '@views/home/HeroSection'
+import ListFileSection from '@views/home/ListFileSection'
 
 export default function Dashboard() {
   if (typeof window === 'undefined') {
@@ -12,6 +13,8 @@ export default function Dashboard() {
         <HeroSection />
 
         <DataTopics />
+
+        <ListFileSection />
       </>
     )
   }
