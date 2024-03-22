@@ -9,7 +9,7 @@ interface CardTopicProps {
   href: string
 }
 
-const CardTopic: React.FC<CardTopicProps> = ({ title, icon, href }) => {
+const CardFileDetail: React.FC<CardTopicProps> = ({ title, icon, href }) => {
   return (
     <Link href={href} passHref>
       <Card className="flex flex-wrap h-full border-2 transition duration-300 ease-in-out hover:scale-105 hover:border-blue shrink">
@@ -23,4 +23,4 @@ const CardTopic: React.FC<CardTopicProps> = ({ title, icon, href }) => {
   )
 }
 
-export default CardTopic
+export default CardFileDetail
