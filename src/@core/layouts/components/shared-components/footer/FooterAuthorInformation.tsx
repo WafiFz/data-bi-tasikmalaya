@@ -6,7 +6,7 @@ import EmailIcon from '@mui/icons-material/Email'
 
 const FooterAuthorInformation: React.FC = () => {
   return (
-    <div className="flex p-8">
+    <div className="flex p-2 md:p-8">
       <Logo path="/images/logos/bi-no-text.svg" height="100px" width="100px" />
 
       <div className="ml-8">
