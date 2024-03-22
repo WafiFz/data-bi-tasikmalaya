@@ -1,4 +1,4 @@
-import CardTopic from '@views/cards/CardTopic'
+import CardTopic from '@core/components/bi-tasik/cards/CardTopic'
 import React from 'react'
 import BackupIcon from '@mui/icons-material/Backup'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload'
