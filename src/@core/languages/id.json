@@ -5,5 +5,7 @@
   "nav.about": "Tentang",
   "placeholder.searchbox": "Cari Data BI Tasikmalaya",
   "title.data_topics": "Topik Data",
-  "title.list_file_newest": "Data Terkini"
+  "title.list_file_newest": "Data Terkini",
+  "title.list_file_favorit": "Data Favorit",
+  "title.list_file_recent": "Data Terakhir Dibuka"
 }

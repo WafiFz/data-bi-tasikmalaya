@@ -8,10 +8,10 @@ import { FormattedMessage } from 'react-intl'
 
 interface ListFileProps {
   title: string
-  file_collection: FileInfoProps[]
+  list_file: FileInfoProps[]
 }
 
-const ListFile: React.FC<ListFileProps> = ({ title }) => {
+const ListFile: React.FC<ListFileProps> = ({ title, list_file }) => {
   return (
     <div className="mx-4">
       <Typography variant={'h5'} fontWeight={700} marginTop={8}>
@@ -19,7 +19,15 @@ const ListFile: React.FC<ListFileProps> = ({ title }) => {
       </Typography>
       <Divider />
 
-      <FileInfo name="Nama" source="source" createdAt="14 juli 2020" />
+      {list_file.map((file, index) => (
+        <FileInfo
+          key={index}
+          name={file.name}
+          source={file.source}
+          createdAt={file.createdAt}
+          href={file.href}
+        />
+      ))}
     </div>
   )
 }
