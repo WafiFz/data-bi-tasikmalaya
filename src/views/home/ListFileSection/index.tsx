@@ -1,6 +1,3 @@
-import FileInfo from '@core/components/bi-tasik/text/FileInfo'
-import Divider from '@mui/material/Divider'
-import Typography from '@mui/material/Typography'
 import React from 'react'
 import ListFile from './ListFile'
 
@@ -47,10 +44,12 @@ const ListFileSection: React.FC = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
       <ListFile title={'title.list_file_newest'} list_file={list_file_newest} />
+
       <ListFile
         title={'title.list_file_favorit'}
         list_file={list_file_favorit}
       />
+
       <ListFile title={'title.list_file_recent'} list_file={list_file_recent} />
     </div>
   )

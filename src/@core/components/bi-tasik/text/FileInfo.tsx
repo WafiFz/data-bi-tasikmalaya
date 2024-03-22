@@ -23,6 +23,7 @@ const FileInfo: React.FC<FileInfoProps> = ({
         <ListItem>
           <ListItemText primary={name} secondary={`${source}, ${createdAt}`} />
         </ListItem>
+
         <Divider />
       </Link>
     </>

@@ -17,6 +17,7 @@ const ListFile: React.FC<ListFileProps> = ({ title, list_file }) => {
       <Typography variant={'h5'} fontWeight={700} marginTop={8}>
         <FormattedMessage id={title} defaultMessage="Tite List File" />
       </Typography>
+
       <Divider />
 
       {list_file.map((file, index) => (

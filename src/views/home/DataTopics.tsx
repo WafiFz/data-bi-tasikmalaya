@@ -15,6 +15,7 @@ const DataTopics: React.FC = () => {
       <Typography variant={'h5'} fontWeight={700} marginTop={8}>
         <FormattedMessage id="title.data_topics" defaultMessage="Data Topics" />
       </Typography>
+
       <div className="my-6 grid grid-cols gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
         <CardTopic
           href="/pages/login"
