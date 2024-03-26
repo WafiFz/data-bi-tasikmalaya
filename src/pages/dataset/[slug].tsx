@@ -6,6 +6,7 @@ const DatasetDetail: React.FC = () => {
   return (
     <>
       <Header />
+
       <Content />
     </>
   )

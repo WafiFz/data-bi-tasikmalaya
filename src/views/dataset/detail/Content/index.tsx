@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import DataTable from './DataTable'
+import { displayModes } from './displayModes.variable'
 import DisplayModeSelector from './DisplayModeSelector'
 import RawData from './RawData'
 
@@ -9,11 +10,6 @@ const Content: React.FC = () => {
   const handleDisplayModeChange = (mode: string) => {
     setDisplayMode(mode)
   }
-
-  const displayModes = [
-    { value: 'table', label: 'dataset.detail.table' },
-    { value: 'raw_data', label: 'dataset.detail.raw_data' }
-  ]
 
   return (
     <div className="mt-6">

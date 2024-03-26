@@ -24,6 +24,7 @@ const DisplayModeSelector: React.FC<DisplayModeSelectorProps> = ({
   ) => {
     if (newOption !== null) {
       setSelectedOption(newOption)
+
       onDisplayModeChange(newOption)
     }
   }
