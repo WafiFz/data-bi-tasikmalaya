@@ -1,4 +1,5 @@
 import CardFileDetail from '@core/components/bi-tasik/cards/CardFileDetail'
+import PaginationRounded from '@core/components/navigation/pagination/PaginationRounded'
 import React from 'react'
 
 const ListFile: React.FC = () => {
@@ -27,6 +28,8 @@ const ListFile: React.FC = () => {
         title="File Ini adalah yang Keempat"
         extension="pdf"
       />
+
+      <PaginationRounded />
     </>
   )
 }
