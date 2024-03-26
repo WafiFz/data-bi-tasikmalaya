@@ -18,7 +18,7 @@ const Header: React.FC = () => {
 
         <FormattedMessage
           id="description_page.dataset"
-          defaultMessage="Find yout dataset"
+          defaultMessage="Find your dataset"
         />
       </div>
 

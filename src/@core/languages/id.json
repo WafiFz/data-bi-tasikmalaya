@@ -10,5 +10,7 @@
   "title.list_file_recent": "Data Terakhir Dibuka",
   "description_page.dataset": "Temukan kumpulan data mentah berupa tabel yang bisa diolah lebih lanjut di sini.",
   "dataset.amount": "Jumlah Dataset",
-  "dataset.amount2": "Jumlah Dataset fkewnfjkwnefoiewoifniowenfinwefoew"
+  "dataset.amount2": "Jumlah Dataset fkewnfjkwnefoiewoifniowenfinwefoew",
+  "dataset.detail.table": "Tabel",
+  "dataset.detail.raw_data": "Data Mentah"
 }

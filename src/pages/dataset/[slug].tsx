@@ -1,16 +1,12 @@
-import CardTitle from '@core/components/bi-tasik/cards/CardTitle'
-import { useRouter } from 'next/router'
+import Content from '@views/dataset/detail/Content'
+import Header from '@views/dataset/detail/Header'
 import React from 'react'
 
 const DatasetDetail: React.FC = () => {
-  const router = useRouter()
-  const title = router.query.slug
-  const source = 'UDSK'
-
-  
-return (
+  return (
     <>
-      <CardTitle title={title} source={source} />
+      <Header />
+      <Content />
     </>
   )
 }
