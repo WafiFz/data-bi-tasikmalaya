@@ -11,6 +11,16 @@ const Content: React.FC = () => {
     setDisplayMode(mode)
   }
 
+  let content: JSX.Element
+
+  if (displayMode === 'table') {
+    content = <DataTable />
+  } else if (displayMode === 'raw_data') {
+    content = <RawData />
+  } else {
+    content = <div>No content available</div>
+  }
+
   return (
     <div className="mt-6">
       <DisplayModeSelector
@@ -18,7 +28,7 @@ const Content: React.FC = () => {
         onDisplayModeChange={handleDisplayModeChange}
       />
 
-      {displayMode === 'table' ? <DataTable /> : <RawData />}
+      {content}
     </div>
   )
 }
