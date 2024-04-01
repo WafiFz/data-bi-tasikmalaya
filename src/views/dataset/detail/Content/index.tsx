@@ -28,7 +28,7 @@ const Content: React.FC = () => {
         onDisplayModeChange={handleDisplayModeChange}
       />
 
-      {content}
+      <div className="mt-6">{content}</div>
     </div>
   )
 }
