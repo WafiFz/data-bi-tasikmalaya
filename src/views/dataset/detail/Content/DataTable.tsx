@@ -15,7 +15,12 @@ export default function QuickFilteringGrid() {
   // Otherwise filter will be applied on fields such as the hidden column id
   const columns = React.useMemo(
     () =>
-      data.columns.filter((column) => VISIBLE_FIELDS.includes(column.field)),
+      data.columns
+        .filter((column) => VISIBLE_FIELDS.includes(column.field))
+        .map((column) => ({
+          ...column,
+          editable: false // Set kolom agar tidak bisa diedit
+        })),
     [data.columns]
   )
 
@@ -23,9 +28,6 @@ export default function QuickFilteringGrid() {
     <Box sx={{ height: 400, width: 1 }}>
       <DataGrid
         {...data}
-        disableColumnFilter
-        disableColumnSelector
-        disableDensitySelector
         // @ts-ignore
         columns={columns}
         slots={{ toolbar: GridToolbar }}
