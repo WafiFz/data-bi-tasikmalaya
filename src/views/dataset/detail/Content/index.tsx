@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import DataTable from './DataTable'
 import { displayModes } from './displayModes.variable'
 import DisplayModeSelector from './DisplayModeSelector'
+import Chart from './Chart'
 import RawData from './RawData'
 
 const Content: React.FC = () => {
-  const [displayMode, setDisplayMode] = useState('table')
+  const [displayMode, setDisplayMode] = useState('grafik')
 
   const handleDisplayModeChange = (mode: string) => {
     setDisplayMode(mode)
@@ -13,7 +14,9 @@ const Content: React.FC = () => {
 
   let content: JSX.Element
 
-  if (displayMode === 'table') {
+  if (displayMode === 'chart') {
+    content = <Chart />
+  } else if (displayMode === 'table') {
     content = <DataTable />
   } else if (displayMode === 'raw_data') {
     content = <RawData />
