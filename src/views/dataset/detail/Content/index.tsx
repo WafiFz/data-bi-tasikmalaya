@@ -6,7 +6,7 @@ import Chart from './Chart'
 import RawData from './RawData'
 
 const Content: React.FC = () => {
-  const [displayMode, setDisplayMode] = useState('grafik')
+  const [displayMode, setDisplayMode] = useState('chart')
 
   const handleDisplayModeChange = (mode: string) => {
     setDisplayMode(mode)
