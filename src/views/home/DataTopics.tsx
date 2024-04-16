@@ -18,61 +18,61 @@ const DataTopics: React.FC = () => {
 
       <div className="my-6 grid grid-cols gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
         <CardTopic
-          href="/pages/login"
+          href="/dataset"
           title={'Topik Ini adalah yang Pertama'}
           icon={<BackupIcon />}
         />
 
         <CardTopic
-          href="/pages/login"
+          href="/dataset"
           title={'Topik Ini adalah yang Kedua'}
           icon={<DriveFolderUploadIcon />}
         />
 
         <CardTopic
-          href="/pages/login"
+          href="/dataset"
           title={'Topik Ini adalah yang Ketiga'}
           icon={<QueryStatsIcon />}
         />
 
         <CardTopic
-          href="/pages/login"
+          href="/dataset"
           title={'Topik Ini adalah yang Keempat'}
           icon={<DescriptionIcon />}
         />
 
         <CardTopic
-          href="/pages/login"
+          href="/dataset"
           title={'Topik Ini adalah yang Kelima'}
           icon={<PivotTableChartIcon />}
         />
 
         <CardTopic
-          href="/pages/login"
+          href="/dataset"
           title={'Topik Ini adalah yang Keenam'}
           icon={<PollIcon />}
         />
 
         <CardTopic
-          href="/pages/login"
+          href="/dataset"
           title={'Topik Ini adalah yang Ketujuh'}
           icon={<BackupIcon />}
         />
 
         <CardTopic
-          href="/pages/login"
+          href="/dataset"
           title={'Topik Ini adalah yang Kedelapan'}
           icon={<DriveFolderUploadIcon />}
         />
 
         <CardTopic
-          href="/pages/login"
+          href="/dataset"
           title={'Topik Ini adalah yang Kesembilan'}
           icon={<QueryStatsIcon />}
         />
 
         <CardTopic
-          href="/pages/login"
+          href="/dataset"
           title={'Topik Ini adalah yang Kesepuluh'}
           icon={<DescriptionIcon />}
         />
