@@ -2,7 +2,10 @@ import React from 'react'
 
 const RawData: React.FC = () => {
   const excelUrl =
-    'https://docs.google.com/spreadsheets/d/1ENRiTB3ZMjJqd7bdCzrWSnkRrMbL0Cld/edit?usp=drive_link&ouid=113933701686718035393&rtpof=true&sd=true'
+    'https://docs.google.com/spreadsheets/d/1p0exMShJvGKkW8h2zpU9nEfCo5gbz4dHEeG3oWDIDuo/edit?usp=drive_link'
+  
+  // const excelUrl =
+  //   'https://cloud.wafi.web.id/inflasi-bulanan-tahun-2018.xlsx'
 
   return (
     <div

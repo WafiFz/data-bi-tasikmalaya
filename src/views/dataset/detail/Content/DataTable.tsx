@@ -2,154 +2,61 @@ import * as React from 'react'
 import Box from '@mui/material/Box'
 import { DataGrid, GridToolbar } from '@mui/x-data-grid'
 import { useDemoData } from '@mui/x-data-grid-generator'
+import Typography from '@mui/material/Typography'
 
 const VISIBLE_FIELDS = ['name', 'rating', 'country', 'dateCreated', 'isAdmin']
 
 export default function QuickFilteringGrid() {
-  const rows = [
-    {
-      id: 1,
-      'Kota/Kabupaten': 'Kota Tasikmalaya',
-      'Padi-padian': '6,4%',
-      'Lauk Pauk': '6,7%',
-      'Sayuran & Kacang': '3,1%',
-      'Buah-buahan': '2,8%',
-      'Bahan Makanan Lainnya': '3,7%',
-      'Makanan Minuman Jadi': '22,9%',
-      'Rokok dan Tembakau': '5,8%',
-      'Perumahan & Fasilitas RT': '22,8%',
-      'Aneka barang dan jasa': '12,6%',
-      Sandang: '3,6%',
-      'Barang tahan lama': '6,2%',
-      'Pajak, pungutan, dan asuransi': '2,4%',
-      'Keperluan pesta': '1,0%'
-    },
-    {
-      id: 2,
-      'Kota/Kabupaten': 'Kab. Tasikmalaya',
-      'Padi-padian': '9,8%',
-      'Lauk Pauk': '9,1%',
-      'Sayuran & Kacang': '3,8%',
-      'Buah-buahan': '2,7%',
-      'Bahan Makanan Lainnya': '5,6%',
-      'Makanan Minuman Jadi': '18,9%',
-      'Rokok dan Tembakau': '11,5%',
-      'Perumahan & Fasilitas RT': '19,3%',
-      'Aneka barang dan jasa': '8,9%',
-      Sandang: '3,2%',
-      'Barang tahan lama': '4,4%',
-      'Pajak, pungutan, dan asuransi': '1,8%',
-      'Keperluan pesta': '1,1%'
-    },
-    {
-      id: 3,
-      'Kota/Kabupaten': 'Kab. Ciamis',
-      'Padi-padian': '7,7%',
-      'Lauk Pauk': '8,0%',
-      'Sayuran & Kacang': '4,1%',
-      'Buah-buahan': '3,3%',
-      'Bahan Makanan Lainnya': '4,6%',
-      'Makanan Minuman Jadi': '18,0%',
-      'Rokok dan Tembakau': '8,2%',
-      'Perumahan & Fasilitas RT': '21,7%',
-      'Aneka barang dan jasa': '10,6%',
-      Sandang: '3,8%',
-      'Barang tahan lama': '4,2%',
-      'Pajak, pungutan, dan asuransi': '3,4%'
-    },
-    {
-      id: 4,
-      'Kota/Kabupaten': 'Kab. Pangandaran',
-      'Padi-padian': '8,3%',
-      'Lauk Pauk': '9,1%',
-      'Sayuran & Kacang': '5,3%',
-      'Buah-buahan': '3,3%',
-      'Bahan Makanan Lainnya': '5,3%',
-      'Makanan Minuman Jadi': '16,7%',
-      'Rokok dan Tembakau': '7,2%',
-      'Perumahan & Fasilitas RT': '22,9%',
-      'Aneka barang dan jasa': '10,2%',
-      Sandang: '2,9%',
-      'Barang tahan lama': '4,8%',
-      'Pajak, pungutan, dan asuransi': '1,6%'
-    },
-    {
-      id: 5,
-      'Kota/Kabupaten': 'Kota Banjar',
-      'Padi-padian': '8,2%',
-      'Lauk Pauk': '8,2%',
-      'Sayuran & Kacang': '4,6%',
-      'Buah-buahan': '3,1%',
-      'Bahan Makanan Lainnya': '5,1%',
-      'Makanan Minuman Jadi': '17,9%',
-      'Rokok dan Tembakau': '9,1%',
-      'Perumahan & Fasilitas RT': '21,7%',
-      'Aneka barang dan jasa': '9,8%',
-      Sandang: '2,5%',
-      'Barang tahan lama': '4,4%',
-      'Pajak, pungutan, dan asuransi': '3,2%'
-    },
-    {
-      id: 6,
-      'Kota/Kabupaten': 'Priangan Timur',
-      'Padi-padian': '7,9%',
-      'Lauk Pauk': '8,2%',
-      'Sayuran & Kacang': '4,2%',
-      'Buah-buahan': '3,0%',
-      'Bahan Makanan Lainnya': '4,8%',
-      'Makanan Minuman Jadi': '19,0%',
-      'Rokok dan Tembakau': '8,1%',
-      'Perumahan & Fasilitas RT': '21,8%',
-      'Aneka barang dan jasa': '10,6%',
-      Sandang: '3,2%',
-      'Barang tahan lama': '4,9%',
-      'Pajak, pungutan, dan asuransi': '1,8%'
-    }
-  ]
+  // Definisi struktur columns
+  interface Column {
+    field: string
+    headerName: string
+    width: number
+  }
 
-  const columns = [
-    { field: 'Kota/Kabupaten', headerName: 'Kota/Kabupaten', width: 200 },
-    { field: 'Padi-padian', headerName: 'Padi-padian', width: 150 },
-    { field: 'Lauk Pauk', headerName: 'Lauk Pauk', width: 150 },
-    { field: 'Sayuran & Kacang', headerName: 'Sayuran & Kacang', width: 200 },
-    { field: 'Buah-buahan', headerName: 'Buah-buahan', width: 150 },
-    {
-      field: 'Bahan Makanan Lainnya',
-      headerName: 'Bahan Makanan Lainnya',
-      width: 200
-    },
-    {
-      field: 'Makanan Minuman Jadi',
-      headerName: 'Makanan Minuman Jadi',
-      width: 200
-    },
-    {
-      field: 'Rokok dan Tembakau',
-      headerName: 'Rokok dan Tembakau',
-      width: 200
-    },
-    {
-      field: 'Perumahan & Fasilitas RT',
-      headerName: 'Perumahan & Fasilitas RT',
-      width: 250
-    },
-    {
-      field: 'Aneka barang dan jasa',
-      headerName: 'Aneka barang dan jasa',
-      width: 200
-    },
-    { field: 'Sandang', headerName: 'Sandang', width: 150 },
-    { field: 'Barang tahan lama', headerName: 'Barang tahan lama', width: 200 },
-    {
-      field: 'Pajak, pungutan, dan asuransi',
-      headerName: 'Pajak, pungutan, dan asuransi',
-      width: 250
-    },
-    { field: 'Keperluan pesta', headerName: 'Keperluan pesta', width: 200 }
-  ]
+  // Data CSV
+  const csvData = `Bulan,Tasikmalaya,Jawa Barat,Nasional,Core Inflation,Volatile Food,Adm. Prices,Inflasi Umum (yoy)
+Jan,4.19,3.68,3.25,2.63,7.66,7.39,4.19
+Feb,4.09,3.69,3.18,2.97,6.40,6.53,4.09
+Mar,4.16,3.91,3.40,3.16,6.04,6.48,4.16
+Apr,3.49,3.70,3.41,2.93,4.65,4.68,3.49
+Mei,3.28,3.51,3.23,2.66,4.76,4.46,3.28
+Jun,3.33,3.09,2.72,2.57,6.81,3.40,3.33
+Jul,3.44,3.47,3.18,2.82,7.08,2.83,3.44
+Agu,2.82,3.55,3.20,2.17,5.17,3.36,2.82
+Sep,2.30,3.17,2.88,2.02,2.39,3.29,2.30
+Okt,2.43,3.48,3.16,1.94,2.98,3.83,2.43
+Nov,2.56,3.55,3.23,1.89,4.00,3.94,2.56
+Des,2.30,3.54,3.13,1.73,3.04,3.84,2.30`
+
+  // Parsing data CSV untuk mendapatkan columns
+  const lines = csvData.split('\n')
+  const headerLine = lines[0]
+  const columnFields = headerLine.split(',')
+  const columns: Column[] = columnFields.map((field) => ({
+    field,
+    headerName: field,
+    width: 120 // Atur lebar default
+  }))
+
+  // Parsing data CSV menjadi rows
+  const rows = lines.slice(1).map((rowString, index) => {
+    const values = rowString.split(',')
+    const row: any = { id: index + 1 }
+    columns.forEach((column, columnIndex) => {
+      row[column.field] = values[columnIndex]
+    })
+    return row
+  })
+
+  // console.log(columns);
+  // console.log(rows);
 
   return (
     <Box sx={{ height: 400, width: 1 }}>
+      <Typography variant="h6" gutterBottom>
+        Inflasi Bulanan Tahun 2018 - Tasikmalaya
+      </Typography>
       <DataGrid
         rows={rows}
         columns={columns}

@@ -6,25 +6,25 @@ const ListFile: React.FC = () => {
   return (
     <>
       <CardFileDetail
-        href="/dataset/ini-contoh-data"
+        href="/dataset/Inflasi Bulanan Tahun 2018 - Tasikmalaya"
         title="File Ini adalah yang Pertama"
         extension="pdf"
       />
 
       <CardFileDetail
-        href="/dataset/ini-contoh-data"
+        href="/dataset/Inflasi Bulanan Tahun 2018 - Tasikmalaya"
         title="File Ini adalah yang kedua"
         extension="docx"
       />
 
       <CardFileDetail
-        href="/dataset/ini-contoh-data"
+        href="/dataset/Inflasi Bulanan Tahun 2018 - Tasikmalaya"
         title="File Ini adalah yang Ketiga"
         extension="xlsx"
       />
 
       <CardFileDetail
-        href="/dataset/ini-contoh-data"
+        href="/dataset/Inflasi Bulanan Tahun 2018 - Tasikmalaya"
         title="File Ini adalah yang Keempat"
         extension="pdf"
       />

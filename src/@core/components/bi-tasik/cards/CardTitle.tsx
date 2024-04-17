@@ -45,8 +45,7 @@ const CardTitle: React.FC<CardTitleProps> = ({title, source}) => {
           variant="body2"
           sx={{ marginBottom: 3, color: 'common.white' }}
         >
-          You’ve read about the importance of being courageous, rebellious and
-          imaginative. These are all vital ingredients in an effective.
+          Data terkait inflasi bulanan selama tahun 2018 Tasikmalaya
         </Typography>
 
         <Box
