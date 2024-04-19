@@ -7,26 +7,8 @@ const ListFile: React.FC = () => {
     <>
       <CardFileDetail
         href="/dataset/Inflasi Bulanan Tahun 2018 - Tasikmalaya"
-        title="File Ini adalah yang Pertama"
-        extension="pdf"
-      />
-
-      <CardFileDetail
-        href="/dataset/Inflasi Bulanan Tahun 2018 - Tasikmalaya"
-        title="File Ini adalah yang kedua"
-        extension="docx"
-      />
-
-      <CardFileDetail
-        href="/dataset/Inflasi Bulanan Tahun 2018 - Tasikmalaya"
-        title="File Ini adalah yang Ketiga"
+        title="Inflasi Bulanan Tahun 2018 - Tasikmalaya"
         extension="xlsx"
-      />
-
-      <CardFileDetail
-        href="/dataset/Inflasi Bulanan Tahun 2018 - Tasikmalaya"
-        title="File Ini adalah yang Keempat"
-        extension="pdf"
       />
 
       <PaginationRounded />
