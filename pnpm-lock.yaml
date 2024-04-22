@@ -92,8 +92,8 @@ dependencies:
     specifier: ^0.7.7
     version: 0.7.7(react-dom@18.2.0)(react@18.2.0)
   universal-cookie:
-    specifier: ^7.1.0
-    version: 7.1.2
+    specifier: ^7.1.4
+    version: 7.1.4
 
 devDependencies:
   '@next/eslint-plugin-next':
@@ -111,6 +111,9 @@ devDependencies:
   '@types/react-datepicker':
     specifier: ^4.8.0
     version: 4.19.6(react-dom@18.2.0)(react@18.2.0)
+  '@types/universal-cookie':
+    specifier: ^3.0.0
+    version: 3.0.0
   '@typescript-eslint/eslint-plugin':
     specifier: ^5.47.1
     version: 5.62.0(@typescript-eslint/parser@5.62.0)(eslint@8.57.0)(typescript@4.9.4)
@@ -1100,7 +1103,6 @@ packages:
 
   /@types/cookie@0.6.0:
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
-    dev: false
 
   /@types/format-util@1.0.4:
     resolution: {integrity: sha512-xrCYOdHh5zA3LUrn6CvspYwlzSWxPso11Lx32WnAG6KvLCRecKZ/Rh21PLXUkzUFsQmrGcx/traJAFjR6dVS5Q==}
@@ -1176,6 +1178,13 @@ packages:
 
   /@types/semver@7.5.8:
     resolution: {integrity: sha512-I8EUhyrgfLrcTkzV3TSsGyl1tSuPrEDzr0yd5m90UgNxQkyDXULk3b6MlQqTCpZpNtWe1K0hzclnZkTcLBe2UQ==}
+    dev: true
+
+  /@types/universal-cookie@3.0.0:
+    resolution: {integrity: sha512-EnipDS8yUDYvcyN7jVJYOK29zvJwsnVLUZoGtozjOzkM31ZfJSDrtofraIgoi7eagCHLXwrspqsFOHTtpcHFDg==}
+    deprecated: This is a stub types definition. universal-cookie provides its own type definitions, so you do not need this installed.
+    dependencies:
+      universal-cookie: 7.1.4
     dev: true
 
   /@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0)(eslint@8.57.0)(typescript@4.9.4):
@@ -1889,7 +1898,6 @@ packages:
   /cookie@0.6.0:
     resolution: {integrity: sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw==}
     engines: {node: '>= 0.6'}
-    dev: false
 
   /core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
@@ -5111,12 +5119,11 @@ packages:
       which-boxed-primitive: 1.0.2
     dev: true
 
-  /universal-cookie@7.1.2:
-    resolution: {integrity: sha512-GK9ygNUNk+u1umTtFoWItePuIGYy0TEu2w084mfjBpIIg9pikcN18EM6IMt+9VJCyR3uftu3yF2fFUMbwH1Kdw==}
+  /universal-cookie@7.1.4:
+    resolution: {integrity: sha512-Q+DVJsdykStWRMtXr2Pdj3EF98qZHUH/fXv/gwFz/unyToy1Ek1w5GsWt53Pf38tT8Gbcy5QNsj61Xe9TggP4g==}
     dependencies:
       '@types/cookie': 0.6.0
       cookie: 0.6.0
-    dev: false
 
   /unzipper@0.10.14:
     resolution: {integrity: sha512-ti4wZj+0bQTiX2KmKWuwj7lhV+2n//uXEotUmGuQqrbVZSEGFMbI68+c6JCQ8aAmUWYvtHEz2A8K6wXvueR/6g==}

@@ -1,15 +1,14 @@
-import React from 'react'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import CardHeader from '@mui/material/CardHeader'
 import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
+
+// import { useTheme } from '@mui/material/styles'
 import DotsVerticalIcon from 'mdi-material-ui/DotsVertical'
-import { useTheme } from '@mui/material/styles'
-import ReactApexcharts from 'react-apexcharts'
+import ReactApexcharts from 'src/@core/components/react-apexcharts'
 
 const MultiLineChart = () => {
-  const theme = useTheme()
+  // const theme = useTheme()
 
   const options = {
     chart: {
@@ -99,6 +98,7 @@ const MultiLineChart = () => {
           </IconButton>
         }
       />
+
       <CardContent>
         <ReactApexcharts
           type="line"

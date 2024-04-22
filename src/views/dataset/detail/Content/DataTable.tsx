@@ -1,10 +1,11 @@
 import * as React from 'react'
 import Box from '@mui/material/Box'
 import { DataGrid, GridToolbar } from '@mui/x-data-grid'
-import { useDemoData } from '@mui/x-data-grid-generator'
+
+// import { useDemoData } from '@mui/x-data-grid-generator'
 import Typography from '@mui/material/Typography'
 
-const VISIBLE_FIELDS = ['name', 'rating', 'country', 'dateCreated', 'isAdmin']
+// const VISIBLE_FIELDS = ['name', 'rating', 'country', 'dateCreated', 'isAdmin']
 
 export default function QuickFilteringGrid() {
   // Definisi struktur columns
@@ -43,10 +44,13 @@ Des,2.30,3.54,3.13,1.73,3.04,3.84,2.30`
   const rows = lines.slice(1).map((rowString, index) => {
     const values = rowString.split(',')
     const row: any = { id: index + 1 }
+
     columns.forEach((column, columnIndex) => {
       row[column.field] = values[columnIndex]
     })
-    return row
+
+    
+return row
   })
 
   // console.log(columns);
@@ -57,6 +61,7 @@ Des,2.30,3.54,3.13,1.73,3.04,3.84,2.30`
       <Typography variant="h6" gutterBottom>
         Inflasi Bulanan Tahun 2018 - Tasikmalaya
       </Typography>
+
       <DataGrid
         rows={rows}
         columns={columns}
