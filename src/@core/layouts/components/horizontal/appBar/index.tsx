@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl'
 import { useRecoilValue } from 'recoil'
 
 import Logo from '@core/components/bi-tasik/logo'
-import { isLoggedInState } from '@core/server/states/auth/isLoggedIn.state'
+import { isLoggedInState } from '@core/server/v1/auth/isLoggedIn.state'
 import ResponsiveNavigationComponent from './ResponsiveNavigationComponent'
 import UserMenuComponent from './UserMenuComponent'
 

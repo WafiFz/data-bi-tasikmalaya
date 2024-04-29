@@ -2,7 +2,7 @@ import * as React from 'react'
 import Pagination from '@mui/material/Pagination'
 import Stack from '@mui/material/Stack'
 import { useRecoilState } from 'recoil'
-import { currentPageState } from '@core/server/states/pagination/currentPageState'
+import { currentPageState } from '@core/server/v1/pagination/currentPageState'
 
 export default function PaginationRounded() {
   const [currentPage, setCurrentPage] = useRecoilState(currentPageState)

@@ -1,4 +1,4 @@
-import { ping } from '@core/server/api/v1/ping';
+import { getPing } from '@core/server/v1/ping/ping.api';
 import { atom, useSetRecoilState } from 'recoil';
 
 export const pingState = atom({
@@ -12,7 +12,7 @@ const usePing = () => {
 
   const fetchData = async () => {
     try {
-      const responseData = await ping();
+      const responseData = await getPing();
       setPingData(responseData.data.ping);
     } catch (error) {
       console.error('Error fetching ping data:', error);
