@@ -1,20 +1,23 @@
-import axios from 'axios'
+import axiosInstance from '@core/constants/axios'
+import { handleErrorApi } from '@core/utils/handleErrorApi'
 
 // Fungsi untuk login
 export const loginApi = async (email: string, password: string) => {
   try {
-    const response = await axios.post('/v1/auth/login', { email, password })
+    const response = await axiosInstance.post(
+      '/v1/auth/login',
+      { email, password },
+    ) // Tambahkan konfigurasi timeout di sini
     return response.data.data
-  } catch (error) {
-    console.error('Login failed:', error)
-    throw new Error('Login failed')
+  } catch (error: any) {
+    handleErrorApi(error)
   }
 }
 
 // Fungsi untuk logout
 export const logoutApi = async () => {
   try {
-    await axios.post('/v1/auth/logout')
+    await axiosInstance.post('/v1/auth/logout')
   } catch (error) {
     console.error('Logout failed:', error)
     throw new Error('Logout failed')
@@ -24,7 +27,7 @@ export const logoutApi = async () => {
 // Fungsi untuk memperbarui token
 export const refreshAccessTokenApi = async (refreshToken: string) => {
   try {
-    const response = await axios.post('/v1/auth/refresh', {
+    const response = await axiosInstance.post('/v1/auth/refresh', {
       token: refreshToken
     })
     return response.data.data

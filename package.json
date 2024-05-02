@@ -57,6 +57,7 @@
     "@mui/x-data-grid-generator": "^7.0.0",
     "@popperjs/core": "^2.11.6",
     "@types/react-file-icon": "^1.0.4",
+    "@types/react-toastify": "^4.1.0",
     "apexcharts-clevision": "3.28.5",
     "axios": "^1.6.8",
     "clsx": "^1.2.1",
@@ -72,6 +73,7 @@
     "react-intl": "^6.6.2",
     "react-perfect-scrollbar": "^1.5.8",
     "react-popper": "^2.3.0",
+    "react-toastify": "^10.0.5",
     "recoil": "^0.7.7",
     "universal-cookie": "^7.1.4"
   },

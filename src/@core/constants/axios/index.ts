@@ -10,13 +10,13 @@ const cookies = new Cookies()
 
 const axiosInstance = axios.create({
   baseURL: process.env.API_URL,
-  timeout: 5000 // Set a timeout value if needed
+  timeout: 15000 // Set a timeout value if needed
 })
 
 const onRequest = (
   config: InternalAxiosRequestConfig
 ): InternalAxiosRequestConfig => {
-  const token = cookies.get('access_token')
+  const token = cookies.get('access_token') || null
   const { headers } = config
 
   if (token) {

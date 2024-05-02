@@ -41,7 +41,14 @@ import BlankLayout from 'src/@core/layouts/BlankLayout'
 // ** Demo Imports
 import FooterIllustrationsV1 from 'src/views/pages/auth/FooterIllustration'
 
+// ** Library
+import { toast } from 'react-toastify'
+
+// ** Auth Server
+import { useAuth } from '@core/server/v1/auth/auth.hook'
+
 interface State {
+  email: string
   password: string
   showPassword: boolean
 }
@@ -69,6 +76,7 @@ const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(
 const LoginPage = () => {
   // ** State
   const [values, setValues] = useState<State>({
+    email: '',
     password: '',
     showPassword: false
   })
@@ -76,6 +84,7 @@ const LoginPage = () => {
   // ** Hook
   const theme = useTheme()
   const router = useRouter()
+  const { loginUser } = useAuth()
 
   const handleChange =
     (prop: keyof State) => (event: ChangeEvent<HTMLInputElement>) => {
@@ -88,6 +97,15 @@ const LoginPage = () => {
 
   const handleMouseDownPassword = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
+  }
+
+  const handleLogin = async () => {
+    try {
+      await loginUser(values.email, values.password)
+      router.push('/')
+    } catch (error: any) {
+      toast.error('' + error)
+    }
   }
 
   return (
@@ -208,6 +226,8 @@ const LoginPage = () => {
               id="email"
               label="Email"
               sx={{ marginBottom: 4 }}
+              value={values.email}
+              onChange={handleChange('email')} // Menggunakan fungsi handleChange untuk input email
             />
 
             <FormControl fullWidth>
@@ -255,7 +275,8 @@ const LoginPage = () => {
               size="large"
               variant="contained"
               sx={{ marginBottom: 7 }}
-              onClick={() => router.push('/')}
+              onClick={handleLogin}
+              // onClick={() => router.push('/')}
             >
               Login
             </Button>

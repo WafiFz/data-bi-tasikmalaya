@@ -40,6 +40,10 @@ import 'react-perfect-scrollbar/dist/css/styles.css'
 import '../../styles/globals.css'
 import UserLayoutHorizontal from 'src/layouts/UserLayoutHorizontal'
 
+// ** Library
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // ** Define available languages and their messages
 import { languages } from 'src/@core/languages'
 
@@ -150,6 +154,8 @@ const App = (props: ExtendedAppProps) => {
             </SettingsConsumer>
           </SettingsProvider>
         </CacheProvider>
+
+        <ToastContainer />
       </div>
     </RecoilRoot>
   )

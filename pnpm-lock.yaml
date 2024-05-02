@@ -46,6 +46,9 @@ dependencies:
   '@types/react-file-icon':
     specifier: ^1.0.4
     version: 1.0.4
+  '@types/react-toastify':
+    specifier: ^4.1.0
+    version: 4.1.0(react-dom@18.2.0)(react@18.2.0)
   apexcharts-clevision:
     specifier: 3.28.5
     version: 3.28.5
@@ -91,6 +94,9 @@ dependencies:
   react-popper:
     specifier: ^2.3.0
     version: 2.3.0(@popperjs/core@2.11.8)(react-dom@18.2.0)(react@18.2.0)
+  react-toastify:
+    specifier: ^10.0.5
+    version: 10.0.5(react-dom@18.2.0)(react@18.2.0)
   recoil:
     specifier: ^0.7.7
     version: 0.7.7(react-dom@18.2.0)(react@18.2.0)
@@ -1161,6 +1167,16 @@ packages:
     resolution: {integrity: sha512-c1mIklUDaxm9odxf8RTiy/EAxsblZliJ86EKIOAyuafP9eK3iudyn4ATv53DX6ZvgGymc7IttVNm97LTGnTiYA==}
     dependencies:
       '@types/react': 18.0.26
+    dev: false
+
+  /@types/react-toastify@4.1.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-u7Ie/7LHBsPVz/iJxi/WlRDS7Gh9csCJACTDXx+pSLuZCm94xpkwzhM3jV1L5ZxP/in0Gp2tFbJ91VrSGr1gyQ==}
+    deprecated: This is a stub types definition. react-toastify provides its own type definitions, so you do not need this installed.
+    dependencies:
+      react-toastify: 10.0.5(react-dom@18.2.0)(react@18.2.0)
+    transitivePeerDependencies:
+      - react
+      - react-dom
     dev: false
 
   /@types/react-transition-group@4.4.10:
@@ -4365,6 +4381,17 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
       react-fast-compare: 3.2.2
       warning: 4.0.3
+
+  /react-toastify@10.0.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-mNKt2jBXJg4O7pSdbNUfDdTsK9FIdikfsIE/yUCxbAEXl4HMyJaivrVFcn3Elvt5xvCQYhUZm+hqTIu1UXM3Pw==}
+    peerDependencies:
+      react: 18.2.0
+      react-dom: 18.2.0
+    dependencies:
+      clsx: 2.1.0
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /react-transition-group@4.4.5(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
