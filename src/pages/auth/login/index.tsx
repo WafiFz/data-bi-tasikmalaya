@@ -103,7 +103,7 @@ const LoginPage = () => {
     try {
       await loginUser(values.email, values.password)
       toast.success('Login berhasil');
-      router.push('/')
+      router.push('/admin')
     } catch (error: any) {
       toast.error('' + error)
     }

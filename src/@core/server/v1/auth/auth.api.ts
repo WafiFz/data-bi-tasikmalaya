@@ -7,7 +7,7 @@ export const loginApi = async (email: string, password: string) => {
     const response = await axiosInstance.post(
       '/v1/auth/login',
       { email, password },
-    ) // Tambahkan konfigurasi timeout di sini
+    )
     return response.data.data
   } catch (error: any) {
     handleErrorApi(error)
