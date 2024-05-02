@@ -23,6 +23,8 @@ import ScrollToTop from 'src/@core/components/scroll-to-top'
 
 // ** Styled Component
 import DatePickerWrapper from 'src/@core/styles/libs/react-datepicker'
+import { useRouter } from 'next/router'
+import { useAuthContext } from '@core/context/authContext'
 
 const VerticalLayoutWrapper = styled('div')({
   height: '100%',
@@ -61,6 +63,13 @@ const VerticalLayout = (props: LayoutProps) => {
 
   // ** Toggle Functions
   const toggleNavVisibility = () => setNavVisible(!navVisible)
+
+  const router = useRouter()
+  const { isAuthenticated } = useAuthContext()
+  if (!isAuthenticated) {
+    router.push('/auth/login')
+    return null
+  }
 
   return (
     <>

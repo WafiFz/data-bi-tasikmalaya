@@ -41,11 +41,12 @@ import '../../styles/globals.css'
 import UserLayoutHorizontal from 'src/layouts/UserLayoutHorizontal'
 
 // ** Library
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 // ** Define available languages and their messages
 import { languages } from 'src/@core/languages'
+import { AuthProvider } from '@core/context/authContext'
 
 const cookies = new Cookies()
 
@@ -142,17 +143,19 @@ const App = (props: ExtendedAppProps) => {
             />
           </Head>
 
-          <SettingsProvider>
-            <SettingsConsumer>
-              {({ settings }) => (
-                <IntlProvider locale={locale} messages={languages[locale]}>
-                  <ThemeComponent settings={settings}>
-                    {getLayout(<Component {...pageProps} />)}
-                  </ThemeComponent>
-                </IntlProvider>
-              )}
-            </SettingsConsumer>
-          </SettingsProvider>
+          <AuthProvider>
+            <SettingsProvider>
+              <SettingsConsumer>
+                {({ settings }) => (
+                  <IntlProvider locale={locale} messages={languages[locale]}>
+                    <ThemeComponent settings={settings}>
+                      {getLayout(<Component {...pageProps} />)}
+                    </ThemeComponent>
+                  </IntlProvider>
+                )}
+              </SettingsConsumer>
+            </SettingsProvider>
+          </AuthProvider>
         </CacheProvider>
 
         <ToastContainer />
