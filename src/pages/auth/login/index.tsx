@@ -102,6 +102,7 @@ const LoginPage = () => {
   const handleLogin = async () => {
     try {
       await loginUser(values.email, values.password)
+      toast.success('Login berhasil');
       router.push('/')
     } catch (error: any) {
       toast.error('' + error)
