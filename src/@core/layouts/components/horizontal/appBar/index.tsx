@@ -37,8 +37,8 @@ function ResponsiveAppBar() {
             <UserMenuComponent />
           ) : (
             <Button
-              href={'/pages/login'}
-              key={'/pages/login'}
+              href={'/auth/login'}
+              key={'/auth/login'}
               sx={{ my: 2, color: 'primary', display: 'block' }}
               variant="contained"
             >

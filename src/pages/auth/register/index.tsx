@@ -285,7 +285,7 @@ const RegisterPage = () => {
               </Typography>
 
               <Typography variant="body2">
-                <LinkStyled passHref href="/pages/login">
+                <LinkStyled passHref href="/auth/login">
                   Sign in instead
                 </LinkStyled>
               </Typography>

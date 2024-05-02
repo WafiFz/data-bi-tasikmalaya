@@ -174,7 +174,7 @@ const UserDropdown = () => {
 
         <MenuItem
           sx={{ py: 2 }}
-          onClick={() => handleDropdownClose('/pages/login')}
+          onClick={() => handleDropdownClose('/auth/login')}
         >
           <LogoutVariant
             sx={{
