@@ -9,6 +9,16 @@ export const Navigation = [
     page: <FormattedMessage id="nav.dataset" defaultMessage="Dataset" />,
     path: '/dataset',
     newTab: false
+  },
+  {
+    page: (
+      <FormattedMessage
+        id="nav.insight"
+        defaultMessage="Insight"
+      />
+    ),
+    path: '/insight',
+    newTab: true
   }
 
   // {
