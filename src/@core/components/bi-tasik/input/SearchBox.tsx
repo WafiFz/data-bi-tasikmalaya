@@ -4,11 +4,17 @@ import InputBase from '@mui/material/InputBase'
 import Paper from '@mui/material/Paper'
 import { useIntl } from 'react-intl'
 
-const SearchBox: React.FC = () => {
+interface SearchBoxProps {
+  intlPleaceHolder?: string
+}
+
+const SearchBox: React.FC<SearchBoxProps> = ({
+  intlPleaceHolder = 'placeholder.searchbox'
+}) => {
   const intl = useIntl()
   const placeholderSearchBox = intl.formatMessage(
     {
-      id: 'placeholder.searchbox'
+      id: intlPleaceHolder
     },
     { defaultMessage: 'Search' }
   )

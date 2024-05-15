@@ -1,12 +1,14 @@
-import WordCloud from '@views/insight/WordCloud'
+import HeroSection from '@views/insight/HeroSection'
+import SentimentAnalysis from '@views/insight/SentimentAnalysis'
 import React from 'react'
 
-const WordCloudPage: React.FC = () => {
+const InsightPage: React.FC = () => {
   return (
     <>
-      <WordCloud></WordCloud>
+      <HeroSection></HeroSection>
+      <SentimentAnalysis></SentimentAnalysis>
     </>
   )
 }
 
-export default WordCloudPage
+export default InsightPage
