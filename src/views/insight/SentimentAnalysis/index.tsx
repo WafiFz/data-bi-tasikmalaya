@@ -18,7 +18,7 @@ const SentimentAnalysis: React.FC = () => {
   ]
   return (
     <>
-      <TitleH5 title="Analisis Sentimen" textAlignCenter={true}></TitleH5>
+      <TitleH5 title="Analisis Sentimen Berita" textAlignCenter={true}></TitleH5>
 
       <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3`}>
         <WordCloud
