@@ -3,9 +3,10 @@ import React from 'react'
 
 interface HeroSectionProps {
   margin?: string; // prop untuk mengatur margin
+  onSearch: (keyword: string) => void;
 }
 
-const HeroSection: React.FC<HeroSectionProps> = ({ margin }) => {
+const HeroSection: React.FC<HeroSectionProps> = ({ margin, onSearch }) => {
   return (
     <div className={`items-center justify-center ${margin} md:flex md:flex-row`}>
       <div>
@@ -24,7 +25,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ margin }) => {
         </div>
 
         <div className="mt-4">
-          <SearchBox />
+          <SearchBox onSearch={onSearch} />
         </div>
       </div>
 

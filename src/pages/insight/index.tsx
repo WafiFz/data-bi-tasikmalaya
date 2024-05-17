@@ -4,16 +4,24 @@ import { IWordCloudToken } from '@core/interfaces/insight/wordCloudToken.interfa
 import HeroSection from '@views/insight/HeroSection'
 import NewsView from '@views/insight/News'
 import SentimentAnalysisView from '@views/insight/SentimentAnalysis'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useInsight } from '@server/v1/insight/insight.hook';
+import { handleSearchFromURL } from '@core/utils/handleSearchFromURL'
 
 
 const InsightPage: React.FC = () => {
   const { insightData } = useInsight();
 
-  // if (!insightData) {
-  //   return <div>Loading...</div>;
-  // }
+  const handleSearch = (keyword: string) => {
+    // Di sini Anda bisa melakukan sesuatu dengan kata kunci pencarian,
+    // misalnya, mengirim permintaan ke API untuk mendapatkan data insight
+    console.log('Kata kunci pencarian:', keyword);
+  };
+
+  useEffect(() => {
+    // Memanggil fungsi pencarian pertama kali saat komponen dimuat
+    handleSearchFromURL(handleSearch);
+  }, []);
   
   const LI = insightData
   
@@ -28,7 +36,7 @@ const InsightPage: React.FC = () => {
   const neutralWordCloud: IWordCloudToken[] = LI.neutralNews.wordCloudTokens
   return (
     <>
-      <HeroSection></HeroSection>
+      <HeroSection onSearch={handleSearch} />
       <NewsView
         allNews={allNews}
         positiveNews={positiveNews}
