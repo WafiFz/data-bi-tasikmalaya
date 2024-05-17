@@ -6,17 +6,9 @@ import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { useTheme } from '@mui/material/styles'
+import { INews } from '@core/interfaces/insight/news.interface'
 
-interface CardNewsProps {
-  link: string
-  title: string
-  source: string
-  date: string
-  snippet: string
-  thumbnail?: string
-}
-
-const CardTopic: React.FC<CardNewsProps> = ({
+const CardTopic: React.FC<INews> = ({
   link,
   title,
   source,

@@ -8,8 +8,8 @@ import Cookies from 'universal-cookie'
 
 const cookies = new Cookies()
 
-const axiosInstance = axios.create({
-  baseURL: process.env.URL_API,
+const axiosInsight = axios.create({
+  baseURL: process.env.URL_API_INSIGHT,
   timeout: 15000 // Set a timeout value if needed
 })
 
@@ -43,7 +43,7 @@ const onErrorResponse = (error: AxiosError | Error): Promise<AxiosError> => {
   return Promise.reject(error)
 }
 
-axiosInstance.interceptors.response.use(
+axiosInsight.interceptors.response.use(
   (response) => response,
   (error) => {
     // Handle the error globally
@@ -52,10 +52,10 @@ axiosInstance.interceptors.response.use(
   }
 )
 
-const setupInterceptors = (axiosInstance: AxiosInstance): AxiosInstance => {
-  axiosInstance.interceptors.request.use(onRequest)
-  axiosInstance.interceptors.response.use(onResponse, onErrorResponse)
-  return axiosInstance
+const setupInterceptors = (axiosInsight: AxiosInstance): AxiosInstance => {
+  axiosInsight.interceptors.request.use(onRequest)
+  axiosInsight.interceptors.response.use(onResponse, onErrorResponse)
+  return axiosInsight
 }
 
-export default setupInterceptors(axiosInstance)
+export default setupInterceptors(axiosInsight)
