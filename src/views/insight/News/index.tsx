@@ -17,7 +17,7 @@ const NewsView: React.FC<NewsViewProps> = ({
 }) => {
   return (
     <>
-      <TitleH5 title="Berita Terkini" textAlignCenter={true}></TitleH5>
+      <TitleH5 title="Berita" textAlignCenter={true}></TitleH5>
 
       <div className="my-6 grid grid-cols gap-4 sm:grid-cols-2">
         {allNews.map((news, index) => (

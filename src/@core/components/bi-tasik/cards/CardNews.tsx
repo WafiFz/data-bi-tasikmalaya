@@ -39,14 +39,35 @@ const CardTopic: React.FC<CardNewsProps> = ({
             />
           )}
 
-          <ListItem>
-            <ListItemText
-              primary={title}
-              secondary={isMdScreen ? snippet : undefined}
-              primaryTypographyProps={{ style: { fontSize: '14px' } }} // Atur ukuran font primary di sini
-              secondaryTypographyProps={{ style: { fontSize: '12px' } }} // Atur ukuran font secondary di sini
-            />
-          </ListItem>
+          <div className="flex flex-col w-full">
+            <ListItem>
+              <ListItemText
+                primary={title}
+                secondary={isMdScreen ? snippet : undefined}
+                primaryTypographyProps={{ style: { fontSize: '14px' } }}
+                secondaryTypographyProps={{ style: { fontSize: '12px' } }}
+              />
+            </ListItem>
+
+            <div className="flex justify-between px-4">
+              <Typography
+                variant="body2"
+                color="textSecondary"
+                component="p"
+                style={{ fontSize: '12px' }}
+              >
+                {source}
+              </Typography>
+              <Typography
+                variant="body2"
+                color="textSecondary"
+                component="p"
+                style={{ fontSize: '12px' }}
+              >
+                {date}
+              </Typography>
+            </div>
+          </div>
         </CardContent>
       </Card>
     </Link>
