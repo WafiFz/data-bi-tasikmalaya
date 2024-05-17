@@ -5,13 +5,13 @@ import HeroSection from '@views/insight/HeroSection'
 import NewsView from '@views/insight/News'
 import SentimentAnalysisView from '@views/insight/SentimentAnalysis'
 import React, { useEffect } from 'react'
-import { useInsight } from '@server/v1/insight/insight.hook';
+import { useInsight } from '@server/v1/insight/insight.hook'
 import { handleSearchFromURL } from '@core/utils/handleSearchFromURL'
-
+import Loader from '@core/components/ux/Loader'
 
 const InsightPage: React.FC = () => {
-  const { insightData, handleSearch } = useInsight();
-  
+  const { insightData, handleSearch, isLoading } = useInsight()
+
   const LI = insightData
 
   if (!LI) {
@@ -19,15 +19,16 @@ const InsightPage: React.FC = () => {
     return (
       <>
         <HeroSection onSearch={handleSearch} />
+        {isLoading && <Loader />}
       </>
     )
   }
-  
+
   const allNews: INews[] = LI.allNews.news
   const positiveNews: INews[] = LI.positiveNews.news
   const negativeNews: INews[] = LI.negativeNews.news
   const neutralNews: INews[] = LI.neutralNews.news
-  
+
   const allWordCloud: IWordCloudToken[] = LI.allNews.wordCloudTokens
   const positiveWordCloud: IWordCloudToken[] = LI.positiveNews.wordCloudTokens
   const negativeWordCloud: IWordCloudToken[] = LI.negativeNews.wordCloudTokens
@@ -35,19 +36,24 @@ const InsightPage: React.FC = () => {
   return (
     <>
       <HeroSection onSearch={handleSearch} />
-      <NewsView
-        allNews={allNews}
-        positiveNews={positiveNews}
-        negativeNews={negativeNews}
-        neutralNews={neutralNews}
-      ></NewsView>
-
-      <SentimentAnalysisView
-        allWordCloud={allWordCloud}
-        positiveWordCloud={positiveWordCloud}
-        negativeWordCloud={negativeWordCloud}
-        neutralWordCloud={neutralWordCloud}
-      ></SentimentAnalysisView>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <NewsView
+            allNews={allNews}
+            positiveNews={positiveNews}
+            negativeNews={negativeNews}
+            neutralNews={neutralNews}
+          />
+          <SentimentAnalysisView
+            allWordCloud={allWordCloud}
+            positiveWordCloud={positiveWordCloud}
+            negativeWordCloud={negativeWordCloud}
+            neutralWordCloud={neutralWordCloud}
+          />
+        </>
+      )}
     </>
   )
 }
