@@ -10,20 +10,18 @@ import { handleSearchFromURL } from '@core/utils/handleSearchFromURL'
 
 
 const InsightPage: React.FC = () => {
-  const { insightData } = useInsight();
-
-  const handleSearch = (keyword: string) => {
-    // Di sini Anda bisa melakukan sesuatu dengan kata kunci pencarian,
-    // misalnya, mengirim permintaan ke API untuk mendapatkan data insight
-    console.log('Kata kunci pencarian:', keyword);
-  };
-
-  useEffect(() => {
-    // Memanggil fungsi pencarian pertama kali saat komponen dimuat
-    handleSearchFromURL(handleSearch);
-  }, []);
+  const { insightData, handleSearch } = useInsight();
   
   const LI = insightData
+
+  if (!LI) {
+    // Handle jika insightData adalah null
+    return (
+      <>
+        <HeroSection onSearch={handleSearch} />
+      </>
+    )
+  }
   
   const allNews: INews[] = LI.allNews.news
   const positiveNews: INews[] = LI.positiveNews.news
