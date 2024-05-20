@@ -1,23 +1,29 @@
-import * as React from 'react'
+import React from 'react'
 import Pagination from '@mui/material/Pagination'
 import Stack from '@mui/material/Stack'
-import { useRecoilState } from 'recoil'
-import { currentPageState } from '@core/server/v1/pagination/currentPageState'
 
-export default function PaginationRounded() {
-  const [currentPage, setCurrentPage] = useRecoilState(currentPageState)
+interface PaginationRoundedProps {
+  totalPages: number
+  currentPage: number
+  onPageChange: (page: number) => void
+}
 
+const PaginationRounded: React.FC<PaginationRoundedProps> = ({
+  totalPages,
+  currentPage,
+  onPageChange
+}) => {
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
     value: number
   ) => {
-    setCurrentPage(value)
+    onPageChange(value)
   }
 
   return (
     <Stack direction="row" justifyContent="center" spacing={4}>
       <Pagination
-        count={10}
+        count={totalPages}
         variant="outlined"
         shape="rounded"
         color="primary"
@@ -27,3 +33,5 @@ export default function PaginationRounded() {
     </Stack>
   )
 }
+
+export default PaginationRounded

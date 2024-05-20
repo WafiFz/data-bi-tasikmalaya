@@ -1,16 +1,18 @@
-import React, { useState } from 'react'
-import TitleH5 from '@core/components/bi-tasik/text/TitleH5'
-import CardNews from '@core/components/bi-tasik/cards/CardNews'
-import { InsightInterface } from '@core/interfaces/insight/insight.interface'
-import { INews } from '@core/interfaces/insight/news.interface'
-import DisplayModeSelector from '@core/components/ux/DisplayModeSelector'
-import { newsDisplayModes } from './newsDisplayModes.variable'
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import TitleH5 from '@core/components/bi-tasik/text/TitleH5';
+import CardNews from '@core/components/bi-tasik/cards/CardNews';
+import { INews } from '@core/interfaces/insight/news.interface';
+import DisplayModeSelector from '@core/components/ux/DisplayModeSelector';
+import { newsDisplayModes } from './newsDisplayModes.variable';
+import PaginationRounded from '@core/components/navigation/pagination/PaginationRounded';
+import { paginateArray, calculateTotalPages } from '@core/utils/pagination';
 
 interface NewsViewProps {
-  allNews: INews[]
-  positiveNews: INews[]
-  negativeNews: INews[]
-  neutralNews: INews[]
+  allNews: INews[];
+  positiveNews: INews[];
+  negativeNews: INews[];
+  neutralNews: INews[];
 }
 
 const NewsView: React.FC<NewsViewProps> = ({
@@ -19,25 +21,47 @@ const NewsView: React.FC<NewsViewProps> = ({
   negativeNews,
   neutralNews
 }) => {
-  const [displayMode, setDisplayMode] = useState('all')
+  const router = useRouter();
+  const currentPageQuery = parseInt(router.query.page as string) || 1;
+  const itemsPerPageQuery = parseInt(router.query.itemsPerPage as string) || 6;
+
+  const [displayMode, setDisplayMode] = useState('all');
+  const [currentPage, setCurrentPage] = useState<number>(currentPageQuery);
+  const [itemsPerPage, setItemsPerPage] = useState<number>(itemsPerPageQuery);
+
+  useEffect(() => {
+    if (
+      currentPage !== currentPageQuery ||
+      itemsPerPage !== itemsPerPageQuery
+    ) {
+      const query = {
+        ...router.query,
+        page: currentPage.toString(),
+        itemsPerPage: itemsPerPage.toString(),
+      };
+      router.push({ pathname: router.pathname, query }, undefined, { shallow: true });
+    }
+  }, [currentPage, itemsPerPage, router]);
 
   const handleDisplayModeChange = (mode: string) => {
-    setDisplayMode(mode)
-  }
+    setDisplayMode(mode);
+    setCurrentPage(1); // Reset halaman saat mode berubah
+  };
 
-  let news: INews[] = []
+  let news: INews[] = [];
 
   if (displayMode === 'all') {
-    news = allNews
+    news = allNews;
   } else if (displayMode === 'positive') {
-    news = positiveNews
+    news = positiveNews;
   } else if (displayMode === 'negative') {
-    news = negativeNews
+    news = negativeNews;
   } else if (displayMode === 'neutral') {
-    news = neutralNews
-  } else {
-    news = []
+    news = neutralNews;
   }
+
+  const paginatedNews = paginateArray<INews>(news, currentPage, itemsPerPage);
+  const totalPages = calculateTotalPages(news.length, itemsPerPage);
 
   return (
     <>
@@ -49,7 +73,7 @@ const NewsView: React.FC<NewsViewProps> = ({
       />
 
       <div className="my-6 grid grid-cols gap-4 sm:grid-cols-2">
-        {news.map((news: INews) => (
+        {paginatedNews.map((news: INews) => (
           <CardNews
             key={news.title}
             link={news.link}
@@ -61,8 +85,14 @@ const NewsView: React.FC<NewsViewProps> = ({
           />
         ))}
       </div>
-    </>
-  )
-}
 
-export default NewsView
+      <PaginationRounded
+        totalPages={totalPages}
+        currentPage={currentPage}
+        onPageChange={setCurrentPage}
+      />
+    </>
+  );
+};
+
+export default NewsView;
