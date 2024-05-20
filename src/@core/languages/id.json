@@ -15,5 +15,9 @@
   "dataset.amount2": "Jumlah Dataset fkewnfjkwnefoiewoifniowenfinwefoew",
   "dataset.detail.chart": "Grafik",
   "dataset.detail.table": "Tabel",
-  "dataset.detail.raw_data": "Data Mentah"
+  "dataset.detail.raw_data": "Data Mentah",
+  "positive": "Positif",
+  "negative": "Negatif",
+  "neutral": "Netral",
+  "all": "Semua"
 }
