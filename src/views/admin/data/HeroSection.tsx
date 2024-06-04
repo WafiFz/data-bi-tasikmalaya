@@ -45,7 +45,7 @@ const HeroSection = () => {
       <CardContent sx={{ pt: (theme) => `${theme.spacing(3)} !important` }}>
         <Grid container spacing={2} alignItems="center">
           <Grid item>
-            <Button variant="contained" startIcon={<NoteAddIcon />}>
+            <Button href="/admin/data/create" variant="contained" startIcon={<NoteAddIcon />}>
               Tambah
             </Button>
           </Grid>

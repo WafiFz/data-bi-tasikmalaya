@@ -12,7 +12,7 @@ import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
 import { ReactNode } from 'react'
 import UserLayoutVertical from 'src/layouts/UserLayoutVertical'
 import HeroSection from 'src/views/admin/data/HeroSection'
-import Table from 'src/views/dashboard/Table'
+import Table from 'src/views/admin/data/Table'
 
 export default function Dashboard() {
   if (typeof window === 'undefined') {

@@ -1,17 +1,17 @@
 import Grid from '@mui/material/Grid'
-import FormUploadData from '@views/admin/upload/FormUploadData'
+import FormCreateData from '@views/admin/data/create/FormCreateData'
 import React from 'react'
 import { JsonEditor } from 'json-edit-react'
 
-const UploadData: React.FC = () => {
+const CreateData: React.FC = () => {
   
   return (
     <>
       <Grid item xs={12}>
-        <FormUploadData />
+        <FormCreateData />
       </Grid>
     </>
   )
 }
 
-export default UploadData
+export default CreateData

@@ -45,7 +45,7 @@ const CustomInput = forwardRef((props, ref) => {
   )
 })
 
-const FormUploadData = () => {
+const FormCreateData = () => {
   // ** States
   const [language, setLanguage] = useState<string[]>([])
   const [date, setDate] = useState<Date | null | undefined>(null)
@@ -213,4 +213,4 @@ const FormUploadData = () => {
   )
 }
 
-export default FormUploadData
+export default FormCreateData
