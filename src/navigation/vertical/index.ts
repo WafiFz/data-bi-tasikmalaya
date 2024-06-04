@@ -1,6 +1,7 @@
 // ** Icon imports
 import HomeOutline from 'mdi-material-ui/HomeOutline'
 import Login from 'mdi-material-ui/Login'
+import StorageIcon from '@mui/icons-material/Storage';
 
 // ** Type import
 import { VerticalNavItemsType } from 'src/@core/layouts/types'
@@ -16,9 +17,9 @@ const navigation = (): VerticalNavItemsType => {
       sectionTitle: 'Data'
     },
     {
-      title: 'Unggah Data',
-      icon: Login,
-      path: '/admin/data/upload',
+      title: 'Kelola Data',
+      icon: StorageIcon,
+      path: '/admin/data',
       openInNewTab: true
     },
   ]

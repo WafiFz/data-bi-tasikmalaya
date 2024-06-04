@@ -4,6 +4,7 @@ import React from 'react'
 import { JsonEditor } from 'json-edit-react'
 
 const UploadData: React.FC = () => {
+  
   return (
     <>
       <Grid item xs={12}>
