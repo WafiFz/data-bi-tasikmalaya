@@ -7,10 +7,10 @@ import { handleErrorApi } from '@core/utils/handleErrorApi'
 export const loginApi = async (email: string, password: string) => {
   try {
     const response = await axiosInstance.post(
-      '/v1/auth/login',
+      '/auth/login',
       { email, password },
     )
-    return response.data.data
+    return response.data
   } catch (error: any) {
     handleErrorApi(error)
   }
@@ -19,7 +19,7 @@ export const loginApi = async (email: string, password: string) => {
 // Fungsi untuk logout
 export const logoutApi = async () => {
   try {
-    await axiosInstance.post('/v1/auth/logout')
+    await axiosInstance.post('/auth/logout')
   } catch (error) {
     console.error('Logout failed:', error)
     throw new Error('Logout failed')

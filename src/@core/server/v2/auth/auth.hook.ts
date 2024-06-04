@@ -9,13 +9,13 @@ export const useAuth = () => {
   const { login } = useAuthContext()
 
   const loginUser = async (email: string, password: string) => {
-    const userData = await loginApi(email, password)
-    setUserState(userData)
-    cookies.set('access_token', userData.token.access.token, {
-      expires: new Date(userData.token.access.expires),
+    const responseData = await loginApi(email, password)
+    setUserState(responseData)
+    cookies.set('access_token', responseData.token, {
+      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // Set expiry to 1 week from now
       path: '/'
-    })
-    cookies.set('userData', userData, {
+    });
+    cookies.set('userData', responseData.user, {
       path: '/'
     })
 

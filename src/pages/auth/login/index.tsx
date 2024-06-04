@@ -45,7 +45,7 @@ import FooterIllustrationsV1 from 'src/views/pages/auth/FooterIllustration'
 import { toast } from 'react-toastify'
 
 // ** Auth Server
-import { useAuth } from '@core/server/v1/auth/auth.hook'
+import { useAuth } from '@core/server/v2/auth/auth.hook'
 
 interface State {
   email: string
