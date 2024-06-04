@@ -22,75 +22,41 @@ import Select, { SelectChangeEvent } from '@mui/material/Select'
 // ** Third Party Imports
 import DatePicker from 'react-datepicker'
 import { JsonEditor, LinkCustomNodeDefinition } from 'json-edit-react'
-
-// ** Icons Imports
-import EyeOutline from 'mdi-material-ui/EyeOutline'
-import EyeOffOutline from 'mdi-material-ui/EyeOffOutline'
-
-interface State {
-  password: string
-  password2: string
-  showPassword: boolean
-  showPassword2: boolean
-}
-
-const CustomInput = forwardRef((props, ref) => {
-  return (
-    <TextField
-      fullWidth
-      {...props}
-      inputRef={ref}
-      label="Birth Date"
-      autoComplete="off"
-    />
-  )
-})
+import { toast } from 'react-toastify';
+import { useCreateDataset } from '@core/server/v1/dataset/dataset.hook'
+import { ICreateDataset } from '@core/interfaces/dataset/create.interface'
 
 const FormCreateData = () => {
-  // ** States
-  const [language, setLanguage] = useState<string[]>([])
-  const [date, setDate] = useState<Date | null | undefined>(null)
-  const [values, setValues] = useState<State>({
-    password: '',
-    password2: '',
-    showPassword: false,
-    showPassword2: false
-  })
+  const { createDataset, datasets } = useCreateDataset();
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [source, setSource] = useState('');
+  const [content, setData] = useState({});
+  const [loading, setLoading] = useState(false);
 
-  // Handle Password
-  const handlePasswordChange =
-    (prop: keyof State) => (event: ChangeEvent<HTMLInputElement>) => {
-      setValues({ ...values, [prop]: event.target.value })
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setLoading(true);
+
+    try {
+      const createDatasetDto : ICreateDataset = {
+        title,
+        description,
+        source,
+        content,
+        slug: title
+      };
+
+      console.log("createDatasetDto:    ", createDatasetDto)
+
+      // await createDataset(createDatasetDto);
+      toast.success('Dataset berhasil dibuat!');
+    } catch (error: any) {
+      toast.error('Gagal membuat dataset: ', error.message);
+    } finally {
+      setLoading(false);
     }
-
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword })
-  }
-
-  const handleMouseDownPassword = (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault()
-  }
-
-  // Handle Confirm Password
-  const handleConfirmChange =
-    (prop: keyof State) => (event: ChangeEvent<HTMLInputElement>) => {
-      setValues({ ...values, [prop]: event.target.value })
-    }
-
-  const handleClickShowConfirmPassword = () => {
-    setValues({ ...values, showPassword2: !values.showPassword2 })
-  }
-
-  const handleMouseDownConfirmPassword = (
-    event: MouseEvent<HTMLButtonElement>
-  ) => {
-    event.preventDefault()
-  }
-
-  // Handle Select
-  const handleSelectChange = (event: SelectChangeEvent<string[]>) => {
-    setLanguage(event.target.value as string[])
-  }
+  };
 
   return (
     <Card>
@@ -101,7 +67,7 @@ const FormCreateData = () => {
 
       <Divider sx={{ margin: 0 }} />
 
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={handleSubmit}>
         <CardContent>
           <Grid container spacing={5}>
             <Grid item xs={12}>
@@ -115,6 +81,8 @@ const FormCreateData = () => {
                 fullWidth
                 label="Judul"
                 placeholder="Judul dari dataset"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
               />
             </Grid>
 
@@ -123,6 +91,8 @@ const FormCreateData = () => {
                 fullWidth
                 label="Deskripsi"
                 placeholder="Deskripsi dataset"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
               />
             </Grid>
 
@@ -131,6 +101,8 @@ const FormCreateData = () => {
                 fullWidth
                 label="Sumber"
                 placeholder="Sumber dataset"
+                value={source}
+                onChange={(e) => setSource(e.target.value)}
               />
             </Grid>
 
@@ -143,22 +115,27 @@ const FormCreateData = () => {
                 2. Isi Dataset
               </Typography>
             </Grid>
-            
+
             <Grid item xs={12}>
-            <JsonEditor
-                data={{}}
-            />
+              <JsonEditor
+                data={content}
+                onUpdate={(newData) => setData(newData)}
+              />
             </Grid>
-
-
           </Grid>
         </CardContent>
 
         <Divider sx={{ margin: 0 }} />
 
         <CardActions>
-          <Button size="large" type="submit" sx={{ mr: 2 }} variant="contained">
-            Submit
+          <Button
+            size="large"
+            type="submit"
+            sx={{ mr: 2 }}
+            variant="contained"
+            disabled={loading}
+          >
+            {loading? 'Mengunggah...' : 'Submit'}
           </Button>
 
           <Button size="large" color="secondary" variant="outlined">
@@ -167,7 +144,7 @@ const FormCreateData = () => {
         </CardActions>
       </form>
     </Card>
-  )
-}
+  );
+};
 
-export default FormCreateData
+export default FormCreateData;

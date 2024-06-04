@@ -1,6 +1,5 @@
 export interface IDataset {
-  id: string
-  name: string
+  id?: string
   title: string
   slug: string
   description: string
