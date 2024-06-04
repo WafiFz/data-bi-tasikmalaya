@@ -1,4 +1,4 @@
-// AUTH WITH GOLANG
+// AUTH WITH NEST
 
 import axiosInstance from '@core/constants/axios'
 import { handleErrorApi } from '@core/utils/handleErrorApi'
