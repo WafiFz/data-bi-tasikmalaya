@@ -40,7 +40,7 @@ const DatasetTable = () => {
             <TableRow>
               <TableCell>Nama</TableCell>
 
-              <TableCell>Asal</TableCell>
+              <TableCell>Sumber</TableCell>
 
               <TableCell>Action</TableCell>
             </TableRow>
