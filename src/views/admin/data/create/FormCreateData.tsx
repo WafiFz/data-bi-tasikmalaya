@@ -21,6 +21,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select'
 
 // ** Third Party Imports
 import DatePicker from 'react-datepicker'
+import { JsonEditor, LinkCustomNodeDefinition } from 'json-edit-react'
 
 // ** Icons Imports
 import EyeOutline from 'mdi-material-ui/EyeOutline'
@@ -133,66 +134,22 @@ const FormCreateData = () => {
               />
             </Grid>
 
-            <Grid item xs={12} sm={6}>
-              <FormControl fullWidth>
-                <InputLabel id="form-layouts-separator-select-label">
-                  Format
-                </InputLabel>
-
-                <Select
-                  label="Country"
-                  defaultValue=""
-                  id="form-layouts-separator-select"
-                  labelId="form-layouts-separator-select-label"
-                >
-                  <MenuItem value="xlsx">xlsx</MenuItem>
-
-                  <MenuItem value="pdf">pdf</MenuItem>
-
-                  <MenuItem value="docx">csv</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-
             <Grid item xs={12}>
               <Divider sx={{ marginBottom: 0 }} />
             </Grid>
 
             <Grid item xs={12}>
               <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                2. File Dataset
+                2. Isi Dataset
               </Typography>
             </Grid>
-
-            <Grid item xs={12} sm={6}>
-              <TextField type="file" fullWidth />
-            </Grid>
-
+            
             <Grid item xs={12}>
-              <Divider sx={{ marginBottom: 0 }} />
+            <JsonEditor
+                data={{}}
+            />
             </Grid>
 
-            <Grid item xs={12}>
-              <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                3. Grafik
-              </Typography>
-            </Grid>
-
-            <Grid item xs={12} sm={6}>
-              <TextField
-                fullWidth
-                label="Name"
-                placeholder="Name series"
-              />
-            </Grid>
-
-            <Grid item xs={12} sm={6}>
-              <TextField
-                fullWidth
-                label="Data"
-                placeholder="Data series"
-              />
-            </Grid>
 
           </Grid>
         </CardContent>
