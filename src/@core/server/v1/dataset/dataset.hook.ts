@@ -59,7 +59,7 @@ export const useUpdateDataset = () => {
   ) => {
     const updatedDataset = await updateDatasetApi(id, updateDatasetDto)
     setDatasetsState(
-      datasets.map((dataset) => (dataset.id === id ? updatedDataset : dataset))
+      datasets.map((dataset) => (dataset._id === id ? updatedDataset : dataset))
     )
   }
 
@@ -71,7 +71,7 @@ export const useDeleteDataset = () => {
 
   const deleteDataset = async (id: string) => {
     await deleteDatasetApi(id)
-    setDatasetsState(datasets.filter((dataset) => dataset.id !== id))
+    setDatasetsState(datasets.filter((dataset) => dataset._id !== id))
   }
 
   return { deleteDataset, datasets }

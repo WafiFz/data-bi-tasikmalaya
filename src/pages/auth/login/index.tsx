@@ -255,7 +255,7 @@ const LoginPage = () => {
               />
             </FormControl>
 
-            <Box
+            {/* <Box
               sx={{
                 mb: 4,
                 display: 'flex',
@@ -269,20 +269,20 @@ const LoginPage = () => {
               <LinkStyled passHref href="/" onClick={(e) => e.preventDefault()}>
                 Forgot Password?
               </LinkStyled>
-            </Box>
+            </Box> */}
 
             <Button
               fullWidth
               size="large"
               variant="contained"
-              sx={{ marginBottom: 7 }}
+              sx={{ marginBottom: 7, marginTop: 7 }}
               onClick={handleLogin}
               // onClick={() => router.push('/')}
             >
               Login
             </Button>
 
-            <Box
+            {/* <Box
               sx={{
                 display: 'flex',
                 alignItems: 'center',
@@ -299,7 +299,7 @@ const LoginPage = () => {
                   Create an account
                 </LinkStyled>
               </Typography>
-            </Box>
+            </Box> *
 
             <Divider sx={{ my: 5 }}>or</Divider>
 
@@ -352,7 +352,7 @@ const LoginPage = () => {
               >
                 <Google sx={{ color: '#db4437' }} />
               </IconButton>
-            </Box>
+            </Box> */}
           </form>
         </CardContent>
       </Card>

@@ -9,31 +9,50 @@ import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
 import Typography from '@mui/material/Typography'
 import TableContainer from '@mui/material/TableContainer'
-import IconButton from '@mui/material/IconButton';
-import Stack from '@mui/material/Stack';
-import DeleteIcon from '@mui/icons-material/Delete';
-import AlarmIcon from '@mui/icons-material/Alarm';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import EditIcon from '@mui/icons-material/Edit';
-import VisibilityIcon from '@mui/icons-material/Visibility';
+import IconButton from '@mui/material/IconButton'
+import Stack from '@mui/material/Stack'
+import DeleteIcon from '@mui/icons-material/Delete'
+import AlarmIcon from '@mui/icons-material/Alarm'
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
+import EditIcon from '@mui/icons-material/Edit'
+import VisibilityIcon from '@mui/icons-material/Visibility'
 
 // ** Types Imports
 import { ThemeColor } from 'src/@core/layouts/types'
-import { useGetDatasets } from '@core/server/v1/dataset/dataset.hook'
-import { useEffect } from 'react'
+import {
+  useDeleteDataset,
+  useGetDatasets
+} from '@core/server/v1/dataset/dataset.hook'
+import { useEffect, useState } from 'react'
 import { IDataset } from '@core/interfaces/dataset'
 import Loader from '@core/components/ux/Loader'
-
+import LoaderWithBox from '@core/components/ux/LoaderWithBox'
+import { toast } from 'react-toastify'
 
 const DatasetTable = () => {
   const { getDatasets, datasets, isLoading } = useGetDatasets()
+  const { deleteDataset } = useDeleteDataset()
+  const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
     getDatasets()
   }, [])
 
+  const handleDelete = async (id: string) => {
+    try {
+      setIsDeleting(true)
+      await deleteDataset(id)
+      toast.success('Dataset berhasil dihapus!')
+    } catch (error: any) {
+      toast.error(error.message)
+    } finally {
+      setIsDeleting(false)
+    }
+  }
+
   return (
     <Card>
+      {isDeleting && <LoaderWithBox />}
       <TableContainer>
         <Table sx={{ minWidth: 800 }} aria-label="table in dataset">
           <TableHead>
@@ -57,7 +76,7 @@ const DatasetTable = () => {
               datasets.map((dataset: IDataset) => (
                 <TableRow
                   hover
-                  key={dataset.id}
+                  key={dataset._id}
                   sx={{ '&:last-of-type td, &:last-of-type th': { border: 0 } }}
                 >
                   <TableCell
@@ -81,7 +100,11 @@ const DatasetTable = () => {
                     <IconButton href="" color="warning" aria-label="edit">
                       <EditIcon />
                     </IconButton>
-                    <IconButton color="error" aria-label="delete">
+                    <IconButton
+                      color="error"
+                      aria-label="delete"
+                      onClick={() => handleDelete(dataset._id)}
+                    >
                       <DeleteIcon />
                     </IconButton>
                   </TableCell>
