@@ -46,6 +46,7 @@ import { toast } from 'react-toastify'
 
 // ** Auth Server
 import { useAuth } from '@core/server/v2/auth/auth.hook'
+import LoaderWithBox from '@core/components/ux/LoaderWithBox'
 
 interface State {
   email: string
@@ -85,6 +86,7 @@ const LoginPage = () => {
   const theme = useTheme()
   const router = useRouter()
   const { loginUser } = useAuth()
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleChange =
     (prop: keyof State) => (event: ChangeEvent<HTMLInputElement>) => {
@@ -101,17 +103,21 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
+      setIsLoading(true)
       await loginUser(values.email, values.password)
-      toast.success('Login berhasil');
+      toast.success('Login berhasil')
       router.push('/admin')
     } catch (error: any) {
       toast.error('' + error)
+    } finally {
+      setIsLoading(false)
     }
   }
 
   return (
     <Box className="content-center">
       <Card sx={{ zIndex: 1 }}>
+        {isLoading && <LoaderWithBox />}
         <CardContent
           sx={{ padding: (theme) => `${theme.spacing(12, 9, 7)} !important` }}
         >
