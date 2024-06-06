@@ -1,8 +1,9 @@
 import Grid from '@mui/material/Grid'
 import FormCreateData from '@views/admin/data/create/FormCreateData'
-import React from 'react'
+import React, { ReactNode } from 'react'
+import UserLayoutVertical from 'src/layouts/UserLayoutVertical'
 
-const CreateData: React.FC = () => {
+export default function CreateData() {
   
   return (
     <>
@@ -13,4 +14,6 @@ const CreateData: React.FC = () => {
   )
 }
 
-export default CreateData
+CreateData.getLayout = (page: ReactNode) => (
+  <UserLayoutVertical>{page}</UserLayoutVertical>
+)

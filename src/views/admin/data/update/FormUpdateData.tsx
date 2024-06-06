@@ -24,49 +24,59 @@ import Select, { SelectChangeEvent } from '@mui/material/Select'
 import DatePicker from 'react-datepicker'
 import { JsonEditor, LinkCustomNodeDefinition } from 'json-edit-react'
 import { toast } from 'react-toastify'
-import { useCreateDataset } from '@core/server/v1/dataset/dataset.hook'
+import {
+  useCreateDataset,
+  useUpdateDataset
+} from '@core/server/v1/dataset/dataset.hook'
 import { ICreateDataset } from '@core/interfaces/dataset/create.interface'
 import { titleToSlug } from '@core/utils/title-to-slug'
+import { useDataset } from '@core/server/v1/dataset/dataset.state'
+import { IDataset } from '@core/interfaces/dataset'
 
-const FormCreateData = () => {
+const FormUpdateData = () => {
   const router = useRouter()
-  const { createDataset, datasets } = useCreateDataset()
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [source, setSource] = useState('')
-  const [content, setData] = useState({ columns: [] as any[] })
+  const { updateDataset, dataset } = useUpdateDataset()
+  const { setDatasetState } = useDataset()
   const [loading, setLoading] = useState(false)
   const [titleError, setTitleError] = useState(false)
   const [descriptionError, setDescriptionError] = useState(false)
   const [sourceError, setSourceError] = useState(false)
 
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target
+    setDatasetState({ ...dataset, [name]: value })
+  }
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setLoading(true)
 
-    if (title === '') {
+    if (dataset.title === '') {
       setTitleError(true)
     }
-    if (description === '') {
+    if (dataset.description === '') {
       setDescriptionError(true)
     }
-    if (source === '') {
+    if (dataset.source === '') {
       setSourceError(true)
     }
 
-    if (title !== '' && description !== '' && source !== '') {
+    if (
+      dataset.title !== '' &&
+      dataset.description !== '' &&
+      dataset.source !== ''
+    ) {
       try {
-        const createDatasetDto: ICreateDataset = {
-          title,
-          description,
-          source,
-          content: content,
-          slug: titleToSlug(title)
+        const updateDatasetDto: ICreateDataset = {
+          title: dataset.title,
+          description: dataset.description,
+          source: dataset.source,
+          content: dataset.content,
+          slug: titleToSlug(dataset.title)
         }
 
-        await createDataset(createDatasetDto)
-        toast.success('Dataset berhasil dibuat!')
-        router.push('/admin/data')
+        await updateDataset(dataset._id, updateDatasetDto)
+        toast.success('Dataset berhasil ubah!')
       } catch (error: any) {
         toast.error('Gagal membuat dataset: ', error.message)
       } finally {
@@ -78,12 +88,10 @@ const FormCreateData = () => {
   return (
     <Card>
       <CardHeader
-        title="Unggah Dataset"
+        title="Ubah Dataset"
         titleTypographyProps={{ variant: 'h6' }}
       />
-
       <Divider sx={{ margin: 0 }} />
-
       <form onSubmit={handleSubmit}>
         <CardContent>
           <Grid container spacing={5}>
@@ -98,8 +106,9 @@ const FormCreateData = () => {
                 fullWidth
                 label="Judul"
                 placeholder="Judul dari dataset"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                value={dataset.title}
+                onChange={handleInputChange}
+                name="title"
                 required
                 error={titleError}
                 helperText={titleError ? 'Judul harus diisi' : ''}
@@ -111,8 +120,9 @@ const FormCreateData = () => {
                 fullWidth
                 label="Sumber"
                 placeholder="Sumber dataset"
-                value={source}
-                onChange={(e) => setSource(e.target.value)}
+                value={dataset.source}
+                onChange={handleInputChange}
+                name="source"
                 required
                 error={sourceError}
                 helperText={sourceError ? 'Sumber harus diisi' : ''}
@@ -124,8 +134,9 @@ const FormCreateData = () => {
                 fullWidth
                 label="Deskripsi"
                 placeholder="Deskripsi dataset"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                value={dataset.description}
+                onChange={handleInputChange}
+                name="description"
                 required
                 error={descriptionError}
                 helperText={descriptionError ? 'Deskripsi harus diisi' : ''}
@@ -136,20 +147,6 @@ const FormCreateData = () => {
 
             <Grid item xs={12}>
               <Divider sx={{ marginBottom: 0 }} />
-            </Grid>
-
-            <Grid item xs={12}>
-              <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                2. Struktur Kolom
-              </Typography>
-            </Grid>
-
-            <Grid item xs={12}>
-              <JsonEditor
-                data={content}
-                // @ts-ignore
-                onUpdate={(state) => setData(state.newData)}
-              />
             </Grid>
           </Grid>
         </CardContent>
@@ -164,7 +161,7 @@ const FormCreateData = () => {
             variant="contained"
             disabled={loading}
           >
-            {loading ? 'Mengunggah...' : 'Submit'}
+            {loading ? 'Loading...' : 'Save'}
           </Button>
 
           <Button size="large" color="secondary" variant="outlined">
@@ -176,4 +173,4 @@ const FormCreateData = () => {
   )
 }
 
-export default FormCreateData
+export default FormUpdateData

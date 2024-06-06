@@ -94,10 +94,10 @@ const DatasetTable = () => {
                   <TableCell>{dataset.source}</TableCell>
 
                   <TableCell>
-                    <IconButton href="/" color="primary" aria-label="view">
+                    <IconButton href={""} color="primary" aria-label="view">
                       <VisibilityIcon />
                     </IconButton>
-                    <IconButton href="" color="warning" aria-label="edit">
+                    <IconButton href={"/admin/data/update/" + dataset.slug} color="warning" aria-label="edit">
                       <EditIcon />
                     </IconButton>
                     <IconButton
