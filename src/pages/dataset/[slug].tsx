@@ -26,7 +26,7 @@ const DatasetDetail = () => {
       {isLoading && <LoaderWithBox />}
       <Header title={dataset.title} description={dataset.description} source={dataset.source} />
 
-      {/* <Content dataset={dataset} /> */}
+      {/* <Content dataset={dataset.content} /> */}
     </>
   )
 }
