@@ -26,6 +26,8 @@ import { JsonEditor, LinkCustomNodeDefinition } from 'json-edit-react'
 import { toast } from 'react-toastify'
 import {
   useCreateDataset,
+  useGetDatasetById,
+  useGetDatasetBySlug,
   useUpdateDataset
 } from '@core/server/v1/dataset/dataset.hook'
 import { ICreateDataset } from '@core/interfaces/dataset/create.interface'
@@ -36,11 +38,13 @@ import { IDataset } from '@core/interfaces/dataset'
 const FormUpdateData = () => {
   const router = useRouter()
   const { updateDataset, dataset } = useUpdateDataset()
+  const { getDatasetBySlug } = useGetDatasetBySlug()
   const { setDatasetState } = useDataset()
   const [loading, setLoading] = useState(false)
   const [titleError, setTitleError] = useState(false)
   const [descriptionError, setDescriptionError] = useState(false)
   const [sourceError, setSourceError] = useState(false)
+
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
@@ -164,7 +168,14 @@ const FormUpdateData = () => {
             {loading ? 'Loading...' : 'Save'}
           </Button>
 
-          <Button size="large" color="secondary" variant="outlined">
+          <Button
+            size="large"
+            color="secondary"
+            variant="outlined"
+            onClick={() => {
+              getDatasetBySlug(dataset.slug)
+            }}
+          >
             Cancel
           </Button>
         </CardActions>
