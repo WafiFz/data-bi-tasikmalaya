@@ -25,6 +25,15 @@ export const getDatasetByIdApi = async (id: string) => {
   }
 }
 
+export const getDatasetBySlugApi = async (slug: string) => {
+  try {
+    const response = await axiosInstance.get(`/datasets/by-slug/${slug}`)
+    return response.data
+  } catch (error: any) {
+    handleErrorApi(error)
+  }
+}
+
 export const createDatasetApi = async (createDatasetDto: ICreateDataset) => {
   try {
     const response = await axiosInstance.post('/datasets', createDatasetDto)

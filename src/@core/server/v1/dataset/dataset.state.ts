@@ -15,3 +15,25 @@ export const useDatasets = () => {
 
   return { datasets, setDatasetsState }
 }
+
+export const datasetState = atom<IDataset>({
+  key: 'datasetState',
+  default: {
+    _id: "",
+    title: "",
+    slug: "",
+    description: "",
+    source: "",
+    content: []
+  }
+})
+
+export const useDataset = () => {
+  const [dataset, setDataset] = useRecoilState(datasetState)
+
+  const setDatasetState = (datasetData: IDataset) => {
+    setDataset(datasetData)
+  }
+
+  return { dataset, setDatasetState }
+}

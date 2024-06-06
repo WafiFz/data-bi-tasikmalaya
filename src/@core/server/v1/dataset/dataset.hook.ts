@@ -1,10 +1,11 @@
-import { useDatasets } from './dataset.state'
+import { useDataset, useDatasets } from './dataset.state'
 import {
   getDatasetsApi,
   getDatasetByIdApi,
   createDatasetApi,
   updateDatasetApi,
-  deleteDatasetApi
+  deleteDatasetApi,
+  getDatasetBySlugApi
 } from './dataset.api'
 import { ICreateDataset } from '@core/interfaces/dataset/create.interface'
 import { useState } from 'react'
@@ -37,6 +38,25 @@ export const useGetDatasetById = () => {
   }
 
   return { getDatasetById, datasets }
+}
+
+export const useGetDatasetBySlug = () => {
+  const { dataset, setDatasetState } = useDataset()
+  const [isLoading, setIsLoading] = useState(false)
+
+  const getDatasetBySlug = async (slug: string) => {
+    setIsLoading(true)
+    try {
+      const dataset = await getDatasetBySlugApi(slug)
+      setDatasetState(dataset)
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  return { getDatasetBySlug, dataset, isLoading }
 }
 
 export const useCreateDataset = () => {

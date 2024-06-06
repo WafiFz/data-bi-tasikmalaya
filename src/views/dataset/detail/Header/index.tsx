@@ -1,16 +1,17 @@
 import CardTitle from '@core/components/bi-tasik/cards/CardTitle'
-import { useRouter } from 'next/router'
 import React from 'react'
 
-const Header: React.FC = () => {
-  const router = useRouter()
-  const title = router.query.slug
-  const source = 'UDSK'
+interface HeaderProps {
+  title: string | string[] | undefined
+  source: string
+  description: string
+}
 
+const Header: React.FC<HeaderProps> = ({title, source, description}) => {
   
 return (
     <>
-      <CardTitle title={title} source={source} />
+      <CardTitle title={title} description={description} source={source} />
     </>
   )
 }

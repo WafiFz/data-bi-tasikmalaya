@@ -12,9 +12,10 @@ import React from 'react'
 interface CardTitleProps {
   title: string | string[] | undefined
   source: string
+  description: string
 }
 
-const CardTitle: React.FC<CardTitleProps> = ({title, source}) => {
+const CardTitle: React.FC<CardTitleProps> = ({title, source, description}) => {
   return (
     <Card
       sx={{
@@ -45,7 +46,7 @@ const CardTitle: React.FC<CardTitleProps> = ({title, source}) => {
           variant="body2"
           sx={{ marginBottom: 3, color: 'common.white' }}
         >
-          Data terkait inflasi bulanan selama tahun 2018 Tasikmalaya
+          {description}
         </Typography>
 
         <Box
