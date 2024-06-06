@@ -34,7 +34,7 @@ const FormCreateData = () => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [source, setSource] = useState('')
-  const [content, setData] = useState({ data: [] as any[] })
+  const [content, setData] = useState({ columns: [] as any[] })
   const [loading, setLoading] = useState(false)
   const [titleError, setTitleError] = useState(false)
   const [descriptionError, setDescriptionError] = useState(false)
@@ -60,7 +60,7 @@ const FormCreateData = () => {
           title,
           description,
           source,
-          content: content.data,
+          content: content,
           slug: titleToSlug(title)
         }
 
@@ -138,7 +138,7 @@ const FormCreateData = () => {
 
             <Grid item xs={12}>
               <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                2. Isi Dataset
+                2. Struktur Kolom
               </Typography>
             </Grid>
 
