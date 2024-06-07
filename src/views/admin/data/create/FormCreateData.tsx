@@ -60,7 +60,7 @@ const FormCreateData = () => {
           title,
           description,
           source,
-          content: content,
+          content: { ...content, rows: [] },
           slug: titleToSlug(title)
         }
 
