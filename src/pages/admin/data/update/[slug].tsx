@@ -33,16 +33,19 @@ export default function DatasetUpdate() {
 
   return (
     <>
-      <FormUpdateData />
-
       {isLoading ? (
         <Loader />
       ) : (
-        <TableDatasetUpdate
-          columns={dataset.content.columns}
-          rows={dataset.content.rows}
-          columnGroupingModel={dataset.content.columnGroupingModel}
-        />
+        <>
+          <FormUpdateData />
+          <div className="mt-6">
+            <TableDatasetUpdate
+              columns={dataset.content.columns}
+              rows={dataset.content.rows}
+              columnGroupingModel={dataset.content.columnGroupingModel}
+            />
+          </div>
+        </>
       )}
     </>
   )
