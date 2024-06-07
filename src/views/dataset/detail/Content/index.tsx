@@ -4,8 +4,13 @@ import { displayModes } from './displayModes.variable'
 import DisplayModeSelector from './DisplayModeSelector'
 import Chart from './Chart'
 import RawData from './RawData'
+import { IDataset } from '@core/interfaces/dataset'
 
-const Content: React.FC = () => {
+interface Props {
+  dataset: IDataset
+}
+
+const Content: React.FC<Props> = ({ dataset }) => {
   const [displayMode, setDisplayMode] = useState('chart')
 
   const handleDisplayModeChange = (mode: string) => {
@@ -15,11 +20,18 @@ const Content: React.FC = () => {
   let content: JSX.Element
 
   if (displayMode === 'chart') {
-    content = <Chart />
+    content = <Chart dataset={dataset} />
   } else if (displayMode === 'table') {
-    content = <DataTable />
+    content = (
+      <DataTable
+        title={dataset.title}
+        columns={dataset.content.columns}
+        rows={dataset.content.rows}
+        columnGroupingModel={dataset.content.columnGroupingModel}
+      />
+    )
   } else if (displayMode === 'raw_data') {
-    content = <RawData />
+    content = <RawData dataset={dataset} />
   } else {
     content = <div>No content available</div>
   }
