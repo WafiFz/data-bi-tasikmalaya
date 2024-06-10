@@ -13,12 +13,14 @@ import { useState } from 'react'
 export const useGetDatasets = () => {
   const { datasets, setDatasetsState } = useDatasets()
   const [isLoading, setIsLoading] = useState(false)
+  const [totalDatasets, setTotalDatasets] = useState(0)
 
   const getDatasets = async (page?: number, itemsPerPage?: number) => {
     setIsLoading(true)
     try {
       const datasetsData = await getDatasetsApi(page, itemsPerPage)
       setDatasetsState(datasetsData.datasets)
+      setTotalDatasets(datasetsData.totalDatasets)
     } catch (error) {
       console.error(error)
     } finally {
@@ -26,7 +28,12 @@ export const useGetDatasets = () => {
     }
   }
 
-  return { getDatasets, datasets, isLoading }
+  return {
+    getDatasets,
+    datasets,
+    isLoading,
+    totalDatasets
+  }
 }
 
 export const useGetDatasetById = () => {
