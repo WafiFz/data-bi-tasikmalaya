@@ -1,36 +1,28 @@
 // ** React Imports
-import { useState } from 'react'
 import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 // ** MUI Imports
-import Card from '@mui/material/Card'
-import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
-import Divider from '@mui/material/Divider'
-import MenuItem from '@mui/material/MenuItem'
-import TextField from '@mui/material/TextField'
-import CardHeader from '@mui/material/CardHeader'
-import InputLabel from '@mui/material/InputLabel'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import CardContent from '@mui/material/CardContent'
+import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
-import FormControl from '@mui/material/FormControl'
-import OutlinedInput from '@mui/material/OutlinedInput'
-import InputAdornment from '@mui/material/InputAdornment'
-import Select, { SelectChangeEvent } from '@mui/material/Select'
+import CardContent from '@mui/material/CardContent'
+import CardHeader from '@mui/material/CardHeader'
+import Divider from '@mui/material/Divider'
+import Grid from '@mui/material/Grid'
+import TextField from '@mui/material/TextField'
+import Typography from '@mui/material/Typography'
 
 // ** Third Party Imports
-import DatePicker from 'react-datepicker'
-import { JsonEditor, LinkCustomNodeDefinition } from 'json-edit-react'
-import { toast } from 'react-toastify'
-import { useCreateDataset } from '@core/server/v1/dataset/dataset.hook'
 import { ICreateDataset } from '@core/interfaces/dataset/create.interface'
+import { useCreateDataset } from '@core/server/v1/dataset/dataset.hook'
 import { titleToSlug } from '@core/utils/title-to-slug'
+import { JsonEditor } from 'json-edit-react'
+import { toast } from 'react-toastify'
 
 const FormCreateData = () => {
   const router = useRouter()
-  const { createDataset, datasets } = useCreateDataset()
+  const { createDataset } = useCreateDataset()
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [source, setSource] = useState('')
@@ -42,14 +34,17 @@ const FormCreateData = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+
     setLoading(true)
 
     if (title === '') {
       setTitleError(true)
     }
+
     if (description === '') {
       setDescriptionError(true)
     }
+
     if (source === '') {
       setSourceError(true)
     }
@@ -65,7 +60,9 @@ const FormCreateData = () => {
         }
 
         await createDataset(createDatasetDto)
+
         toast.success('Dataset berhasil dibuat!')
+
         router.push('/admin/data')
       } catch (error: any) {
         toast.error('Gagal membuat dataset: ', error.message)
@@ -147,6 +144,7 @@ const FormCreateData = () => {
             <Grid item xs={12}>
               <JsonEditor
                 data={content}
+
                 // @ts-ignore
                 onUpdate={(state) => setData(state.newData)}
               />

@@ -40,7 +40,9 @@ const onErrorResponse = (error: AxiosError | Error): Promise<AxiosError> => {
   } else {
     console.error('An error occurred:', error)
   }
-  return Promise.reject(error)
+
+  
+return Promise.reject(error)
 }
 
 axiosPrediction.interceptors.response.use(
@@ -48,14 +50,19 @@ axiosPrediction.interceptors.response.use(
   (error) => {
     // Handle the error globally
     console.error('An error occurred:', error)
-    return Promise.reject(error)
+
+    
+return Promise.reject(error)
   }
 )
 
 const setupInterceptors = (axiosPrediction: AxiosInstance): AxiosInstance => {
   axiosPrediction.interceptors.request.use(onRequest)
+
   axiosPrediction.interceptors.response.use(onResponse, onErrorResponse)
-  return axiosPrediction
+
+  
+return axiosPrediction
 }
 
 export default setupInterceptors(axiosPrediction)

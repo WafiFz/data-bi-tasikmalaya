@@ -1,42 +1,28 @@
 // ** React Imports
 import { useState } from 'react'
-import { useRouter } from 'next/router'
 
 // ** MUI Imports
-import Card from '@mui/material/Card'
-import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
-import Divider from '@mui/material/Divider'
-import MenuItem from '@mui/material/MenuItem'
-import TextField from '@mui/material/TextField'
-import CardHeader from '@mui/material/CardHeader'
-import InputLabel from '@mui/material/InputLabel'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import CardContent from '@mui/material/CardContent'
+import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
-import FormControl from '@mui/material/FormControl'
-import OutlinedInput from '@mui/material/OutlinedInput'
-import InputAdornment from '@mui/material/InputAdornment'
-import Select, { SelectChangeEvent } from '@mui/material/Select'
+import CardContent from '@mui/material/CardContent'
+import CardHeader from '@mui/material/CardHeader'
+import Divider from '@mui/material/Divider'
+import Grid from '@mui/material/Grid'
+import TextField from '@mui/material/TextField'
+import Typography from '@mui/material/Typography'
 
 // ** Third Party Imports
-import DatePicker from 'react-datepicker'
-import { JsonEditor, LinkCustomNodeDefinition } from 'json-edit-react'
-import { toast } from 'react-toastify'
+import { ICreateDataset } from '@core/interfaces/dataset/create.interface'
 import {
-  useCreateDataset,
-  useGetDatasetById,
   useGetDatasetBySlug,
   useUpdateDataset
 } from '@core/server/v1/dataset/dataset.hook'
-import { ICreateDataset } from '@core/interfaces/dataset/create.interface'
-import { titleToSlug } from '@core/utils/title-to-slug'
 import { useDataset } from '@core/server/v1/dataset/dataset.state'
-import { IDataset } from '@core/interfaces/dataset'
+import { titleToSlug } from '@core/utils/title-to-slug'
+import { toast } from 'react-toastify'
 
 const FormUpdateData = () => {
-  const router = useRouter()
   const { updateDataset, dataset } = useUpdateDataset()
   const { getDatasetBySlug } = useGetDatasetBySlug()
   const { setDatasetState } = useDataset()
@@ -48,19 +34,23 @@ const FormUpdateData = () => {
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
+
     setDatasetState({ ...dataset, [name]: value })
   }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+
     setLoading(true)
 
     if (dataset.title === '') {
       setTitleError(true)
     }
+
     if (dataset.description === '') {
       setDescriptionError(true)
     }
+
     if (dataset.source === '') {
       setSourceError(true)
     }
@@ -80,6 +70,7 @@ const FormUpdateData = () => {
         }
 
         await updateDataset(dataset._id, updateDatasetDto)
+
         toast.success('Dataset berhasil ubah!')
       } catch (error: any) {
         toast.error('Gagal membuat dataset: ', error.message)
@@ -95,7 +86,9 @@ const FormUpdateData = () => {
         title="Ubah Dataset"
         titleTypographyProps={{ variant: 'h6' }}
       />
+
       <Divider sx={{ margin: 0 }} />
+
       <form onSubmit={handleSubmit}>
         <CardContent>
           <Grid container spacing={5}>

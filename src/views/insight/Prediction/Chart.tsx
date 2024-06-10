@@ -54,7 +54,9 @@ const Chart = () => {
           if (typeof y !== 'undefined' && y !== null) {
             return y + ' %'
           }
-          return '';
+
+          
+return '';
         }
       }
     },
@@ -71,6 +73,7 @@ const Chart = () => {
             </IconButton>
           }
         />
+
         <CardContent>
           {series.length > 0 ? (
             <ReactApexcharts

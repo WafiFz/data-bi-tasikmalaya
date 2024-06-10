@@ -14,10 +14,13 @@ export const useInsight = () => {
       setIsLoading(true) // Set isLoading menjadi true saat memulai pencarian
       // Mengambil data baru dari API berdasarkan keyword
       const newData = await getInsightData(keyword)
+
+
       // Memperbarui state Recoil dengan data baru
       setInsightData(newData)
     } catch (error: any) {
       setInsightData(null)
+
       toast.error('' + error.message)
     } finally {
       setIsLoading(false) // Set isLoading menjadi false setelah mendapatkan respons dari API

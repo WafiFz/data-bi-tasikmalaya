@@ -1,7 +1,7 @@
 import WordCloudComponent from '@core/components/bi-tasik/insight/WordCloud'
 import Typography from '@mui/material/Typography'
 import React from 'react'
-import { FormattedMessage, IntlShape } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
 
 interface WordCloudProps {
   title: string
@@ -26,6 +26,7 @@ const WordCloud: React.FC<WordCloudProps> = ({
       >
         <FormattedMessage id={intlTitle} defaultMessage={title} />
       </Typography>
+
       <WordCloudComponent words={words}></WordCloudComponent>
     </div>
   )

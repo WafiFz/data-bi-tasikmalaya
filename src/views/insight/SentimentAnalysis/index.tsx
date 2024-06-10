@@ -11,7 +11,7 @@ interface SentimenAnalysisViewProps {
 }
 
 const SentimentAnalysisView: React.FC<SentimenAnalysisViewProps> = ({
-  allWordCloud,
+  // allWordCloud,
   positiveWordCloud,
   negativeWordCloud,
   neutralWordCloud

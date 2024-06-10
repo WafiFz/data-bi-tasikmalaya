@@ -66,9 +66,12 @@ const VerticalLayout = (props: LayoutProps) => {
 
   const router = useRouter()
   const { isAuthenticated } = useAuthContext()
+
   if (!isAuthenticated) {
     router.push('/auth/login')
-    return null
+
+    
+return null
   }
 
   return (

@@ -15,7 +15,7 @@ const ListFile: React.FC<ListFileProps> = ({ datasets, totalDatasets }) => {
   const itemsPerPageQuery = parseInt(router.query.itemsPerPage as string) || 6
 
   const [currentPage, setCurrentPage] = useState<number>(currentPageQuery)
-  const [itemsPerPage, setItemsPerPage] = useState<number>(itemsPerPageQuery)
+  const [itemsPerPage] = useState<number>(itemsPerPageQuery)
   const totalPages = calculateTotalPages(totalDatasets, itemsPerPage);
 
   useEffect(() => {
@@ -28,9 +28,10 @@ const ListFile: React.FC<ListFileProps> = ({ datasets, totalDatasets }) => {
         page: currentPage.toString(),
         itemsPerPage: itemsPerPage.toString(),
       };
+
       router.push({ pathname: router.pathname, query }, undefined, { shallow: true });
     }
-  }, [currentPage, itemsPerPage, router]);
+  }, [currentPage, itemsPerPage, itemsPerPageQuery, currentPageQuery]);
 
   return (
     <>

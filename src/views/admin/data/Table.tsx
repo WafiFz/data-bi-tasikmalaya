@@ -1,32 +1,27 @@
 // ** MUI Imports
-import Box from '@mui/material/Box'
-import Card from '@mui/material/Card'
-import Chip from '@mui/material/Chip'
-import Table from '@mui/material/Table'
-import TableRow from '@mui/material/TableRow'
-import TableHead from '@mui/material/TableHead'
-import TableBody from '@mui/material/TableBody'
-import TableCell from '@mui/material/TableCell'
-import Typography from '@mui/material/Typography'
-import TableContainer from '@mui/material/TableContainer'
-import IconButton from '@mui/material/IconButton'
-import Stack from '@mui/material/Stack'
 import DeleteIcon from '@mui/icons-material/Delete'
-import AlarmIcon from '@mui/icons-material/Alarm'
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
 import EditIcon from '@mui/icons-material/Edit'
 import VisibilityIcon from '@mui/icons-material/Visibility'
+import Box from '@mui/material/Box'
+import Card from '@mui/material/Card'
+import IconButton from '@mui/material/IconButton'
+import Table from '@mui/material/Table'
+import TableBody from '@mui/material/TableBody'
+import TableCell from '@mui/material/TableCell'
+import TableContainer from '@mui/material/TableContainer'
+import TableHead from '@mui/material/TableHead'
+import TableRow from '@mui/material/TableRow'
+import Typography from '@mui/material/Typography'
 
 // ** Types Imports
-import { ThemeColor } from 'src/@core/layouts/types'
+import Loader from '@core/components/ux/Loader'
+import LoaderWithBox from '@core/components/ux/LoaderWithBox'
+import { IDataset } from '@core/interfaces/dataset'
 import {
   useDeleteDataset,
   useGetDatasets
 } from '@core/server/v1/dataset/dataset.hook'
 import { useEffect, useState } from 'react'
-import { IDataset } from '@core/interfaces/dataset'
-import Loader from '@core/components/ux/Loader'
-import LoaderWithBox from '@core/components/ux/LoaderWithBox'
 import { toast } from 'react-toastify'
 
 const DatasetTable = () => {
@@ -41,7 +36,9 @@ const DatasetTable = () => {
   const handleDelete = async (id: string) => {
     try {
       setIsDeleting(true)
+
       await deleteDataset(id)
+
       toast.success('Dataset berhasil dihapus!')
     } catch (error: any) {
       toast.error(error.message)
@@ -53,6 +50,7 @@ const DatasetTable = () => {
   return (
     <Card>
       {isDeleting && <LoaderWithBox />}
+
       <TableContainer>
         <Table sx={{ minWidth: 800 }} aria-label="table in dataset">
           <TableHead>
@@ -94,12 +92,23 @@ const DatasetTable = () => {
                   <TableCell>{dataset.source}</TableCell>
 
                   <TableCell>
-                    <IconButton href={"/dataset/" + dataset.slug} target="_blank" color="primary" aria-label="view">
+                    <IconButton
+                      href={'/dataset/' + dataset.slug}
+                      target="_blank"
+                      color="primary"
+                      aria-label="view"
+                    >
                       <VisibilityIcon />
                     </IconButton>
-                    <IconButton href={"/admin/data/update/" + dataset.slug} color="warning" aria-label="edit">
+
+                    <IconButton
+                      href={'/admin/data/update/' + dataset.slug}
+                      color="warning"
+                      aria-label="edit"
+                    >
                       <EditIcon />
                     </IconButton>
+
                     <IconButton
                       color="error"
                       aria-label="delete"

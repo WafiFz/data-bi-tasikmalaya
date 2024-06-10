@@ -13,6 +13,7 @@ const PingPage = () => {
   return (
     <div>
       <h1>Ping Result:</h1>
+
       <p>{pingData}</p>
     </div>
   )

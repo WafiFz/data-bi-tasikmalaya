@@ -12,7 +12,6 @@ interface TitleH5Props {
 const TitleH5: React.FC<TitleH5Props> = ({
   title,
   intlTitle = 'title.h5',
-  className,
   textAlignCenter = false
 }) => {
   return (

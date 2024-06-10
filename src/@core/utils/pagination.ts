@@ -5,7 +5,9 @@ export function paginateArray<T>(
 ): T[] {
   const startIndex = (page - 1) * itemsPerPage
   const endIndex = startIndex + itemsPerPage
-  return array.slice(startIndex, endIndex)
+
+  
+return array.slice(startIndex, endIndex)
 }
 
 export function calculateTotalPages(

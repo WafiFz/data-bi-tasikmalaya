@@ -3,6 +3,7 @@ import { atom, useRecoilState } from 'recoil'
 export interface User {
   name: string
   email: string
+
   // Add other user data as needed
 }
 

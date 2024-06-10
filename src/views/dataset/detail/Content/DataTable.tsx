@@ -1,8 +1,6 @@
-import * as React from 'react'
 import Box from '@mui/material/Box'
 import { DataGrid, GridToolbar } from '@mui/x-data-grid'
 
-import Typography from '@mui/material/Typography'
 
 interface Props {
   title: any
@@ -12,7 +10,7 @@ interface Props {
 }
 
 export default function DataTable({
-  title,
+  // title,
   columns,
   rows,
   columnGroupingModel

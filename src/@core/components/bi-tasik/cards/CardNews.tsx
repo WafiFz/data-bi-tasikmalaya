@@ -27,7 +27,7 @@ const CardTopic: React.FC<INews> = ({
             <img
               src={thumbnail}
               alt={title}
-              className="w-16 h-16 object-cover rounded"
+              className="object-cover rounded size-16"
             />
           )}
 
@@ -50,6 +50,7 @@ const CardTopic: React.FC<INews> = ({
               >
                 {source}
               </Typography>
+
               <Typography
                 variant="body2"
                 color="textSecondary"

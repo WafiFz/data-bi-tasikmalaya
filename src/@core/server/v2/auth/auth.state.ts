@@ -4,6 +4,7 @@ export interface User {
   name: string
   email: string
   lastName?: string
+
   // Add other user data as needed
 }
 

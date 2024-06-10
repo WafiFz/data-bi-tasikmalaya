@@ -10,7 +10,9 @@ export const getDatasetsApi = async (page?: number, itemsPerPage?: number) => {
         itemsPerPage,
       },
     })
-    return response.data
+
+    
+return response.data
   } catch (error: any) {
     handleErrorApi(error)
   }
@@ -19,7 +21,9 @@ export const getDatasetsApi = async (page?: number, itemsPerPage?: number) => {
 export const getDatasetByIdApi = async (id: string) => {
   try {
     const response = await axiosInstance.get(`/datasets/${id}`)
-    return response.data
+
+    
+return response.data
   } catch (error: any) {
     handleErrorApi(error)
   }
@@ -28,7 +32,9 @@ export const getDatasetByIdApi = async (id: string) => {
 export const getDatasetBySlugApi = async (slug: string) => {
   try {
     const response = await axiosInstance.get(`/datasets/by-slug/${slug}`)
-    return response.data
+
+    
+return response.data
   } catch (error: any) {
     handleErrorApi(error)
   }
@@ -37,7 +43,9 @@ export const getDatasetBySlugApi = async (slug: string) => {
 export const createDatasetApi = async (createDatasetDto: ICreateDataset) => {
   try {
     const response = await axiosInstance.post('/datasets', createDatasetDto)
-    return response.data
+
+    
+return response.data
   } catch (error: any) {
     handleErrorApi(error)
   }
@@ -46,7 +54,9 @@ export const createDatasetApi = async (createDatasetDto: ICreateDataset) => {
 export const updateDatasetApi = async (id: string, updateDatasetDto: ICreateDataset) => {
   try {
     const response = await axiosInstance.patch(`/datasets/${id}`, updateDatasetDto)
-    return response.data
+
+    
+return response.data
   } catch (error: any) {
     handleErrorApi(error)
   }

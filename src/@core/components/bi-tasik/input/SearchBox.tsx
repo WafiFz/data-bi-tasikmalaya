@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
@@ -28,8 +28,11 @@ const SearchBox: React.FC<SearchBoxProps> = ({
     const keyword = event.currentTarget.keyword.value;
 
     const newUrl = new URL(window.location.href);
+
     newUrl.searchParams.set('q', keyword);
+
     window.history.replaceState({}, '', newUrl.toString());
+
     onSearch(keyword);
   };
 

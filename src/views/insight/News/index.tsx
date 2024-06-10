@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import TitleH5 from '@core/components/bi-tasik/text/TitleH5';
 import CardNews from '@core/components/bi-tasik/cards/CardNews';
-import { INews } from '@core/interfaces/insight/news.interface';
-import DisplayModeSelector from '@core/components/ux/DisplayModeSelector';
-import { newsDisplayModes } from './newsDisplayModes.variable';
+import TitleH5 from '@core/components/bi-tasik/text/TitleH5';
 import PaginationRounded from '@core/components/navigation/pagination/PaginationRounded';
-import { paginateArray, calculateTotalPages } from '@core/utils/pagination';
+import DisplayModeSelector from '@core/components/ux/DisplayModeSelector';
+import { INews } from '@core/interfaces/insight/news.interface';
+import { calculateTotalPages, paginateArray } from '@core/utils/pagination';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
+import { newsDisplayModes } from './newsDisplayModes.variable';
 
 interface NewsViewProps {
   allNews: INews[];
@@ -27,7 +27,7 @@ const NewsView: React.FC<NewsViewProps> = ({
 
   const [displayMode, setDisplayMode] = useState('all');
   const [currentPage, setCurrentPage] = useState<number>(currentPageQuery);
-  const [itemsPerPage, setItemsPerPage] = useState<number>(itemsPerPageQuery);
+  const [itemsPerPage] = useState<number>(itemsPerPageQuery);
 
   useEffect(() => {
     if (
@@ -39,12 +39,14 @@ const NewsView: React.FC<NewsViewProps> = ({
         page: currentPage.toString(),
         itemsPerPage: itemsPerPage.toString(),
       };
+
       router.push({ pathname: router.pathname, query }, undefined, { shallow: true });
     }
-  }, [currentPage, itemsPerPage, router]);
+  }, [currentPage, itemsPerPage, router, currentPageQuery, itemsPerPageQuery]);
 
   const handleDisplayModeChange = (mode: string) => {
     setDisplayMode(mode);
+
     setCurrentPage(1); // Reset halaman saat mode berubah
   };
 

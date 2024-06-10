@@ -2,9 +2,16 @@ import SearchBox from '@core/components/bi-tasik/input/SearchBox'
 import React from 'react'
 
 const Filter: React.FC = () => {
-  return (
+  const handleSearch = (keyword: string) => {
+    // Di sini Anda bisa melakukan sesuatu dengan kata kunci pencarian,
+    // misalnya, mengirim permintaan ke API untuk mendapatkan data insight
+    console.log('Kata kunci pencarian:', keyword)
+  }
+
+  
+return (
     <>
-      <SearchBox />
+      <SearchBox onSearch={handleSearch} />
     </>
   )
 }

@@ -10,6 +10,7 @@ export const useInflationData = () => {
     const fetchData = async () => {
       try {
         const data = await fetchInflationData();
+
         setInflationData(data);
       } catch (error) {
         console.error('Error fetching inflation data:', error);
@@ -17,7 +18,7 @@ export const useInflationData = () => {
     };
 
     fetchData();
-  }, []);
+  }, [setInflationData]);
 
   return inflationData;
 };

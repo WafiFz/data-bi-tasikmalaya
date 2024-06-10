@@ -13,6 +13,7 @@ const usePing = () => {
   const fetchData = async () => {
     try {
       const responseData = await getPing();
+
       setPingData(responseData.data.ping);
     } catch (error) {
       console.error('Error fetching ping data:', error);

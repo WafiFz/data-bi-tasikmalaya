@@ -46,7 +46,7 @@ module.exports = {
     'prettier/prettier': ['off', { singleQuote: true }],
     'react/no-unescaped-entities': 'off',
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
+    'react-hooks/exhaustive-deps': 'off',
     '@next/next/no-img-element': 'off',
     'import/no-anonymous-default-export': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',

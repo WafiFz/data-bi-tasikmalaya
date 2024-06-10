@@ -10,7 +10,9 @@ export const loginApi = async (email: string, password: string) => {
       '/auth/login',
       { email, password },
     )
-    return response.data
+
+    
+return response.data
   } catch (error: any) {
     handleErrorApi(error)
   }
@@ -32,7 +34,9 @@ export const refreshAccessTokenApi = async (refreshToken: string) => {
     const response = await axiosInstance.post('/v1/auth/refresh', {
       token: refreshToken
     })
-    return response.data.data
+
+    
+return response.data.data
   } catch (error) {
     console.error('Token refresh failed:', error)
     throw new Error('Token refresh failed')

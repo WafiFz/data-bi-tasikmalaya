@@ -1,10 +1,10 @@
+import { IDataset } from '@core/interfaces/dataset'
+import { convertDataToChart } from '@core/server/v1/dataset/dataset.util'
 import React, { useState } from 'react'
+import Chart from './Chart'
 import DataTable from './DataTable'
 import { displayModes } from './displayModes.variable'
 import DisplayModeSelector from './DisplayModeSelector'
-import Chart from './Chart'
-import RawData from './RawData'
-import { IDataset } from '@core/interfaces/dataset'
 
 interface Props {
   dataset: IDataset
@@ -12,6 +12,7 @@ interface Props {
 
 const Content: React.FC<Props> = ({ dataset }) => {
   const [displayMode, setDisplayMode] = useState('chart')
+  const chartData = convertDataToChart(dataset)
 
   const handleDisplayModeChange = (mode: string) => {
     setDisplayMode(mode)
@@ -20,7 +21,7 @@ const Content: React.FC<Props> = ({ dataset }) => {
   let content: JSX.Element
 
   if (displayMode === 'chart') {
-    content = <Chart dataset={dataset} />
+    content = <Chart title={dataset.title} chartData={chartData} />
   } else if (displayMode === 'table') {
     content = (
       <DataTable
@@ -30,9 +31,12 @@ const Content: React.FC<Props> = ({ dataset }) => {
         columnGroupingModel={dataset.content.columnGroupingModel}
       />
     )
-  } else if (displayMode === 'raw_data') {
-    content = <RawData dataset={dataset} />
-  } else {
+  }
+
+  // else if (displayMode === 'raw_data') {
+  //   content = <RawData dataset={dataset} />
+  // }
+  else {
     content = <div>No content available</div>
   }
 

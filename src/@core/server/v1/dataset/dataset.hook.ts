@@ -17,9 +17,12 @@ export const useGetDatasets = () => {
 
   const getDatasets = async (page?: number, itemsPerPage?: number) => {
     setIsLoading(true)
+
     try {
       const datasetsData = await getDatasetsApi(page, itemsPerPage)
+
       setDatasetsState(datasetsData.datasets)
+
       setTotalDatasets(datasetsData.totalDatasets)
     } catch (error) {
       console.error(error)
@@ -41,6 +44,7 @@ export const useGetDatasetById = () => {
 
   const getDatasetById = async (id: string) => {
     const datasetData = await getDatasetByIdApi(id)
+
     setDatasetsState([datasetData])
   }
 
@@ -54,11 +58,14 @@ export const useGetDatasetBySlug = () => {
 
   const getDatasetBySlug = async (slug: string) => {
     setIsLoading(true)
+
     try {
       const dataset = await getDatasetBySlugApi(slug)
+
       setDatasetState(dataset)
     } catch (error) {
       setIsError(true)
+
       console.error(error)
     } finally {
       setIsLoading(false)
@@ -73,6 +80,7 @@ export const useCreateDataset = () => {
 
   const createDataset = async (createDatasetDto: ICreateDataset) => {
     const newDataset = await createDatasetApi(createDatasetDto)
+
     setDatasetsState([...datasets, newDataset])
   }
 
@@ -89,6 +97,7 @@ export const useUpdateDataset = () => {
   ) => {
     try {
       const updatedDataset = await updateDatasetApi(id, updateDatasetDto)
+
       setDatasetState(updatedDataset)
     } catch (error) {
       console.error(error)
@@ -105,6 +114,7 @@ export const useDeleteDataset = () => {
 
   const deleteDataset = async (id: string) => {
     await deleteDatasetApi(id)
+
     setDatasetsState(datasets.filter((dataset) => dataset._id !== id))
   }
 

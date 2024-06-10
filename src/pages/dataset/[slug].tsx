@@ -1,13 +1,9 @@
+import Loader from '@core/components/ux/Loader'
 import { useGetDatasetBySlug } from '@core/server/v1/dataset/dataset.hook'
 import Content from '@views/dataset/detail/Content'
 import Header from '@views/dataset/detail/Header'
 import { useRouter } from 'next/router'
-import React, { ReactNode, useEffect, useState } from 'react'
-import LoaderWithBox from '@core/components/ux/LoaderWithBox'
-import UserLayoutVertical from 'src/layouts/UserLayoutVertical'
-import FormUpdateData from '@views/admin/data/update/FormUpdateData'
-import TableDatasetUpdate from '@views/admin/data/update/TableDatasetUpdate'
-import Loader from '@core/components/ux/Loader'
+import { useEffect, useState } from 'react'
 
 export default function DatasetDetail() {
   const { getDatasetBySlug, dataset, isError } = useGetDatasetBySlug()
@@ -21,7 +17,7 @@ export default function DatasetDetail() {
         setIsLoading(false)
       })
     }
-  }, [slug])
+  }, [slug, getDatasetBySlug])
 
   if (isError) {
     return (
@@ -42,6 +38,7 @@ export default function DatasetDetail() {
             description={dataset.description}
             source={dataset.source}
           />
+
             <Content dataset={ dataset } />
         </>
       )}
