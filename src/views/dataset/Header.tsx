@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ isLoading, totalDatasets }) => {
 
       <div className="flex justify-between">
         <div className="mt-16 grid grid-cols">
-          {isLoading ? (
+          {isLoading && totalDatasets == 0 ? (
             <Loader />
           ) : (
             <FileAmount title="dataset.amount" amount={totalDatasets} color={'blue'} />

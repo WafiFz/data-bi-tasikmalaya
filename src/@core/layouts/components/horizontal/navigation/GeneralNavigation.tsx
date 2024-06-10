@@ -7,7 +7,7 @@ export const Navigation = [
   },
   {
     page: <FormattedMessage id="nav.dataset" defaultMessage="Dataset" />,
-    path: '/dataset',
+    path: '/dataset?page=1&itemsPerPage=6',
     newTab: false
   },
   {
