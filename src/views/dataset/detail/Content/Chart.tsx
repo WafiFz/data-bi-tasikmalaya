@@ -19,6 +19,10 @@ interface Props {
     series: DataItem[]
     labels: string[]
   }
+  unit: string
+  colors: any
+  yMin: number
+  yMax: number
 }
 
 class ApexChart extends Component<Props, any> {
@@ -26,7 +30,6 @@ class ApexChart extends Component<Props, any> {
   state: any
   constructor(props: Props) {
     super(props)
-
     this.state = {
       series: props.chartData.series,
       options: {
@@ -64,25 +67,25 @@ class ApexChart extends Component<Props, any> {
         },
         yaxis: {
           title: {
-            text: 'Persentase'
+            text: props.unit
           },
-          min: -2,
-          max: 20
+          min: props.yMin,
+          max: props.yMax
         },
         tooltip: {
           shared: true,
           intersect: false,
           y: {
             formatter: function (y: number) {
-              if (typeof y!== 'undefined') {
-                return y + '<unit>'
+              if (typeof y !== 'undefined') {
+                return y + props.unit
               }
 
-              
-return y
+              return y
             }
           }
-        }
+        },
+        colors: props.colors
       }
     }
   }

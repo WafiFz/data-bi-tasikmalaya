@@ -5,6 +5,7 @@ import Chart from './Chart'
 import DataTable from './DataTable'
 import { displayModes } from './displayModes.variable'
 import DisplayModeSelector from './DisplayModeSelector'
+import ShowChart from './ShowChart'
 
 interface Props {
   dataset: IDataset
@@ -21,7 +22,7 @@ const Content: React.FC<Props> = ({ dataset }) => {
   let content: JSX.Element
 
   if (displayMode === 'chart') {
-    content = <Chart title={dataset.title} chartData={chartData} />
+    content = <ShowChart title={dataset.title} chartData={chartData} />
   } else if (displayMode === 'table') {
     content = (
       <DataTable
