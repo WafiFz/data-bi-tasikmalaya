@@ -1,7 +1,6 @@
 import { IDataset } from '@core/interfaces/dataset'
 import { convertDataToChart } from '@core/server/v1/dataset/dataset.util'
 import React, { useState } from 'react'
-import Chart from './Chart'
 import DataTable from './DataTable'
 import { displayModes } from './displayModes.variable'
 import DisplayModeSelector from './DisplayModeSelector'

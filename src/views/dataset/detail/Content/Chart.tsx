@@ -30,6 +30,7 @@ class ApexChart extends Component<Props, any> {
   state: any
   constructor(props: Props) {
     super(props)
+
     this.state = {
       series: props.chartData.series,
       options: {

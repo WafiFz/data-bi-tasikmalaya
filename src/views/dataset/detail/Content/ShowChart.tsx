@@ -21,7 +21,7 @@ const ShowChart: React.FC<ShowChartProps> = ({ chartData }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {chartData.series.map((series, index) => (
-        <div key={index} className="bg-white p-4 rounded shadow-md">
+        <div key={index} className="p-4 bg-white rounded shadow-md">
           <Chart
             title={series.name}
             chartData={{
