@@ -9,6 +9,7 @@ import HeroSection from '@views/insight/HeroSection'
 import NewsView from '@views/insight/News'
 import PredictionView from '@views/insight/Prediction'
 import SentimentAnalysisView from '@views/insight/SentimentAnalysis'
+import SummariesView from '@views/insight/Summaries'
 import React from 'react'
 
 const InsightPage: React.FC = () => {
@@ -41,8 +42,12 @@ const InsightPage: React.FC = () => {
   const negativeWordCloud: IWordCloudToken[] = LI.negativeNews.wordCloudTokens
   const neutralWordCloud: IWordCloudToken[] = LI.neutralNews.wordCloudTokens
 
-  
-return (
+  const allSummary: string = LI.allNews.summary
+  const positiveSummary: string = LI.positiveNews.summary
+  const negativeSummary: string = LI.negativeNews.summary
+  const neutralSummary: string = LI.neutralNews.summary
+
+  return (
     <>
       <HeroSection onSearch={handleSearch} />
 
@@ -57,7 +62,16 @@ return (
             neutralNews={neutralNews}
           />
 
-          <SentimentAnalysisView
+          <Box mt={10}>
+            <SummariesView
+              allSummary={allSummary}
+              positiveSummary={positiveSummary}
+              negativeSummary={negativeSummary}
+              neutralSummary={neutralSummary}
+            />
+          </Box>
+          
+            <SentimentAnalysisView
             allWordCloud={allWordCloud}
             positiveWordCloud={positiveWordCloud}
             negativeWordCloud={negativeWordCloud}

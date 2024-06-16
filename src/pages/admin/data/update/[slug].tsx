@@ -18,7 +18,7 @@ export default function DatasetUpdate() {
         setIsLoading(false)
       })
     }
-  }, [slug, getDatasetBySlug])
+  }, [])
 
   if (isError) {
     return (
