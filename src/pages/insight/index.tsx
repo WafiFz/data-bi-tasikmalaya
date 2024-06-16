@@ -70,8 +70,8 @@ const InsightPage: React.FC = () => {
               neutralSummary={neutralSummary}
             />
           </Box>
-          
-            <SentimentAnalysisView
+
+          <SentimentAnalysisView
             allWordCloud={allWordCloud}
             positiveWordCloud={positiveWordCloud}
             negativeWordCloud={negativeWordCloud}
