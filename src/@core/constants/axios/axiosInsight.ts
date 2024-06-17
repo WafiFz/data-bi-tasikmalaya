@@ -10,7 +10,7 @@ const cookies = new Cookies()
 
 const axiosInsight = axios.create({
   baseURL: process.env.URL_API_INSIGHT,
-  timeout: 15000 // Set a timeout value if needed
+  timeout: 9999999 // Set a timeout value if needed
 })
 
 const onRequest = (

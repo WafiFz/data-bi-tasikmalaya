@@ -3,6 +3,7 @@ import DisplayModeSelector from '@core/components/ux/DisplayModeSelector'
 import Box from '@mui/material/Box'
 import React, { useState } from 'react'
 import { summaryDisplayModes } from './summaryDisplayModes.variable'
+import Markdown from 'react-markdown'
 
 interface SummariesViewProps {
   allSummary: string
@@ -19,8 +20,8 @@ const SummariesView: React.FC<SummariesViewProps> = ({
 }) => {
   const [displayModeSummary, setDisplayModeSummary] = useState('allSummary')
   const handleDisplayModeChange = (mode: string) => {
-      setDisplayModeSummary(mode)
-      console.log("OKK")
+    setDisplayModeSummary(mode)
+    console.log('OKK')
   }
 
   let summary = allSummary
@@ -45,7 +46,7 @@ const SummariesView: React.FC<SummariesViewProps> = ({
       />
 
       <Box mt={10}>
-        <div>{summary}</div>
+        <Markdown>{summary}</Markdown>
       </Box>
     </>
   )
