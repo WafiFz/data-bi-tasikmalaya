@@ -12,7 +12,7 @@ import { ApexOptions } from 'apexcharts'
 
 // ** Custom Components Imports
 import ReactApexcharts from 'src/@core/components/react-apexcharts'
-import { useInflationData } from '@core/server/v1/prediction/inflation/inflation.hook'
+import { useInflationData } from '@core/server/v2/prediction/inflation/inflation.hook'
 
 const Chart = () => {
 

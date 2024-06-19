@@ -20,7 +20,7 @@ const SentimentAnalysisView: React.FC<SentimenAnalysisViewProps> = ({
   return (
     <>
       <TitleH5
-        title="Analisis Sentimen Berita"
+        title="Wordcloud Berita"
         textAlignCenter={true}
       ></TitleH5>
 
