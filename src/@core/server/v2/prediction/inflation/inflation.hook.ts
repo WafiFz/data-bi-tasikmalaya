@@ -1,15 +1,28 @@
-import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
-import { fetchInflationData } from './inflation.api';
-import { inflationDataState } from './inflation.state';
+import { useEffect } from 'react'
+import { useRecoilState } from 'recoil'
+import { fetchInflationData } from './inflation.api'
+import { inflationDataState, mtmInflationDataState, yoyInflationDataState } from './inflation.state'
 
-export const useInflationData = () => {
+export const useInflationData = (predictionType: string = 'mtm') => {
+  let inflationDataState;
+
+  switch (predictionType) {
+    case 'mtm':
+      inflationDataState = mtmInflationDataState;
+      break;
+    case 'yoy':
+      inflationDataState = yoyInflationDataState;
+      break;
+    default:
+      throw new Error(`Unsupported prediction type: ${predictionType}`);
+  }
+
   const [inflationData, setInflationData] = useRecoilState(inflationDataState);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetchInflationData();
+        const data = await fetchInflationData(predictionType);
 
         setInflationData(data);
       } catch (error) {
@@ -18,7 +31,7 @@ export const useInflationData = () => {
     };
 
     fetchData();
-  }, [setInflationData]);
+  }, [setInflationData, predictionType]);
 
   return inflationData;
 };
