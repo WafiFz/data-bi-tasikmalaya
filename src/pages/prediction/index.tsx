@@ -1,7 +1,12 @@
+import Header from '@views/prediction/Header'
 import React from 'react'
 
 const PredictionPage: React.FC = () => {
-return <></>
+  return (
+    <>
+      <Header></Header>
+    </>
+  )
 }
 
 export default PredictionPage

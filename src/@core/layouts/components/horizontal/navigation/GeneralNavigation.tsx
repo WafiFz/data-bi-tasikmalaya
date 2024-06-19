@@ -19,7 +19,17 @@ export const Navigation = [
     ),
     path: '/insight',
     newTab: true
-  }
+  },
+  {
+    page: (
+      <FormattedMessage
+        id="nav.prediction"
+        defaultMessage="Prediksi"
+      />
+    ),
+    path: '/prediction',
+    newTab: false
+  },
 
   // {
   //   page: <FormattedMessage id="nav.publications" defaultMessage="Publikasi" />,
