@@ -1,37 +1,23 @@
+import { useUpdateDataset } from '@core/server/v1/dataset/dataset.hook';
+import AddIcon from '@mui/icons-material/Add';
+import CancelIcon from '@mui/icons-material/Close';
+import DeleteIcon from '@mui/icons-material/DeleteOutlined';
+import EditIcon from '@mui/icons-material/Edit';
+import SaveIcon from '@mui/icons-material/Save';
+import { Card, CardContent } from '@mui/material';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import CardActions from '@mui/material/CardActions';
+import {
+  DataGrid, GridActionsCellItem, GridColDef, GridEventListener, GridRowEditStopReasons, GridRowId,
+  GridRowModel, GridRowModes, GridRowModesModel, GridRowsProp, GridSlots, GridToolbarContainer
+} from '@mui/x-data-grid';
+import {
+  randomId
+} from '@mui/x-data-grid-generator';
 import { useRouter } from 'next/router';
-import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import AddIcon from '@mui/icons-material/Add'
-import EditIcon from '@mui/icons-material/Edit'
-import DeleteIcon from '@mui/icons-material/DeleteOutlined'
-import SaveIcon from '@mui/icons-material/Save'
-import CancelIcon from '@mui/icons-material/Close'
-import CardActions from '@mui/material/CardActions'
-import {
-  GridRowsProp,
-  GridRowModesModel,
-  GridRowModes,
-  DataGrid,
-  GridColDef,
-  GridToolbarContainer,
-  GridActionsCellItem,
-  GridEventListener,
-  GridRowId,
-  GridRowModel,
-  GridRowEditStopReasons,
-  GridSlots
-} from '@mui/x-data-grid'
-import {
-  randomCreatedDate,
-  randomTraderName,
-  randomId,
-  randomArrayItem
-} from '@mui/x-data-grid-generator'
-import { Card, CardContent } from '@mui/material'
-import { useState } from 'react'
-import { useUpdateDataset } from '@core/server/v1/dataset/dataset.hook'
-import { ICreateDataset } from '@core/interfaces/dataset/create.interface'
-import { toast } from 'react-toastify'
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 interface Props {
   columnsDB: any[]
@@ -51,7 +37,9 @@ function EditToolbar(props: EditToolbarProps) {
 
   const handleClick = () => {
     const id = randomId()
+
     setRows((oldRows) => [...oldRows, { id, isNew: true }])
+
     setRowModesModel((oldModel) => ({
       ...oldModel,
       [id]: { mode: GridRowModes.Edit, fieldToFocus: 'name' }
@@ -107,6 +95,7 @@ export default function FullFeaturedCrudGrid({
     })
 
     const editedRow = rows.find((row) => row.id === id)
+
     if (editedRow!.isNew) {
       setRows(rows.filter((row) => row.id !== id))
     }
@@ -114,8 +103,11 @@ export default function FullFeaturedCrudGrid({
 
   const processRowUpdate = (newRow: GridRowModel) => {
     const updatedRow = { ...newRow, isNew: false }
+
     setRows(rows.map((row) => (row.id === newRow.id ? updatedRow : row)))
-    return updatedRow
+
+    
+return updatedRow
   }
 
   const handleRowModesModelChange = (newRowModesModel: GridRowModesModel) => {

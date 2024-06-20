@@ -19,8 +19,10 @@ const SummariesView: React.FC<SummariesViewProps> = ({
   neutralSummary
 }) => {
   const [displayModeSummary, setDisplayModeSummary] = useState('allSummary')
+
   const handleDisplayModeChange = (mode: string) => {
     setDisplayModeSummary(mode)
+
     console.log('OKK')
   }
 

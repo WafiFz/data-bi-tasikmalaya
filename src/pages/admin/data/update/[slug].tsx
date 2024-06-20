@@ -38,6 +38,7 @@ export default function DatasetUpdate() {
 
           <div className="mt-6">
             <TableDatasetUpdate
+
                 // _id={dataset._id}
               columnsDB={dataset.content.columns}
               rowsDB={dataset.content.rows}

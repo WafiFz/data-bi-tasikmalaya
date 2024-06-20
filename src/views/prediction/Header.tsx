@@ -1,5 +1,3 @@
-import FileAmount from '@core/components/bi-tasik/text/FileAmount'
-import Loader from '@core/components/ux/Loader'
 import styled from '@emotion/styled'
 import Typography from '@mui/material/Typography'
 import React from 'react'
@@ -26,6 +24,7 @@ const Header: React.FC = () => {
             defaultMessage="Prediksi data makro indikator ekonomi dari data yang kami miliki"
           />
         </div>
+
         <ForecastImg
           src="/images/bi/vector/forecast.png"
           className="hidden md:inline"

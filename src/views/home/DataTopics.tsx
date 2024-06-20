@@ -1,12 +1,11 @@
 import CardTopic from '@core/components/bi-tasik/cards/CardTopic'
-import React from 'react'
 import BackupIcon from '@mui/icons-material/Backup'
-import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload'
-import QueryStatsIcon from '@mui/icons-material/QueryStats'
 import DescriptionIcon from '@mui/icons-material/Description'
+import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload'
 import PivotTableChartIcon from '@mui/icons-material/PivotTableChart'
-import PollIcon from '@mui/icons-material/Poll'
+import QueryStatsIcon from '@mui/icons-material/QueryStats'
 import Typography from '@mui/material/Typography'
+import React from 'react'
 import { FormattedMessage } from 'react-intl'
 
 const DataTopics: React.FC = () => {

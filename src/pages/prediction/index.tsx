@@ -6,6 +6,7 @@ const PredictionPage: React.FC = () => {
   return (
     <>
       <Header></Header>
+
       <PredictionView />
     </>
   )

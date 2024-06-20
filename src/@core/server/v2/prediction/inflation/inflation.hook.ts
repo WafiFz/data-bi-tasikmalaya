@@ -1,9 +1,9 @@
-import { useEffect } from 'react'
-import { useRecoilState } from 'recoil'
-import { fetchInflationData } from './inflation.api'
-import { inflationDataState, mtmInflationDataState, yoyInflationDataState } from './inflation.state'
+import { useEffect } from 'react';
+import { useRecoilState } from 'recoil';
+import { fetchInflationData } from './inflation.api';
+import { mtmInflationDataState, yoyInflationDataState } from './inflation.state';
 
-export const useInflationData = (predictionType: string = 'mtm') => {
+export const useInflationData = (predictionType = 'mtm') => {
   let inflationDataState;
 
   switch (predictionType) {
